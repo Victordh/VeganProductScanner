@@ -36,6 +36,9 @@ Potential problems I foresee are related to speed (database, scanner) and useful
 
 One similar application exists: [Is It Vegan?](https://play.google.com/store/apps/details?id=net.isitvegan.androidfree) The app lets the user scan or enter a product and returns the ingredients (labelled as non-vegetarian, possibly non-vegetarian, vegetarian, possibly non-vegan and vegan) and a result based on those ingredients. This app contains almost only products from the USA, and is partly redundant in my opinion, because the user can read the ingredients themselves as well. My app will give a very clear visual cue with a simple yes/no answer, aiming (at first) on products based in the Netherlands.
 
-scanner.png: ![](doc/scanner.png)  
-manual_search.png: ![](doc/manual_search.png)  
-information.png: ![](doc/information.png)
+scanner.png:  
+![](doc/scanner.png)  
+manual_search.png:  
+![](doc/manual_search.png)  
+information.png:  
+![](doc/information.png)

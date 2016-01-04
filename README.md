@@ -13,7 +13,7 @@ The app can be divided into the following parts:
 - Barcode scanner screen (scanner.png)
 - Product information screen (scanner.png)
 - Manual search screen (manual_search.png)
-- App information screen (information.png)
+- App information screen (information.png)  
 The result (yes/no, product name and picture) could be a fragment, to allow users to stay in their preferred method of searching and receive the same visual result.
 
 Potential extras:
@@ -27,15 +27,15 @@ The app requires a database with products. As a start, I will manually create on
 - [Jumbo](https://www.jumbo.com/)
 - [Albert Heijn](https://www.ah.nl/)
 - [Wiki Nederlandse Vereniging voor Veganisme](https://wiki.veganisme.org/)
-- [Gewoon vegan](https://gewoonvegan.nl/)
+- [Gewoon vegan](https://gewoonvegan.nl/)  
 One entry contains a small picture, the product name, the product barcode and a 'vegan yes/no' boolean.
 
 The app will possibly use [this API](https://developers.google.com/vision/barcodes-overview) for the barcode scanner.
 
 Potential problems I foresee are related to speed (database, scanner) and usefulness (database too small to be useful). A possible solution would be to let users participate in filling the database, by allowing them to add entries (possibly after review).
 
-One similar application exists: "Is It Vegan?". The app lets the user scan or enter a product and returns the ingredients (labelled as non-vegetarian, possibly non-vegetarian, vegetarian, possibly non-vegan and vegan) and a result based on those ingredients. This app contains almost only products from the USA, and is partly redundant in my opinion, because the user can read the ingredients themselves as well. My app will give a very clear visual cue with a simple yes/no answer, aiming (at first) on products based in the Netherlands.
+One similar application exists: [Is It Vegan?](https://play.google.com/store/apps/details?id=net.isitvegan.androidfree) The app lets the user scan or enter a product and returns the ingredients (labelled as non-vegetarian, possibly non-vegetarian, vegetarian, possibly non-vegan and vegan) and a result based on those ingredients. This app contains almost only products from the USA, and is partly redundant in my opinion, because the user can read the ingredients themselves as well. My app will give a very clear visual cue with a simple yes/no answer, aiming (at first) on products based in the Netherlands.
 
-![](doc/scanner.png)  
-![](doc/manual_search.png)  
-![](doc/information.png)
+scanner.png: ![](doc/scanner.png)  
+manual_search.png: ![](doc/manual_search.png)  
+information.png: ![](doc/information.png)

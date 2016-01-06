@@ -1,7 +1,7 @@
 Activities:
 - mainActivity
 - scannerActivity
-
+optional:
 - (historyActivity)
 - (feedbackActivity)
 - (settingsActivity)

@@ -1,11 +1,12 @@
 Activities:
-- resultActivity (main)
+- mainActivity
 - scannerActivity
-- searchActivity
-- infoActivity
+
 - (historyActivity)
 - (feedbackActivity)
 - (settingsActivity)
 
-Classes/methods:
-- Class **GetProducts** handles communication with database, converts barcode/search query to product index(es)
+Fragments (inside mainActivity):
+- result_fragment
+- search_fragment
+- info_fragment

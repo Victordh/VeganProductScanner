@@ -14,7 +14,7 @@ The app can be divided into the following parts:
 - Product information screen (scanner.png)
 - Manual search screen (manual_search.png)
 - App information screen (information.png)  
-The result (yes/no, product name and picture) could be a fragment, to allow users to stay in their preferred method of searching and receive the same visual result.
+The result (yes/no, product name and picture) could be made to allow users to stay in their preferred method of searching and receive the same visual result.
 
 Potential extras:
 - Search history

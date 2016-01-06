@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Vegan Product Scanner</string>
-    <string name="action_settings">Settings</string>
+    <string name="product_name">This will be the product name.</string>
+    <string name="vegan_false"><font color="RED">X</font></string>
+    <string name="vegan_true"><font color="#319020">V</font></string>
+
+    <string name="info_placeholder">This is the page where there will be information. Probably a FAQ, maybe something on how to use this app, probably a feedback button.</string>
 </resources>

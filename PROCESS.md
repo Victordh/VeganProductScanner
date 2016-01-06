@@ -9,3 +9,10 @@
 | INT   | STRING       | BOOL  | STRING | JPG          |
 | 1     | 123456789012 | true  | Banana | (banana.jpg) |
 | 2     | 112234567890 | false | Honey  | (honey.jpg)  |
+
+# day 3
+
+- Made good start with prototype.
+- Switched from Actionbar.Tabs to TabLayout, because the first is deprecated.
+- Decided to add pictures of products later on, optionally, because it's secondary information.
+- Made 'result', 'manual search' and 'information' into fragments (were Activities).

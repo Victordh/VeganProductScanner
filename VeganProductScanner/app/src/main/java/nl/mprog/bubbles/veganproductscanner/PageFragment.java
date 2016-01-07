@@ -1,5 +1,6 @@
 package nl.mprog.bubbles.veganproductscanner;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -67,8 +68,10 @@ public class PageFragment extends Fragment {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+                    // uses Zxing to scan a barcode
+                    IntentIntegrator integrator = new IntentIntegrator(getActivity());
+                    //integrator.putExtra("com.google.zxing.client.android.SCAN.SCAN_MODE", "EAN_13_MODE");
+                    integrator.initiateScan(IntentIntegrator.PRODUCT_CODE_TYPES);
                 }
             });
         }

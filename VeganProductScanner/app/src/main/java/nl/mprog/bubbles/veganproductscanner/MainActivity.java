@@ -1,5 +1,6 @@
 package nl.mprog.bubbles.veganproductscanner;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -27,5 +28,20 @@ public class MainActivity extends AppCompatActivity {
         // Give the TabLayout the ViewPager
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                // contents contains whatever was encoded
+                String contents = intent.getStringExtra("SCAN_RESULT");
+
+                // Format contains the type of code i.e. UPC, EAN, QRCode etc...
+                String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
+
+
+            }
+        }
+
     }
 }

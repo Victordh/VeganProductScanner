@@ -32,6 +32,6 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/fab_margin"
         android:layout_width="wrap_content"
-        android:src="@android:drawable/ic_menu_search" />
+        android:src="@drawable/fab_barcode" />
 
 </RelativeLayout>

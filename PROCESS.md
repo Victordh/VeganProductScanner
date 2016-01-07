@@ -16,3 +16,8 @@
 - Switched from Actionbar.Tabs to TabLayout, because the first is deprecated.
 - Decided to add pictures of products later on, optionally, because it's secondary information.
 - Made 'result', 'manual search' and 'information' into fragments (were Activities).
+
+# day 4
+
+- Decided to use another barcode scanner via an Intent instead of making my own in an Activity.
+- Finished fragments.

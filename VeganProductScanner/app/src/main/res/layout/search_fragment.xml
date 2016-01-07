@@ -11,11 +11,11 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:padding="10dp"
-        android:text="Search" />
+        android:text="@string/search_button" />
 
     <EditText
         android:id="@+id/search_edittext"
-        android:hint="Enter (part of) the barcode or product name here"
+        android:hint="@string/search_edittext_hint"
         android:layout_height="wrap_content"
         android:layout_toStartOf="@id/search_button"
         android:layout_width="wrap_content"
@@ -23,8 +23,10 @@
         android:textSize="16sp" />
 
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/search_list"
+        android:layout_below="@id/search_edittext"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent" />
+        android:layout_width="match_parent"
+        android:padding="20dp" />
 
 </RelativeLayout>

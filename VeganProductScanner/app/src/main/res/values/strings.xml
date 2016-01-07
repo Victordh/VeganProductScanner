@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Vegan Product Scanner</string>
     <string name="product_name">This will be the product name.</string>
+    <string name="search_button">Search</string>
+    <string name="search_edittext_hint">Enter (part of) the barcode or product name here</string>
     <string name="vegan_false"><font color="RED">X</font></string>
     <string name="vegan_true"><font color="#319020">V</font></string>
 

@@ -44,14 +44,16 @@ public class PageFragment extends Fragment {
             view = inflater.inflate(R.layout.search_fragment, container, false);
             ListView listView = (ListView) view.findViewById(R.id.search_list);
 
-            String[] values = new String[] { "Android List View",
-                    "Adapter implementation",
-                    "Simple List View In Android",
-                    "Create List View Android",
-                    "Android Example",
-                    "List View Source Code",
-                    "List View Array Adapter",
-                    "Android Example List View"
+            String[] values = new String[] { "This is a list",
+                    "of different products",
+                    "that in some way",
+                    "match the search query.",
+                    "The list item will have",
+                    "either a red or green background,",
+                    "depending on whether the product",
+                    "is vegan or not.",
+                    "This text will be the names",
+                    "of the products."
             };
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getContext(),

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 /*
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
@@ -28,17 +29,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        if (requestCode == 0) {
+        if (requestCode == IntentIntegrator.REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                // contents contains whatever was encoded
-                String contents = intent.getStringExtra("SCAN_RESULT");
-
-                // Format contains the type of code i.e. UPC, EAN, QRCode etc...
-                String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
-
-
+                String scanned_barcode = intent.getStringExtra("SCAN_RESULT");
+                Toast.makeText(getApplicationContext(), scanned_barcode, Toast.LENGTH_LONG).show();
             }
         }
-
     }
 }

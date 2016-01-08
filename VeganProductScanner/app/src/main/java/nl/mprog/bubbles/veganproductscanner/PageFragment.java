@@ -72,7 +72,6 @@ public class PageFragment extends Fragment {
                 public void onClick(View view) {
                     // uses Zxing to scan a barcode
                     IntentIntegrator integrator = new IntentIntegrator(getActivity());
-                    //integrator.putExtra("com.google.zxing.client.android.SCAN.SCAN_MODE", "EAN_13_MODE");
                     integrator.initiateScan(IntentIntegrator.PRODUCT_CODE_TYPES);
                 }
             });

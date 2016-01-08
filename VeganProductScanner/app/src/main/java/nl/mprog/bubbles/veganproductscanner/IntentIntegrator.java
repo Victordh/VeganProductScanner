@@ -1,6 +1,8 @@
 package nl.mprog.bubbles.veganproductscanner;
 
 /*
+ * Victor den Haan - 10118039 - vdenhaan@gmail.com
+ *
  * Copyright 2009 ZXing authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");

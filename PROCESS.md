@@ -19,5 +19,14 @@
 
 # day 4
 
-- Decided to use another barcode scanner via an Intent instead of making my own in an Activity.
+- Decided to use [Barcode Scanner](https://github.com/zxing/zxing) via an Intent instead of making my own in an Activity.
 - Finished fragments.
+
+# day 5
+
+- Finished barcode Intent, with prompt to install Barcode Scanner app if not installed yet. (see below)
+- Decided to probably use [Parse](https://parse.com/) for the database.
+- Completed Design Document.
+- Updated README.
+
+![](doc/scanner_intent.png)

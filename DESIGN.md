@@ -39,6 +39,10 @@ The SearchFragment class will have the following methods:
 
 Inside the mainActivity, the method onActivityResult handles the result of the barcode scanning. The barcode is converted to a String here.
 
+## APIs and frameworks
+This app uses an Intent to the app [Barcode Scanner](https://github.com/zxing/zxing) to scan a barcode.  
+This app will probably use [Parse](https://parse.com/) for its database.
+
 ## Database
 The data will have the following format:
 
@@ -48,10 +52,6 @@ The data will have the following format:
 | INT   | STRING       | BOOL  | STRING |
 | 1     | 123456789012 | true  | Banana |
 | 2     | 112234567890 | false | Honey  |
-
-## APIs and frameworks
-This app uses an Intent to the app [Barcode Scanner](https://github.com/zxing/zxing) to scan a barcode.  
-This app will probably use [Parse](https://parse.com/) for its database.
 
 ## Advanced UI sketches
 ![](doc/advanced_ui_sketches.png)

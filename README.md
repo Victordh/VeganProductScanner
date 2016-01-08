@@ -3,7 +3,7 @@ Victor den Haan - 10118039
 Programmeerproject, Minor Programmeren, UvA  
 
 This app aims to be the solution to the question 'is this product vegan?'  
-With more and more people eating plant-based foods for various reasons, both those people and their acquaintances may find themselves asking this question more often. This app will allow you to scan the barcode of a product, and it will return a simple 'yes' or 'no'.
+With more and more people eating plant-based foods for various reasons, both those people and their acquaintances may find themselves asking this question more often. This app will allow you to scan the barcode of a product, and it will return a simple 'yes' or 'no'.  
 This app tries to be as simple and clear as possible and will therefore not include too many variables (like allergy information or vegetarianism).
 
 Features:
@@ -23,12 +23,12 @@ Potential extras:
 - Bigger database (probably never complete)
 - User submitted database entries
 
-The app requires a database with products. As a start, I will manually create one with x entries. Possible sources:
+The app requires a database with products. As a start, I will manually create one with x entries. One entry contains the product name, the product barcode and a 'vegan yes/no' boolean.  
+Possible sources:
 - [Jumbo](https://www.jumbo.com/)
 - [Albert Heijn](https://www.ah.nl/)
 - [Wiki Nederlandse Vereniging voor Veganisme](https://wiki.veganisme.org/)
 - [Gewoon vegan](https://gewoonvegan.nl/)  
-One entry contains the product name, the product barcode and a 'vegan yes/no' boolean.
 
 The app will use [Barcode Scanner](https://github.com/zxing/zxing) for scanning barcodes.
 

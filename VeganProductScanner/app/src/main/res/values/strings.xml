@@ -12,4 +12,5 @@
     <string name="integrator_no">NO</string>
 
     <string name="info_placeholder">This is the page where there will be information. Probably a FAQ, maybe something on how to use this app, probably a feedback button.</string>
+    <string name="sync_button">Sync database</string>
 </resources>

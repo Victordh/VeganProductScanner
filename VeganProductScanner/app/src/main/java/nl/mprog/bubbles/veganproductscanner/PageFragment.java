@@ -62,6 +62,7 @@ public class PageFragment extends Fragment {
         }
         else if (mPage == 3) {
             view = inflater.inflate(R.layout.info_fragment, container, false);
+
         }
         else {
             view = inflater.inflate(R.layout.result_fragment, container, false);

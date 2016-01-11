@@ -2,12 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="nl.mprog.bubbles.veganproductscanner" >
 
+    <!--Parse-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/app_barcode"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat" >
+
+        <!--Parse-->
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="ygaBQHWyNlnm8uq3pFyCsSgCqLgRSsvuI0isYES7" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="NMQe2x8dMk6lFEQjN0OrrlXQ3ng9uwdhhlQKpOll" />
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" >

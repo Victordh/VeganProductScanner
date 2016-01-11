@@ -30,3 +30,8 @@
 - Updated README.
 
 ![](doc/scanner_intent.png)
+
+# day 6
+
+- Spent entire day trying to figure out local and network databases with Parse. Still not done.
+- Added internet connection check (for syncing database).

@@ -41,7 +41,7 @@
 - Seperated code into different classes for clarity.
 - Network database is working.
 - Local database is working (can download network database into local and erase the local database).
-- Can scan barcode and find it (scanned_barcode.png)
+- Can scan barcode and find it (product_scanned.png)
 
-scanned_barcode.png  
-![](doc/scanned_barcode.png)
+product_scanned.png  
+![](doc/product_scanned.png)

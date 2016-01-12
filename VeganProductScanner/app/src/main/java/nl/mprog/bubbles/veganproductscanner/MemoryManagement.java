@@ -15,13 +15,11 @@ import com.parse.ParseQuery;
 
 import java.util.List;
 
-import javax.xml.transform.Result;
-
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  */
 public class MemoryManagement {
-    
+
     public void syncDatabase(final MainActivity mainActivity) {
         if (internetConnection(mainActivity)) {
             // TODO Get all data when larger than 100/1000 (query.each() ?)
@@ -35,17 +33,7 @@ public class MemoryManagement {
                             product.pinInBackground();
                         }
                         if (!localDatabaseEmpty()) {
-                            ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
-                            query.fromLocalDatastore();
-
-                            query.countInBackground(new CountCallback() {
-                                @Override
-                                public void done(int count, ParseException e) {
-                                    Toast.makeText(mainActivity.getApplicationContext(),
-                                            "Done! Data added to local database: " + count,
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                            objectCount(mainActivity);
                         }
                     } else {
                         Log.d("Error", e.getMessage());
@@ -63,6 +51,7 @@ public class MemoryManagement {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
                 if (e == null) {
+                    objectCount(mainActivity);
                     for (ParseObject product : objects) {
                         product.unpinInBackground();
                     }
@@ -126,6 +115,20 @@ public class MemoryManagement {
                         Log.d("Error", e.getMessage());
                     }
                 }
+            }
+        });
+    }
+
+    private void objectCount(final MainActivity mainActivity){
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
+        query.fromLocalDatastore();
+
+        query.countInBackground(new CountCallback() {
+            @Override
+            public void done(int count, ParseException e) {
+                Toast.makeText(mainActivity.getApplicationContext(),
+                        "Data mutated: " + count,
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }

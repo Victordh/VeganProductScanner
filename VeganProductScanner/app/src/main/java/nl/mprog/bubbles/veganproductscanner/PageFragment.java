@@ -1,8 +1,7 @@
 package nl.mprog.bubbles.veganproductscanner;
 
-import android.content.Intent;
+import android.content.Context;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-/*
+/**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  * Based on code at
  * https://github.com/codepath/android_guides/wiki/Google-Play-Style-Tabs-using-TabLayout
@@ -20,13 +19,15 @@ import android.widget.ListView;
 public class PageFragment extends Fragment {
     public static final String ARG_PAGE = "ARG_PAGE";
 
+    static MainActivity mainActivity;
     private int mPage;
 
-    public static PageFragment newInstance(int page) {
+    public static PageFragment newInstance(int page, MainActivity activity) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
         PageFragment fragment = new PageFragment();
         fragment.setArguments(args);
+        mainActivity = activity;
         return fragment;
     }
 
@@ -42,40 +43,18 @@ public class PageFragment extends Fragment {
         View view;
         if (mPage == 2) {
             view = inflater.inflate(R.layout.search_fragment, container, false);
-            ListView listView = (ListView) view.findViewById(R.id.search_list);
-
-            String[] values = new String[] { "This is a list",
-                    "of different products",
-                    "that in some way",
-                    "match the search query.",
-                    "The list item will have",
-                    "either a red or green background,",
-                    "depending on whether the product",
-                    "is vegan or not.",
-                    "This text will be the names",
-                    "of the products."
-            };
-
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getContext(),
-                    android.R.layout.simple_list_item_1, android.R.id.text1, values);
-            listView.setAdapter(adapter);
+            SearchFragment searchFragment = new SearchFragment();
+            searchFragment.createList(view, this.getContext());
         }
         else if (mPage == 3) {
             view = inflater.inflate(R.layout.info_fragment, container, false);
-
+            InfoFragment infoFragment = new InfoFragment();
         }
         else {
             view = inflater.inflate(R.layout.result_fragment, container, false);
-
-            FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // uses Zxing to scan a barcode
-                    IntentIntegrator integrator = new IntentIntegrator(getActivity());
-                    integrator.initiateScan(IntentIntegrator.PRODUCT_CODE_TYPES);
-                }
-            });
+            ResultFragment resultFragment = new ResultFragment();
+            resultFragment.onCreate(view, this);
+            mainActivity.setResultFragment(resultFragment);
         }
         return view;
     }

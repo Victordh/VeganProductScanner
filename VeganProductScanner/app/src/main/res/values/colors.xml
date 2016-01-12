@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#319020</color>
+
+    <color name="veganGreen">#319020</color>
+    <color name="nonVeganRed">#EE0000</color>
 </resources>

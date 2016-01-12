@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/vegan"
+        android:id="@+id/is_vegan"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -15,8 +15,8 @@
         android:textColor="@android:color/holo_green_dark" />
 
     <TextView
-        android:id="@+id/product"
-        android:layout_below="@id/vegan"
+        android:id="@+id/product_name"
+        android:layout_below="@id/is_vegan"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"

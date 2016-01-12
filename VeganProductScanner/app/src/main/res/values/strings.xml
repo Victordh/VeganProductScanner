@@ -3,7 +3,7 @@
     <string name="product_name">This will be the product name.</string>
     <string name="search_button">Search</string>
     <string name="search_edittext_hint">Enter (part of) the barcode or product name here</string>
-    <string name="vegan_false"><font color="RED">X</font></string>
+    <string name="vegan_false"><font color="#EE0000">X</font></string>
     <string name="vegan_true"><font color="#319020">V</font></string>
 
     <string name="integrator_message">Vegan Product Scanner requires Barcode Scanner. Would you like to install it?</string>
@@ -13,4 +13,5 @@
 
     <string name="info_placeholder">This is the page where there will be information. Probably a FAQ, maybe something on how to use this app, probably a feedback button.</string>
     <string name="sync_button">Sync database</string>
+    <string name="erase_button">Erase local database</string>
 </resources>

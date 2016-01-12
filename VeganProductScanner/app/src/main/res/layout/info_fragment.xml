@@ -6,13 +6,23 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/sync_button"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/sync_button"
-        android:onClick="syncDatabase" />
+        android:onClick="syncButtonClick"
+        android:text="@string/sync_button" />
+
+    <Button
+        android:id="@+id/erase_button"
+        android:layout_below="@id/sync_button"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:onClick="eraseButtonClick"
+        android:text="@string/erase_button" />
 
     <TextView
         android:id="@+id/textView"

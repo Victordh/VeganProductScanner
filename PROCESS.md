@@ -35,3 +35,13 @@
 
 - Spent entire day trying to figure out local and network databases with Parse. Still not done.
 - Added internet connection check (for syncing database).
+
+# day 7
+
+- Seperated code into different classes for clarity.
+- Network database is working.
+- Local database is working (can download network database into local and erase the local database).
+- Can scan barcode and find it (scanned_barcode.png)
+
+scanned_barcode.png  
+![](doc/scanned_barcode.png)

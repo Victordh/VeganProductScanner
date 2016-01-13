@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 
 import com.parse.Parse;
 
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     MemoryManagement memoryManagement;
     ResultFragment resultFragment;
+    SearchFragment searchFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +52,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void syncButtonClick(View view) {
-        memoryManagement.syncDatabase(this);
+        memoryManagement.syncLocalDatabase(this);
     }
 
     public void eraseButtonClick(View view) {
-        memoryManagement.eraseDatabase(this);
+        memoryManagement.eraseLocalDatabase(this);
     }
 
     public void setResultFragment(ResultFragment fragment){
         resultFragment = fragment;
+    }
+
+    public void setSearchFragment(SearchFragment fragment){
+        searchFragment = fragment;
+    }
+
+    public void searchButtonClick(View view) {
+        EditText userInput = (EditText) findViewById(R.id.search_edittext);
+        String input = userInput.getText().toString();
+        memoryManagement.getProductsFromInput(input, searchFragment);
     }
 }

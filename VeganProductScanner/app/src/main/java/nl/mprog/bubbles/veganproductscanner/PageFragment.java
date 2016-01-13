@@ -44,7 +44,8 @@ public class PageFragment extends Fragment {
         if (mPage == 2) {
             view = inflater.inflate(R.layout.search_fragment, container, false);
             SearchFragment searchFragment = new SearchFragment();
-            searchFragment.createList(view, this.getContext());
+            searchFragment.passViewContext(view, this.getContext());
+            mainActivity.setSearchFragment(searchFragment);
         }
         else if (mPage == 3) {
             view = inflater.inflate(R.layout.info_fragment, container, false);

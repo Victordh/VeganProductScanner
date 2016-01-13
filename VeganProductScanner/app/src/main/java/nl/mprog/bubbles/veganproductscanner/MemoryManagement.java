@@ -13,6 +13,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,7 +21,7 @@ import java.util.List;
  */
 public class MemoryManagement {
 
-    public void syncDatabase(final MainActivity mainActivity) {
+    public void syncLocalDatabase(final MainActivity mainActivity) {
         if (internetConnection(mainActivity)) {
             // TODO Get all data when larger than 100/1000 (query.each() ?)
             ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
@@ -32,8 +33,8 @@ public class MemoryManagement {
                         for (ParseObject product : objects) {
                             product.pinInBackground();
                         }
-                        if (!localDatabaseEmpty()) {
-                            objectCount(mainActivity);
+                        if (!isLocalDatabaseEmpty()) {
+                            productCount(mainActivity);
                         }
                     } else {
                         Log.d("Error", e.getMessage());
@@ -43,7 +44,7 @@ public class MemoryManagement {
         }
     }
 
-    public void eraseDatabase(final MainActivity mainActivity) {
+    public void eraseLocalDatabase(final MainActivity mainActivity) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
         query.fromLocalDatastore();
 
@@ -51,16 +52,15 @@ public class MemoryManagement {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
                 if (e == null) {
-                    objectCount(mainActivity);
+                    productCount(mainActivity);
                     for (ParseObject product : objects) {
                         product.unpinInBackground();
                     }
-                    if (localDatabaseEmpty()) {
+                    if (isLocalDatabaseEmpty()) {
                         Toast.makeText(mainActivity.getApplicationContext(),
                                 "Done! All data in local database deleted.",
                                 Toast.LENGTH_SHORT).show();
-                    }
-                    else {
+                    } else {
                         Toast.makeText(mainActivity.getApplicationContext(),
                                 "Something went wrong, please try again.",
                                 Toast.LENGTH_SHORT).show();
@@ -73,7 +73,7 @@ public class MemoryManagement {
         });
     }
 
-    private boolean localDatabaseEmpty() {
+    private boolean isLocalDatabaseEmpty() {
         ParseQuery<ParseObject> check = ParseQuery.getQuery("Product");
         check.fromLocalDatastore();
         try {
@@ -100,6 +100,34 @@ public class MemoryManagement {
         }
     }
 
+    public void getProductsFromInput(String input, final SearchFragment searchFragment) {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
+        if (input.length() == 13 && input.matches("[0-9]+")) {
+                query.whereEqualTo("productBarcode", input);
+        }
+        else {
+            query.whereContains("productName", input);
+        }
+        query.fromLocalDatastore();
+
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    ArrayList<String> productNames = new ArrayList<String>();
+                    for (ParseObject product : objects) {
+                        productNames.add(product.getString("productName"));
+                    }
+                    if (!productNames.isEmpty()) {
+                        searchFragment.createList(productNames);
+                    }
+                } else {
+                    Log.d("Error", e.getMessage());
+                }
+            }
+        });
+    }
+
     public void getProductFromBarcode(String barcode, final ResultFragment resultFragment) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
         query.whereEqualTo("productBarcode", barcode);
@@ -119,7 +147,7 @@ public class MemoryManagement {
         });
     }
 
-    private void objectCount(final MainActivity mainActivity){
+    private void productCount(final MainActivity mainActivity){
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
         query.fromLocalDatastore();
 

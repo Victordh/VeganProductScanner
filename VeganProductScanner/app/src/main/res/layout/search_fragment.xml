@@ -10,6 +10,7 @@
         android:layout_alignParentEnd="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:onClick="searchButtonClick"
         android:padding="10dp"
         android:text="@string/search_button" />
 

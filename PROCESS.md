@@ -45,3 +45,12 @@
 
 product_scanned.png  
 ![](doc/product_scanned.png)
+
+# day 8
+
+- Manual search now works (manual_search_result.png)
+- More tweaking on code in different classes.
+- Added some TODOs on manual search (more relevant results on top, if 1 result go to resultFragment, give listItem correct colour, input case-insensitive)
+
+manual_search_result.png  
+![](doc/manual_search_result.png)

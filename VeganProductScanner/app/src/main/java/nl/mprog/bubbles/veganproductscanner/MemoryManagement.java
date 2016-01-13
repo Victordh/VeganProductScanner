@@ -100,6 +100,8 @@ public class MemoryManagement {
         }
     }
 
+    // TODO Make input case-insensitive.
+    // TODO Put more relevant products higher in the list.
     public void getProductsFromInput(String input, final SearchFragment searchFragment) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
         if (input.length() == 13 && input.matches("[0-9]+")) {
@@ -115,11 +117,14 @@ public class MemoryManagement {
             public void done(List<ParseObject> objects, ParseException e) {
                 if (e == null) {
                     ArrayList<String> productNames = new ArrayList<String>();
+                    ArrayList<Boolean> isVeganList = new ArrayList<Boolean>();
                     for (ParseObject product : objects) {
                         productNames.add(product.getString("productName"));
+                        isVeganList.add(product.getBoolean("isVegan"));
                     }
                     if (!productNames.isEmpty()) {
-                        searchFragment.createList(productNames);
+                        // TODO If only 1 result, switch to resultFragment to show result
+                        searchFragment.createList(productNames, isVeganList);
                     }
                 } else {
                     Log.d("Error", e.getMessage());

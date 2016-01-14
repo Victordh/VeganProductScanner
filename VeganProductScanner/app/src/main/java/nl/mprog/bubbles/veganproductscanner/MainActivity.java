@@ -72,4 +72,12 @@ public class MainActivity extends AppCompatActivity {
         String input = userInput.getText().toString();
         memoryManagement.getProductsFromInput(input, searchFragment);
     }
+
+    public void addProductButtonClick(View view) {
+        resultFragment.addProduct();
+    }
+
+    public void sendToDatabase(View view) {
+        resultFragment.sendSubmission(memoryManagement);
+    }
 }

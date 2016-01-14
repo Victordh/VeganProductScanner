@@ -14,4 +14,14 @@
     <string name="info_placeholder">This is the page where there will be information. Probably a FAQ, maybe something on how to use this app, probably a feedback button.</string>
     <string name="sync_button">Sync database</string>
     <string name="erase_button">Erase local database</string>
+    <string name="add_product_text">Sorry! The product is not in the database yet. Try to sync the database or add the product by clicking the button above.</string>
+    <string name="add_product_button">Add product</string>
+    <string name="barcode_placeholder">0000000000000</string>
+    <string name="enter_product_name_hint">Enter product name here</string>
+    <string name="is_vegan_yes">Yes</string>
+    <string name="is_vegan_no">No</string>
+    <string name="is_vegan_dont_know">Don\'t know</string>
+    <string name="enter_comment_hint">Optionally, enter a comment</string>
+    <string name="send_to_database">Send to database</string>
+    <string name="thanks">Thank you! I\'ll add it to the database as soon as possible.</string>
 </resources>

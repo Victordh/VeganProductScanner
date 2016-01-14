@@ -20,6 +20,7 @@ public class PageFragment extends Fragment {
     public static final String ARG_PAGE = "ARG_PAGE";
 
     static MainActivity mainActivity;
+    ResultFragment resultFragment;
     private int mPage;
 
     public static PageFragment newInstance(int page, MainActivity activity) {
@@ -53,10 +54,22 @@ public class PageFragment extends Fragment {
         }
         else {
             view = inflater.inflate(R.layout.result_fragment, container, false);
-            ResultFragment resultFragment = new ResultFragment();
+            resultFragment = new ResultFragment();
             resultFragment.onCreate(view, this);
             mainActivity.setResultFragment(resultFragment);
         }
         return view;
+    }
+
+    @Override
+    public void onViewCreated (View view, Bundle savedInstanceState) {
+        if (mPage != 2 && mPage != 3) {
+            resultFragment.initialise();
+
+            resultFragment.showEnterProductElements(false);
+            resultFragment.showProductFoundElements(true);
+            resultFragment.showProductNotFoundElements(false);
+            resultFragment.showThanks(false);
+        }
     }
 }

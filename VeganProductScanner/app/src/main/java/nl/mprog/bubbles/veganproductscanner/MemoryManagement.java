@@ -133,23 +133,37 @@ public class MemoryManagement {
         });
     }
 
-    public void getProductFromBarcode(String barcode, final ResultFragment resultFragment) {
+    public void getProductFromBarcode(final String barcode, final ResultFragment resultFragment) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
         query.whereEqualTo("productBarcode", barcode);
         query.fromLocalDatastore();
 
         query.getFirstInBackground(new GetCallback<ParseObject>() {
             public void done(ParseObject product, ParseException e) {
-                if (product != null) {
-                    if (e == null) {
-                        resultFragment.showProductName(product.getString("productName"));
-                        resultFragment.showIsVegan(product.getBoolean("isVegan"));
-                    } else {
-                        Log.d("Error", e.getMessage());
+                if (e == null) {
+
+                    if (product != null) {
+                        resultFragment.productFound(product.getString("productName"),
+                                product.getBoolean("isVegan"));
                     }
+                } else if (e.getMessage().equals("no results found for query")){
+                    resultFragment.productNotFound(barcode);
+                }
+                else {
+                    Log.d("Error", e.getMessage());
                 }
             }
         });
+    }
+
+    public void saveSubmission(String barcode, String name, String vegan, String comment) {
+        ParseObject submission = new ParseObject("Submission");
+        submission.put("productBarcode", barcode);
+        submission.put("productName", name);
+        submission.put("isVegan", vegan);
+        submission.put("productComment", comment);
+        // TODO add saveEventually, maybe when connected to WiFi or after x hours max?
+        submission.saveInBackground();
     }
 
     private void productCount(final MainActivity mainActivity){

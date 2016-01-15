@@ -57,6 +57,18 @@ manual_search_result.png
 
 # day 9
 
-- Added user submitted data. User can add a product (to a seperate database) when a product is not found.
+- Added user submitted data. User can add a product (to a seperate database) when a product is not found. (add_product.png, enter_product.png, thanks.png)
 - Added seperate (but similar) database for user submissions, for easy export/import.
 - MVP almost finished! (Sort of, needs a lot of tweaking).
+
+add_product.png  
+![](doc/add_product.png)
+enter_product.png  
+![](doc/enter_product.png)
+thanks.png  
+![](doc/thanks.png)
+
+# day 10
+
+- Been busy with getting listview to work with correct background and onClick, not working yet.
+- If manual search has one result, goes to ResultFragment immediately.

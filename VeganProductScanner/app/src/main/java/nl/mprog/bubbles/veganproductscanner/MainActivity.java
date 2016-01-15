@@ -1,5 +1,7 @@
 package nl.mprog.bubbles.veganproductscanner;
 
+import android.app.ActionBar;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -16,22 +18,27 @@ import com.parse.Parse;
 
 public class MainActivity extends AppCompatActivity {
 
+    TabLayout tabLayout;
+    ViewPager viewPager;
+
     MemoryManagement memoryManagement;
     ResultFragment resultFragment;
     SearchFragment searchFragment;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        bundle = savedInstanceState;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // Get the ViewPager and set it's PagerAdapter so that it can display items
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
                 MainActivity.this, this));
 
         // Give the TabLayout the ViewPager
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
         memoryManagement = new MemoryManagement();
@@ -70,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     public void searchButtonClick(View view) {
         EditText userInput = (EditText) findViewById(R.id.search_edittext);
         String input = userInput.getText().toString();
-        memoryManagement.getProductsFromInput(input, searchFragment);
+        memoryManagement.getProductsFromInput(input, searchFragment, this);
     }
 
     public void addProductButtonClick(View view) {
@@ -79,5 +86,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendToDatabase(View view) {
         resultFragment.sendSubmission(memoryManagement);
+    }
+
+    public void productToResult(String name, Boolean vegan) {
+        viewPager.setCurrentItem(0);
+        resultFragment.productFound(name, vegan);
     }
 }

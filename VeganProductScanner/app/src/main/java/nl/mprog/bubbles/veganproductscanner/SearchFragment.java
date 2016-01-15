@@ -2,8 +2,10 @@ package nl.mprog.bubbles.veganproductscanner;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,12 +22,33 @@ public class SearchFragment {
         context = c;
     }
 
-    public void createList(ArrayList<String> productNames, ArrayList<Boolean> isVeganList) {
+    public void createList(final ArrayList<String> productNames, final ArrayList<Boolean> isVeganList,
+                           final MainActivity mainActivity) {
         ListView listView = (ListView) view.findViewById(R.id.search_list);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(context,
                 android.R.layout.simple_list_item_1, android.R.id.text1, productNames);
         listView.setAdapter(adapter);
+
+        /*for (int i = 0; i < isVeganList.size(); i++) {
+            if (isVeganList.get(i)) {
+                // TODO fix so listView.getChildAt(i) isn't null
+                listView.getChildAt(i).setBackgroundColor(mainActivity.
+                        getResources().getColor(R.color.veganGreen));
+            }
+            else {
+                listView.getChildAt(i).setBackgroundColor(mainActivity.
+                        getResources().getColor(R.color.nonVeganRed));
+            }
+            final String name = productNames.get(i);
+            final Boolean vegan = isVeganList.get(i);
+            listView.getChildAt(i).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mainActivity.productToResult(name, vegan);
+                }
+            });
+        }*/
 
         // TODO Fix that each item has the correct colour (depending on isVegan)
         /*for (int i = 0; i < isVeganList.size(); i++) {

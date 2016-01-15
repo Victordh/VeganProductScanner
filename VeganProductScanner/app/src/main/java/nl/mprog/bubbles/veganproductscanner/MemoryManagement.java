@@ -21,6 +21,8 @@ import java.util.List;
  */
 public class MemoryManagement {
 
+
+
     public void syncLocalDatabase(final MainActivity mainActivity) {
         if (internetConnection(mainActivity)) {
             // TODO Get all data when larger than 100/1000 (query.each() ?)
@@ -102,7 +104,8 @@ public class MemoryManagement {
 
     // TODO Make input case-insensitive.
     // TODO Put more relevant products higher in the list.
-    public void getProductsFromInput(String input, final SearchFragment searchFragment) {
+    public void getProductsFromInput(String input, final SearchFragment searchFragment,
+                                     final MainActivity mainActivity) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
         if (input.length() == 13 && input.matches("[0-9]+")) {
                 query.whereEqualTo("productBarcode", input);
@@ -123,8 +126,12 @@ public class MemoryManagement {
                         isVeganList.add(product.getBoolean("isVegan"));
                     }
                     if (!productNames.isEmpty()) {
-                        // TODO If only 1 result, switch to resultFragment to show result
-                        searchFragment.createList(productNames, isVeganList);
+                        if (productNames.size() == 1) {
+                            mainActivity.productToResult(productNames.get(0), isVeganList.get(0));
+                        }
+                        else {
+                            searchFragment.createList(productNames, isVeganList, mainActivity);
+                        }
                     }
                 } else {
                     Log.d("Error", e.getMessage());

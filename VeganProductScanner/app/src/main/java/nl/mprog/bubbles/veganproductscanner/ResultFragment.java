@@ -54,7 +54,6 @@ public class ResultFragment {
                 // uses Zxing to scan a barcode
                 IntentIntegrator integrator = new IntentIntegrator(activity);
                 integrator.initiateScan(IntentIntegrator.PRODUCT_CODE_TYPES);
-                //productNotFound("9391348288225");
             }
         });
     }

@@ -9,6 +9,7 @@ This app tries to be as simple and clear as possible and will therefore not incl
 Features:
 - Barcode scanner
 - Manual search
+- Database with user submitted data
 
 The app can be divided into the following parts:
 - Barcode scanner (barcode_scanner.png)
@@ -21,7 +22,6 @@ Potential extras:
 - Feedback form
 - Tutorial
 - Bigger database (probably never complete)
-- User submitted database entries
 
 The app requires a database with products. As a start, I will manually create one with x entries. One entry contains the product name, the product barcode and a 'vegan yes/no' boolean.  
 Possible sources:

@@ -1,7 +1,7 @@
 ## Minimum Viable Product
-The minimum viable product (MVP) consists of one Activity with 2 fragments, a database of products and an Intent to another app (Barcode Scanner). 
-In the first fragment, the user can push a button to scan a barcode, after which the app will search in the database for a matching product. If found, the app will show the product name and whether it is vegan or not.
-The second fragment has an edittext in which users can enter a query. After pressing the search button, the app will show a list of all matches with that query below. The items in the list will show the product name on a green (vegan) or red (not vegan) background.
+The minimum viable product (MVP) consists of one Activity with two fragments, a database of products and an Intent to another app (Barcode Scanner). 
+In the first fragment, the user can push a button to scan a barcode, after which the app will search in the database for a matching product. If found, the app will show the product name and whether it is vegan or not. If not found, the user can fill in some information and add the product to a different database, after which the product will be validated and added to the main database.
+The second fragment has an edittext in which users can enter a query. After pressing the search button, the app will show a list of all matches with that query below. The items in the list will show the product name on a green (vegan) or red (not vegan) background. Each item in the list can be tapped to go to the resultFragment with that product information. If there's only one result, the user will be sent there automatically.
 
 ## Optional
 The most important optional element would be something to allow the user to contribute to the database, probably by show a button when a product couldn't be found. After tapping this button, the user can fill in the name (and optionally if the product is vegan or not). The user can also add a comment if they want. This way, the database wouldn't depend on being filled by the developer, who now only needs to filter and approve user submissions.  
@@ -13,9 +13,9 @@ Activities:
 
 Fragments (inside mainActivity):
 - result_fragment
-- search_fragment
-- info_fragment  
+- search_fragment  
 optional:
+- info_fragment
 - history_fragment
 - settings_fragment    
 
@@ -39,19 +39,20 @@ The SearchFragment class will have the following methods:
 
 Inside the mainActivity, the method onActivityResult handles the result of the barcode scanning. The barcode is converted to a String here.
 
+TODO: Add all classes and public methods here after rewriting code.
+
 ## APIs and frameworks
 This app uses an Intent to the app [Barcode Scanner](https://github.com/zxing/zxing) to scan a barcode.  
-This app will probably use [Parse](https://parse.com/) for its database.
+This app uses [Parse](https://parse.com/) for its databases.
 
 ## Database
-The data will have the following format:
+The database has the following format:
 
-
-| Index | Barcode      | Vegan | Name   |
-|-------|--------------|-------|--------|
-| INT   | STRING       | BOOL  | STRING |
-| 1     | 123456789012 | true  | Banana |
-| 2     | 112234567890 | false | Honey  |
+|  objectID  | productBarcode | productName | isVegan |      createdAt      |      updatedAt      |     ACL     |
+|------------|----------------|-------------|---------|---------------------|---------------------|-------------|
+|   STRING   |     STRING     |    STRING   | BOOLEAN |        DATE         |        DATE         |     ACL     |
+| aaaAaaAAAa |  101010101010  |  Tangerine  |   true  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read |
+| ZZzzZzzzZZ |  999999999999  |    Honey    |  false  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read |
 
 ## Advanced UI sketches
 ![](doc/advanced_ui_sketches.png)

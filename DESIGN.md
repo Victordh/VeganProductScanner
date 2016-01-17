@@ -49,7 +49,7 @@ This app uses [Parse](https://parse.com/) for its databases.
 The database has the following format:
 
 |  objectID  | productBarcode | productName | isVegan |      createdAt      |      updatedAt      |     ACL     |
-|------------|----------------|-------------|---------|---------------------|---------------------|-------------|
+|:----------:|:--------------:|:-----------:|:-------:|:-------------------:|:-------------------:|:-----------:|
 |   STRING   |     STRING     |    STRING   | BOOLEAN |        DATE         |        DATE         |     ACL     |
 | aaaAaaAAAa |  101010101010  |  Tangerine  |   true  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read |
 | ZZzzZzzzZZ |  999999999999  |    Honey    |  false  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read |

@@ -1,5 +1,7 @@
 package nl.mprog.bubbles.veganproductscanner;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -16,8 +18,9 @@ import com.parse.Parse;
 
 public class MainActivity extends AppCompatActivity {
 
-    MemoryManagement memoryManagement;
+    AddFragment addFragment;
     EnterFragment enterFragment;
+    MemoryManagement memoryManagement;
     ResultFragment resultFragment;
     SearchFragment searchFragment;
     TabLayout main_act_tl;
@@ -78,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
         enterFragment.mainActivity = this;
     }
 
+    public void setAddFragment(AddFragment fragment){
+        addFragment = fragment;
+        addFragment.mainActivity = this;
+    }
+
     public void searchButtonClick(View view) {
         EditText search_frg_input_et = (EditText) findViewById(R.id.search_frg_input_et);
         String input = search_frg_input_et.getText().toString();
@@ -86,9 +94,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void addButtonClick(View view) {
         // goes to EnterFragment
-        //TabLayout.Tab tab = main_act_tl.newTab();
-        //tab.setCustomView(R.layout.enter_fragment);
-        //tab.select();
         setFragment(4);
         enterFragment.setBarcode();
     }

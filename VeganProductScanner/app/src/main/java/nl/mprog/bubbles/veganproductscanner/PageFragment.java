@@ -1,5 +1,7 @@
 package nl.mprog.bubbles.veganproductscanner;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -47,24 +49,24 @@ public class PageFragment extends Fragment {
         else if (mPage == 3) {
             view = inflater.inflate(R.layout.info_fragment, container, false);
         }
+        else if (mPage == 4) {
+            view = inflater.inflate(R.layout.add_fragment, container, false);
+            AddFragment addFragment = new AddFragment();
+            mainActivity.setAddFragment(addFragment);
+        }
+        else if (mPage == 5) {
+            view = inflater.inflate(R.layout.enter_fragment, container, false);
+            EnterFragment enterFragment = new EnterFragment();
+            mainActivity.setEnterFragment(enterFragment);
+        }
+        else if (mPage == 6) {
+            view = inflater.inflate(R.layout.sent_fragment, container, false);
+        }
         else {
-            if (mPage == 4) {
-                view = inflater.inflate(R.layout.add_fragment, container, false);
-            }
-            else if (mPage == 5) {
-                view = inflater.inflate(R.layout.enter_fragment, container, false);
-                EnterFragment enterFragment = new EnterFragment();
-                mainActivity.setEnterFragment(enterFragment);
-            }
-            else if (mPage == 6) {
-                view = inflater.inflate(R.layout.sent_fragment, container, false);
-            }
-            else{
-                view = inflater.inflate(R.layout.result_fragment, container, false);
-                resultFragment = new ResultFragment();
-                resultFragment.onCreate(view, this);
-                mainActivity.setResultFragment(resultFragment);
-            }
+            view = inflater.inflate(R.layout.result_fragment, container, false);
+            resultFragment = new ResultFragment();
+            resultFragment.onCreate(view, this);
+            mainActivity.setResultFragment(resultFragment);
         }
         return view;
     }

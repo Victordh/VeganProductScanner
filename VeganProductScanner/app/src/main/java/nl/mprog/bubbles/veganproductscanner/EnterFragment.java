@@ -1,5 +1,6 @@
 package nl.mprog.bubbles.veganproductscanner;
 
+import android.app.Fragment;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -8,7 +9,7 @@ import android.widget.TextView;
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  */
 
-public class EnterFragment {
+public class EnterFragment extends Fragment {
 
     MainActivity mainActivity;
 

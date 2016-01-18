@@ -1,6 +1,7 @@
 package nl.mprog.bubbles.veganproductscanner;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.TextView;
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  */
 
-public class ResultFragment {
+public class ResultFragment extends Fragment {
 
     MainActivity mainActivity;
     PageFragment fragment;
@@ -27,9 +28,9 @@ public class ResultFragment {
             @Override
             public void onClick(View view) {
                 // uses Zxing to scan a barcode
-                IntentIntegrator integrator = new IntentIntegrator(fragment.getActivity());
-                integrator.initiateScan(IntentIntegrator.PRODUCT_CODE_TYPES);
-                //productNotFound("123456789999");
+                //IntentIntegrator integrator = new IntentIntegrator(fragment.getActivity());
+                //integrator.initiateScan(IntentIntegrator.PRODUCT_CODE_TYPES);
+                productNotFound("123456789999");
             }
         });
     }

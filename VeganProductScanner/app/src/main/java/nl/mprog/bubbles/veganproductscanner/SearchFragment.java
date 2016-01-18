@@ -1,5 +1,6 @@
 package nl.mprog.bubbles.veganproductscanner;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  */
 
-public class SearchFragment {
+public class SearchFragment extends Fragment {
 
     MainActivity mainActivity;
     Context context;

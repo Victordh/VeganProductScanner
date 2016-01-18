@@ -1,14 +1,10 @@
 package nl.mprog.bubbles.veganproductscanner;
 
-import android.content.Context;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com

@@ -26,6 +26,7 @@ package nl.mprog.bubbles.veganproductscanner;
  *
  * @author Sean Owen
  */
+
 public final class IntentResult {
 
     private final String contents;

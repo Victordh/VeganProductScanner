@@ -1,7 +1,5 @@
 package nl.mprog.bubbles.veganproductscanner;
 
-import android.app.ActionBar;
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -18,8 +16,8 @@ import com.parse.Parse;
 
 public class MainActivity extends AppCompatActivity {
 
-    TabLayout tabLayout;
-    ViewPager viewPager;
+    TabLayout main_act_tl;
+    ViewPager main_act_vp;
 
     MemoryManagement memoryManagement;
     ResultFragment resultFragment;
@@ -33,13 +31,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Get the ViewPager and set it's PagerAdapter so that it can display items
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
+        main_act_vp = (ViewPager) findViewById(R.id.main_act_vp);
+        main_act_vp.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
                 MainActivity.this, this));
 
         // Give the TabLayout the ViewPager
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+        main_act_tl = (TabLayout) findViewById(R.id.main_act_tl);
+        main_act_tl.setupWithViewPager(main_act_vp);
 
         memoryManagement = new MemoryManagement();
 
@@ -75,12 +73,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void searchButtonClick(View view) {
-        EditText userInput = (EditText) findViewById(R.id.search_edittext);
-        String input = userInput.getText().toString();
+        EditText search_frg_input_et = (EditText) findViewById(R.id.search_frg_input_et);
+        String input = search_frg_input_et.getText().toString();
         memoryManagement.getProductsFromInput(input, searchFragment, this);
     }
 
-    public void addProductButtonClick(View view) {
+    public void addButtonClick(View view) {
         resultFragment.addProduct();
     }
 
@@ -89,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void productToResult(String name, Boolean vegan) {
-        viewPager.setCurrentItem(0);
+        main_act_vp.setCurrentItem(0);
         resultFragment.productFound(name, vegan);
     }
 }

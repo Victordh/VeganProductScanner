@@ -7,108 +7,108 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/is_vegan"
+        android:id="@+id/result_frg_is_vegan_tv"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/vegan_true"
+        android:text="@string/result_frg_is_vegan_tv_true"
         android:textSize="220sp"
         android:textColor="@android:color/holo_green_dark" />
 
     <TextView
-        android:id="@+id/product_name"
-        android:layout_below="@id/is_vegan"
+        android:id="@+id/result_frg_name_tv"
+        android:layout_below="@id/result_frg_is_vegan_tv"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/product_name"
+        android:text="@string/result_frg_name_tv"
         android:textSize="24sp"
         android:textStyle="bold"/>
 
     <Button
-        android:id="@+id/add_product_button"
+        android:id="@+id/result_frg_add_btn"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/add_product_button"
-        android:onClick="addProductButtonClick" />
+        android:text="@string/result_frg_add_btn"
+        android:onClick="addButtonClick" />
 
     <TextView
-        android:id="@+id/add_product_text"
-        android:layout_below="@id/product_name"
+        android:id="@+id/result_frg_add_tv"
+        android:layout_below="@id/result_frg_name_tv"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/add_product_text" />
+        android:text="@string/result_frg_add_tv" />
 
     <TextView
-        android:id="@+id/product_barcode"
-        android:layout_below="@id/add_product_button"
+        android:id="@+id/result_frg_barcode_tv"
+        android:layout_below="@id/result_frg_add_btn"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/barcode_placeholder" />
+        android:text="@string/result_frg_barcode_tv" />
 
     <EditText
-        android:hint="@string/enter_product_name_hint"
-        android:id="@+id/enter_product_name"
-        android:layout_below="@id/product_barcode"
+        android:hint="@string/result_frg_enter_name_hint"
+        android:id="@+id/result_frg_enter_name"
+        android:layout_below="@id/result_frg_barcode_tv"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content" />
 
     <RadioGroup
-        android:checkedButton="@+id/is_vegan_dont_know"
-        android:id="@+id/is_vegan_radio_buttons"
-        android:layout_below="@id/enter_product_name"
+        android:checkedButton="@+id/result_frg_is_vegan_dont_know_rb"
+        android:id="@+id/result_frg_is_vegan_rg"
+        android:layout_below="@id/result_frg_enter_name"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content">
 
         <RadioButton
-            android:id="@+id/is_vegan_yes"
+            android:id="@+id/result_frg_is_vegan_yes_rb"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="@string/is_vegan_yes"/>
+            android:text="@string/result_frg_is_vegan_yes_rb"/>
 
         <RadioButton
-            android:id="@+id/is_vegan_no"
+            android:id="@+id/result_frg_is_vegan_no_rb"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="@string/is_vegan_no"/>
+            android:text="@string/result_frg_is_vegan_no_rb"/>
 
         <RadioButton
-            android:id="@id/is_vegan_dont_know"
+            android:id="@id/result_frg_is_vegan_dont_know_rb"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="@string/is_vegan_dont_know"/>
+            android:text="@string/result_frg_is_vegan_dont_know_rb"/>
 
     </RadioGroup>
 
     <EditText
-        android:hint="@string/enter_comment_hint"
-        android:id="@+id/enter_comment"
-        android:layout_below="@id/is_vegan_radio_buttons"
+        android:hint="@string/result_frg_enter_comment_et_hint"
+        android:id="@+id/result_frg_enter_comment_et"
+        android:layout_below="@id/result_frg_is_vegan_rg"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content" />
 
     <Button
-        android:id="@+id/send_to_database"
-        android:layout_below="@id/enter_comment"
+        android:id="@+id/result_frg_send_data_btn"
+        android:layout_below="@id/result_frg_enter_comment_et"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/send_to_database"
+        android:text="@string/result_frg_send_data_btn"
         android:onClick="sendToDatabase" />
 
     <TextView
-        android:id="@+id/thanks"
-        android:layout_below="@id/add_product_button"
+        android:id="@+id/result_frg_thanks_tv"
+        android:layout_below="@id/result_frg_add_btn"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/thanks" />
+        android:text="@string/result_frg_thanks_tv" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

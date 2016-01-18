@@ -6,26 +6,26 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/search_button"
+        android:id="@+id/search_frg_search_btn"
         android:layout_alignParentEnd="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:onClick="searchButtonClick"
         android:padding="10dp"
-        android:text="@string/search_button" />
+        android:text="@string/search_frg_search_btn" />
 
     <EditText
-        android:id="@+id/search_edittext"
-        android:hint="@string/search_edittext_hint"
+        android:id="@+id/search_frg_input_et"
+        android:hint="@string/search_frg_input_et_hint"
         android:layout_height="wrap_content"
-        android:layout_toStartOf="@id/search_button"
+        android:layout_toStartOf="@id/search_frg_search_btn"
         android:layout_width="wrap_content"
         android:padding="10dp"
         android:textSize="16sp" />
 
     <ListView
-        android:id="@+id/search_list"
-        android:layout_below="@id/search_edittext"
+        android:id="@+id/search_frg_result_lv"
+        android:layout_below="@id/search_frg_input_et"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:padding="20dp" />

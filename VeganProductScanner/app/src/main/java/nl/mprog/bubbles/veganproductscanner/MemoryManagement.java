@@ -19,9 +19,8 @@ import java.util.List;
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  */
+
 public class MemoryManagement {
-
-
 
     public void syncLocalDatabase(final MainActivity mainActivity) {
         if (internetConnection(mainActivity)) {
@@ -119,8 +118,8 @@ public class MemoryManagement {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
                 if (e == null) {
-                    ArrayList<String> productNames = new ArrayList<String>();
-                    ArrayList<Boolean> isVeganList = new ArrayList<Boolean>();
+                    ArrayList<String> productNames = new ArrayList<>();
+                    ArrayList<Boolean> isVeganList = new ArrayList<>();
                     for (ParseObject product : objects) {
                         productNames.add(product.getString("productName"));
                         isVeganList.add(product.getBoolean("isVegan"));

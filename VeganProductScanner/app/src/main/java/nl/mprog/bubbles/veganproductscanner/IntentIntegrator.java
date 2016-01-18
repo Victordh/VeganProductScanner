@@ -111,6 +111,7 @@ import android.util.Log;
  * @author Brad Drehmer
  * @author gcstang
  */
+
 public class IntentIntegrator {
 
     public static final int REQUEST_CODE = 0x0000c0de; // Only use bottom 16 bits
@@ -174,10 +175,10 @@ public class IntentIntegrator {
     }
 
     private void initializeConfiguration() {
-        title = activity.getString(R.string.integrator_title);
-        message = activity.getString(R.string.integrator_message);
-        buttonYes = activity.getString(R.string.integrator_yes);
-        buttonNo = activity.getString(R.string.integrator_no);
+        title = activity.getString(R.string.result_frg_integrator_title);
+        message = activity.getString(R.string.result_frg_integrator_message);
+        buttonYes = activity.getString(R.string.result_frg_integrator_yes);
+        buttonNo = activity.getString(R.string.result_frg_integrator_no);
         targetApplications = TARGET_ALL_KNOWN;
     }
 

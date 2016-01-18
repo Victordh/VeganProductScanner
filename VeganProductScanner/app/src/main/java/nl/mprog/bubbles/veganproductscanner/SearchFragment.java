@@ -2,10 +2,8 @@ package nl.mprog.bubbles.veganproductscanner;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,13 +20,14 @@ public class SearchFragment {
         context = c;
     }
 
-    public void createList(final ArrayList<String> productNames, final ArrayList<Boolean> isVeganList,
+    public void createList(final ArrayList<String> productNames,
+                           final ArrayList<Boolean> isVeganList,
                            final MainActivity mainActivity) {
-        ListView listView = (ListView) view.findViewById(R.id.search_list);
+        ListView search_frg_result_lv = (ListView) view.findViewById(R.id.search_frg_result_lv);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context,
                 android.R.layout.simple_list_item_1, android.R.id.text1, productNames);
-        listView.setAdapter(adapter);
+        search_frg_result_lv.setAdapter(adapter);
 
         /*for (int i = 0; i < isVeganList.size(); i++) {
             if (isVeganList.get(i)) {

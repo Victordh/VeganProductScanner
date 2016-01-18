@@ -1,27 +1,39 @@
 <resources>
     <string name="app_name">Vegan Product Scanner</string>
-    <string name="product_name">This will be the product name.</string>
-    <string name="search_button">Search</string>
-    <string name="search_edittext_hint">Enter (part of) the barcode or product name here</string>
-    <string name="vegan_false"><font color="#EE0000">X</font></string>
-    <string name="vegan_true"><font color="#319020">V</font></string>
 
-    <string name="integrator_message">Vegan Product Scanner requires Barcode Scanner. Would you like to install it?</string>
-    <string name="integrator_title">Install Barcode Scanner?</string>
-    <string name="integrator_yes">YES</string>
-    <string name="integrator_no">NO</string>
+    <!--TODO Turn into AddFragment-->
+    <string name="result_frg_add_tv">Sorry! The product is not in the database yet. Try to sync the database or add the product by clicking the button above.</string>
+    <string name="result_frg_add_btn">Add product</string>
 
-    <string name="info_placeholder">This is the page where there will be information. Probably a FAQ, maybe something on how to use this app, probably a feedback button.</string>
-    <string name="sync_button">Sync database</string>
-    <string name="erase_button">Erase local database</string>
-    <string name="add_product_text">Sorry! The product is not in the database yet. Try to sync the database or add the product by clicking the button above.</string>
-    <string name="add_product_button">Add product</string>
-    <string name="barcode_placeholder">0000000000000</string>
-    <string name="enter_product_name_hint">Enter product name here</string>
-    <string name="is_vegan_yes">Yes</string>
-    <string name="is_vegan_no">No</string>
-    <string name="is_vegan_dont_know">Don\'t know</string>
-    <string name="enter_comment_hint">Optionally, enter a comment</string>
-    <string name="send_to_database">Send to database</string>
-    <string name="thanks">Thank you! I\'ll add it to the database as soon as possible.</string>
+    <!--TODO Turn into EnterFragment-->
+    <string name="result_frg_barcode_tv">0000000000000</string>
+    <string name="result_frg_enter_name_hint">Enter product name here</string>
+    <string name="result_frg_is_vegan_yes_rb">Yes</string>
+    <string name="result_frg_is_vegan_no_rb">No</string>
+    <string name="result_frg_is_vegan_dont_know_rb">Don\'t know</string>
+    <string name="result_frg_enter_comment_et_hint">Optionally, enter a comment</string>
+    <string name="result_frg_send_data_btn">Send to database</string>
+
+    <!--InfoFragment-->
+    <string name="info_frg_placeholder_tv">This is the page where there will be information. Probably a FAQ, maybe something on how to use this app, probably a feedback button.</string>
+    <string name="info_frg_sync_btn">Sync database</string>
+    <string name="info_frg_erase_btn">Erase local database</string>
+
+    <!--ResultFragment FAB IntentIntegrator-->
+    <string name="result_frg_integrator_message">Vegan Product Scanner requires Barcode Scanner. Would you like to install it?</string>
+    <string name="result_frg_integrator_title">Install Barcode Scanner?</string>
+    <string name="result_frg_integrator_yes">YES</string>
+    <string name="result_frg_integrator_no">NO</string>
+
+    <!--ResultFragment-->
+    <string name="result_frg_is_vegan_tv_false"><font color="#EE0000">X</font></string>
+    <string name="result_frg_is_vegan_tv_true"><font color="#319020">V</font></string>
+    <string name="result_frg_name_tv">This will be the product name.</string>
+
+    <!--SearchFragment-->
+    <string name="search_frg_search_btn">Search</string>
+    <string name="search_frg_input_et_hint">Enter (part of) the barcode or product name here</string>
+
+    <!--TODO Turn into SentFragment-->
+    <string name="result_frg_thanks_tv">Thank you! I\'ll add it to the database as soon as possible.</string>
 </resources>

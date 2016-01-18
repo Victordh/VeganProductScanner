@@ -46,13 +46,22 @@ This app uses an Intent to the app [Barcode Scanner](https://github.com/zxing/zx
 This app uses [Parse](https://parse.com/) for its databases.
 
 ## Database
-The database has the following format:
+The database has the following format:  
+Class "Product":
 
 |  objectID  | productBarcode | productName | isVegan |      createdAt      |      updatedAt      |     ACL     |
 |:----------:|:--------------:|:-----------:|:-------:|:-------------------:|:-------------------:|:-----------:|
 |   STRING   |     STRING     |    STRING   | BOOLEAN |        DATE         |        DATE         |     ACL     |
 | aaaAaaAAAa |  101010101010  |  Tangerine  |   true  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read |
 | ZZzzZzzzZZ |  999999999999  |    Honey    |  false  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read |
+
+Class "Submission":
+
+|  objectID  | productBarcode | productName | isVegan | productComment |      createdAt      |      updatedAt      |     ACL     |
+|:----------:|:--------------:|:-----------:|:-------:|:--------------:|:-------------------:|:-------------------:|:-----------:|
+|   STRING   |     STRING     |    STRING   | STRING  |     STRING     |        DATE         |        DATE         |     ACL     |
+| aaaAaaAAAa |  101010101010  |  Tangerine  |   true  |  It's a fruit  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read |
+| ZZzzZzzzZZ |  999999999999  |    Honey    |  false  |  Bees make it  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read |
 
 ## Advanced UI sketches
 ![](doc/advanced_ui_sketches.png)

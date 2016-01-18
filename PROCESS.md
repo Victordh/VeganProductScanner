@@ -72,3 +72,10 @@ thanks.png
 
 - Been busy with getting listview to work with correct background and onClick, not working yet.
 - If manual search has one result, goes to ResultFragment immediately.
+
+# day 11
+
+- Updated DESIGN.md and README.md after week 2
+- Renamed a lot of stuff for consistency
+- Cleaned up code here and there
+- Split ResultFragment up into 4 fragments: ResultFragment, AddFragment, EnterFragment and SentFragment

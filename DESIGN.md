@@ -57,11 +57,12 @@ Class "Product":
 
 Class "Submission":
 
-|  objectID  | productBarcode | productName | isVegan | productComment |      createdAt      |      updatedAt      |          ACL          |
-|:----------:|:--------------:|:-----------:|:-------:|:--------------:|:-------------------:|:-------------------:|:---------------------:|
-|   STRING   |     STRING     |    STRING   | STRING  |     STRING     |        DATE         |        DATE         |          ACL          |
-| aaaAaaAAAa |  101010101010  |  Tangerine  |   true  |  It's a fruit  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read and Write |
-| ZZzzZzzzZZ |  999999999999  |    Honey    |  false  |  Bees make it  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read and Write |
+|  objectID  | productBarcode |  productName | isVegan | productComment |      createdAt      |      updatedAt      |          ACL          |
+|:----------:|:--------------:|:------------:|:-------:|:--------------:|:-------------------:|:-------------------:|:---------------------:|
+|   STRING   |     STRING     |     STRING   |  STRING |     STRING     |        DATE         |        DATE         |          ACL          |
+| aaaAaaAAAa |  101010101010  |   Tangerine  |   true  |  It's a fruit  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read and Write |
+| ZZzzZzzzZZ |  999999999999  |     Honey    |  false  |  Bees make it  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read and Write |
+| UEIUeiieuE |  000000000000  | Pumpkin Soup | unknown | Could be cream | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read and Write |
 
 ## Advanced UI sketches
 ![](doc/advanced_ui_sketches.png)

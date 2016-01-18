@@ -12,8 +12,10 @@ import java.util.ArrayList;
  */
 
 public class SearchFragment {
-    View view;
+
+    MainActivity mainActivity;
     Context context;
+    View view;
 
     public void passViewContext(View v, Context c) {
         view = v;
@@ -21,8 +23,7 @@ public class SearchFragment {
     }
 
     public void createList(final ArrayList<String> productNames,
-                           final ArrayList<Boolean> isVeganList,
-                           final MainActivity mainActivity) {
+                           final ArrayList<Boolean> isVeganList) {
         ListView search_frg_result_lv = (ListView) view.findViewById(R.id.search_frg_result_lv);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context,

@@ -16,30 +16,29 @@ import com.parse.Parse;
 
 public class MainActivity extends AppCompatActivity {
 
+    MemoryManagement memoryManagement;
+    EnterFragment enterFragment;
+    ResultFragment resultFragment;
+    SearchFragment searchFragment;
     TabLayout main_act_tl;
     ViewPager main_act_vp;
 
-    MemoryManagement memoryManagement;
-    ResultFragment resultFragment;
-    SearchFragment searchFragment;
-    Bundle bundle;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        bundle = savedInstanceState;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // Get the ViewPager and set it's PagerAdapter so that it can display items
         main_act_vp = (ViewPager) findViewById(R.id.main_act_vp);
         main_act_vp.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
-                MainActivity.this, this));
+                this.getBaseContext(), this));
 
         // Give the TabLayout the ViewPager
         main_act_tl = (TabLayout) findViewById(R.id.main_act_tl);
         main_act_tl.setupWithViewPager(main_act_vp);
 
         memoryManagement = new MemoryManagement();
+        memoryManagement.setMainActivity(this);
 
         // TODO Replace LocalDatastore with SQLite, apparently it's 20 times faster
         // http://stackoverflow.com/questions/30425087/parse-query-local-database-is-20-times-slower-then-sqlite
@@ -57,19 +56,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void syncButtonClick(View view) {
-        memoryManagement.syncLocalDatabase(this);
+        memoryManagement.syncLocalDatabase();
     }
 
     public void eraseButtonClick(View view) {
-        memoryManagement.eraseLocalDatabase(this);
+        memoryManagement.eraseLocalDatabase();
     }
 
     public void setResultFragment(ResultFragment fragment){
         resultFragment = fragment;
+        resultFragment.mainActivity = this;
     }
 
     public void setSearchFragment(SearchFragment fragment){
         searchFragment = fragment;
+        searchFragment.mainActivity = this;
+    }
+
+    public void setEnterFragment(EnterFragment fragment){
+        enterFragment = fragment;
+        enterFragment.mainActivity = this;
     }
 
     public void searchButtonClick(View view) {
@@ -79,15 +85,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addButtonClick(View view) {
-        resultFragment.addProduct();
+        // goes to EnterFragment
+        //TabLayout.Tab tab = main_act_tl.newTab();
+        //tab.setCustomView(R.layout.enter_fragment);
+        //tab.select();
+        setFragment(4);
+        enterFragment.setBarcode();
     }
 
     public void sendToDatabase(View view) {
-        resultFragment.sendSubmission(memoryManagement);
+        enterFragment.sendSubmission();
     }
 
     public void productToResult(String name, Boolean vegan) {
-        main_act_vp.setCurrentItem(0);
+        setFragment(0);
         resultFragment.productFound(name, vegan);
+    }
+
+    public void setFragment(int number) {
+        main_act_vp.setCurrentItem(number);
     }
 }

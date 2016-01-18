@@ -22,8 +22,14 @@ import java.util.List;
 
 public class MemoryManagement {
 
-    public void syncLocalDatabase(final MainActivity mainActivity) {
-        if (internetConnection(mainActivity)) {
+    MainActivity mainActivity;
+
+    public void setMainActivity(MainActivity main){
+        mainActivity = main;
+    }
+
+    public void syncLocalDatabase() {
+        if (internetConnection()) {
             // TODO Get all data when larger than 100/1000 (query.each() ?)
             ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
 
@@ -35,7 +41,7 @@ public class MemoryManagement {
                             product.pinInBackground();
                         }
                         if (!isLocalDatabaseEmpty()) {
-                            productCount(mainActivity);
+                            productCount();
                         }
                     } else {
                         Log.d("Error", e.getMessage());
@@ -45,7 +51,7 @@ public class MemoryManagement {
         }
     }
 
-    public void eraseLocalDatabase(final MainActivity mainActivity) {
+    public void eraseLocalDatabase() {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
         query.fromLocalDatastore();
 
@@ -53,7 +59,7 @@ public class MemoryManagement {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
                 if (e == null) {
-                    productCount(mainActivity);
+                    productCount();
                     for (ParseObject product : objects) {
                         product.unpinInBackground();
                     }
@@ -85,7 +91,7 @@ public class MemoryManagement {
         }
     }
 
-    private boolean internetConnection(MainActivity mainActivity) {
+    private boolean internetConnection() {
         // checks for internet connection (needs permissions)
         ConnectivityManager cm =
                 (ConnectivityManager) mainActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -129,7 +135,7 @@ public class MemoryManagement {
                             mainActivity.productToResult(productNames.get(0), isVeganList.get(0));
                         }
                         else {
-                            searchFragment.createList(productNames, isVeganList, mainActivity);
+                            searchFragment.createList(productNames, isVeganList);
                         }
                     }
                 } else {
@@ -172,7 +178,7 @@ public class MemoryManagement {
         submission.saveInBackground();
     }
 
-    private void productCount(final MainActivity mainActivity){
+    private void productCount(){
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
         query.fromLocalDatastore();
 

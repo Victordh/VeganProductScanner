@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/result_fragment"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/enter_frg_barcode_tv"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:text="@string/enter_frg_barcode_tv" />
+
+    <EditText
+        android:hint="@string/enter_frg_name_et_hint"
+        android:id="@+id/enter_frg_name_et"
+        android:layout_below="@id/enter_frg_barcode_tv"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
+
+    <RadioGroup
+        android:checkedButton="@+id/enter_frg_vegan_dont_know_rb"
+        android:id="@+id/enter_frg_vegan_rg"
+        android:layout_below="@id/enter_frg_name_et"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+        <RadioButton
+            android:id="@+id/enter_frg_vegan_yes_rb"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/enter_frg_vegan_yes_rb"/>
+
+        <RadioButton
+            android:id="@+id/enter_frg_vegan_no_rb"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/enter_frg_vegan_no_rb"/>
+
+        <RadioButton
+            android:id="@id/enter_frg_vegan_dont_know_rb"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/enter_frg_vegan_dont_know_rb"/>
+
+    </RadioGroup>
+
+    <EditText
+        android:hint="@string/enter_frg_comment_et_hint"
+        android:id="@+id/enter_frg_comment_et"
+        android:layout_below="@id/enter_frg_vegan_rg"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
+
+    <Button
+        android:id="@+id/enter_frg_send_data_btn"
+        android:layout_below="@id/enter_frg_comment_et"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/enter_frg_send_data_btn"
+        android:onClick="sendToDatabase" />
+
+</RelativeLayout>

@@ -46,26 +46,26 @@ public class PageFragment extends Fragment {
         }
         else if (mPage == 3) {
             view = inflater.inflate(R.layout.info_fragment, container, false);
-            InfoFragment infoFragment = new InfoFragment();
         }
         else {
-            view = inflater.inflate(R.layout.result_fragment, container, false);
-            resultFragment = new ResultFragment();
-            resultFragment.onCreate(view, this);
-            mainActivity.setResultFragment(resultFragment);
+            if (mPage == 4) {
+                view = inflater.inflate(R.layout.add_fragment, container, false);
+            }
+            else if (mPage == 5) {
+                view = inflater.inflate(R.layout.enter_fragment, container, false);
+                EnterFragment enterFragment = new EnterFragment();
+                mainActivity.setEnterFragment(enterFragment);
+            }
+            else if (mPage == 6) {
+                view = inflater.inflate(R.layout.sent_fragment, container, false);
+            }
+            else{
+                view = inflater.inflate(R.layout.result_fragment, container, false);
+                resultFragment = new ResultFragment();
+                resultFragment.onCreate(view, this);
+                mainActivity.setResultFragment(resultFragment);
+            }
         }
         return view;
-    }
-
-    @Override
-    public void onViewCreated (View view, Bundle savedInstanceState) {
-        if (mPage != 2 && mPage != 3) {
-            resultFragment.initialise();
-
-            resultFragment.showEnterProductElements(false);
-            resultFragment.showProductFoundElements(true);
-            resultFragment.showProductNotFoundElements(false);
-            resultFragment.showThanks(false);
-        }
     }
 }

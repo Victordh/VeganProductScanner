@@ -57,11 +57,11 @@ Class "Product":
 
 Class "Submission":
 
-|  objectID  | productBarcode | productName | isVegan | productComment |      createdAt      |      updatedAt      |     ACL     |
-|:----------:|:--------------:|:-----------:|:-------:|:--------------:|:-------------------:|:-------------------:|:-----------:|
-|   STRING   |     STRING     |    STRING   | STRING  |     STRING     |        DATE         |        DATE         |     ACL     |
-| aaaAaaAAAa |  101010101010  |  Tangerine  |   true  |  It's a fruit  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read |
-| ZZzzZzzzZZ |  999999999999  |    Honey    |  false  |  Bees make it  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read |
+|  objectID  | productBarcode | productName | isVegan | productComment |      createdAt      |      updatedAt      |          ACL          |
+|:----------:|:--------------:|:-----------:|:-------:|:--------------:|:-------------------:|:-------------------:|:---------------------:|
+|   STRING   |     STRING     |    STRING   | STRING  |     STRING     |        DATE         |        DATE         |          ACL          |
+| aaaAaaAAAa |  101010101010  |  Tangerine  |   true  |  It's a fruit  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read and Write |
+| ZZzzZzzzZZ |  999999999999  |    Honey    |  false  |  Bees make it  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read and Write |
 
 ## Advanced UI sketches
 ![](doc/advanced_ui_sketches.png)

@@ -79,3 +79,7 @@ thanks.png
 - Renamed a lot of stuff for consistency
 - Cleaned up code here and there
 - Split ResultFragment up into 4 fragments: ResultFragment, AddFragment, EnterFragment and SentFragment
+
+# day 12
+
+- Busy trying to get 3 fragments (Add, Enter and Sent) inside ResultFragment, tried a lot, not working yet.

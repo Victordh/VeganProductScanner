@@ -1,10 +1,14 @@
 package nl.mprog.bubbles.veganproductscanner;
 
-import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
@@ -13,26 +17,32 @@ import android.widget.TextView;
 
 public class ResultFragment extends Fragment {
 
+    Boolean from_search = false, is_vegan;
+    Context context;
     MainActivity mainActivity;
-    PageFragment fragment;
-    String barcode;
+    String product_name;
 
-    public void onCreate(View view, PageFragment pageFragment) {
-        fragment = pageFragment;
-        createFloatingActionButton(view);
+    public void onCreate(Context context) {
+        this.context = context;
     }
 
-    private void createFloatingActionButton(View view){
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // uses Zxing to scan a barcode
-                //IntentIntegrator integrator = new IntentIntegrator(fragment.getActivity());
-                //integrator.initiateScan(IntentIntegrator.PRODUCT_CODE_TYPES);
-                productNotFound("123456789999");
-            }
-        });
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.result_fragment, container, false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (from_search) {
+            productFound(product_name, is_vegan);
+        }
+    }
+
+    public void setProduct(String name, boolean vegan) {
+        product_name = name;
+        is_vegan = vegan;
     }
 
     public void productFound(String productName, boolean isVegan) {
@@ -46,18 +56,12 @@ public class ResultFragment extends Fragment {
         if (isVegan) {
             result_frg_is_vegan_tv.setText(R.string.result_frg_is_vegan_tv_true);
             result_frg_is_vegan_tv.setTextColor(ContextCompat.getColor(
-                    fragment.getContext(), R.color.veganGreen));
+                    context, R.color.veganGreen));
         }
         else {
             result_frg_is_vegan_tv.setText(R.string.result_frg_is_vegan_tv_false);
             result_frg_is_vegan_tv.setTextColor(ContextCompat.getColor(
-                    fragment.getContext(), R.color.nonVeganRed));
+                    context, R.color.nonVeganRed));
         }
-    }
-
-    public void productNotFound(String product_barcode) {
-        //Go to AddFragment, send barcode too
-        barcode = product_barcode;
-        mainActivity.setFragment(3);
     }
 }

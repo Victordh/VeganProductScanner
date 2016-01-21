@@ -145,7 +145,7 @@ public class MemoryManagement {
         });
     }
 
-    public void getProductFromBarcode(final String barcode, final ResultFragment resultFragment) {
+    public void getProductFromBarcode(final String barcode) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
         query.whereEqualTo("productBarcode", barcode);
         query.fromLocalDatastore();
@@ -155,11 +155,11 @@ public class MemoryManagement {
                 if (e == null) {
 
                     if (product != null) {
-                        resultFragment.productFound(product.getString("productName"),
+                        mainActivity.resultFragment.productFound(product.getString("productName"),
                                 product.getBoolean("isVegan"));
                     }
                 } else if (e.getMessage().equals("no results found for query")){
-                    resultFragment.productNotFound(barcode);
+                    mainActivity.containerFragment.productNotFound(barcode);
                 }
                 else {
                     Log.d("Error", e.getMessage());

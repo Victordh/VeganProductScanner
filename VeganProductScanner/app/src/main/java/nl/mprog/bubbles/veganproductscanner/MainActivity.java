@@ -1,14 +1,17 @@
 package nl.mprog.bubbles.veganproductscanner;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.parse.Parse;
 
@@ -19,10 +22,12 @@ import com.parse.Parse;
 public class MainActivity extends AppCompatActivity {
 
     AddFragment addFragment;
+    ContainerFragment containerFragment;
     EnterFragment enterFragment;
     MemoryManagement memoryManagement;
     ResultFragment resultFragment;
     SearchFragment searchFragment;
+    String barcode;
     TabLayout main_act_tl;
     ViewPager main_act_vp;
 
@@ -53,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == IntentIntegrator.REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 String scanned_barcode = intent.getStringExtra("SCAN_RESULT");
-                memoryManagement.getProductFromBarcode(scanned_barcode, resultFragment);
+                memoryManagement.getProductFromBarcode(scanned_barcode);
             }
         }
     }
@@ -69,19 +74,26 @@ public class MainActivity extends AppCompatActivity {
     public void setResultFragment(ResultFragment fragment){
         resultFragment = fragment;
         resultFragment.mainActivity = this;
+        PageFragment pageFragment = new PageFragment();
+        resultFragment.onCreate(pageFragment.getContext());
     }
 
-    public void setSearchFragment(SearchFragment fragment){
+    public void setContainerFragment(ContainerFragment fragment) {
+        containerFragment = fragment;
+        containerFragment.mainActivity = this;
+    }
+
+    public void setSearchFragment(SearchFragment fragment) {
         searchFragment = fragment;
         searchFragment.mainActivity = this;
     }
 
-    public void setEnterFragment(EnterFragment fragment){
+    public void setEnterFragment(EnterFragment fragment) {
         enterFragment = fragment;
         enterFragment.mainActivity = this;
     }
 
-    public void setAddFragment(AddFragment fragment){
+    public void setAddFragment(AddFragment fragment) {
         addFragment = fragment;
         addFragment.mainActivity = this;
     }
@@ -94,8 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void addButtonClick(View view) {
         // goes to EnterFragment
-        setFragment(4);
-        enterFragment.setBarcode();
+        fillFragmentContainer(2);
     }
 
     public void sendToDatabase(View view) {
@@ -103,11 +114,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void productToResult(String name, Boolean vegan) {
-        setFragment(0);
-        resultFragment.productFound(name, vegan);
+        goToFragment(0);
+        fillFragmentContainer(0);
+        resultFragment.setProduct(name, vegan);
+        resultFragment.from_search = true;
     }
 
-    public void setFragment(int number) {
+    public void goToFragment(int number) {
         main_act_vp.setCurrentItem(number);
+    }
+
+    public void fillFragmentContainer(int number) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if (number == 0) {
+            ResultFragment fragment = new ResultFragment();
+            setResultFragment(fragment);
+            fragment.onCreate(this.getBaseContext());
+            fragmentTransaction.replace(R.id.container_fragment, fragment);
+        } else if (number == 2) {
+            EnterFragment fragment = new EnterFragment();
+            setEnterFragment(fragment);
+            fragmentTransaction.replace(R.id.container_fragment, fragment);
+        } else if (number == 3) {
+            Fragment fragment = new SentFragment();
+            fragmentTransaction.replace(R.id.container_fragment, fragment);
+        } else {
+            AddFragment fragment = new AddFragment();
+            setAddFragment(fragment);
+            fragmentTransaction.replace(R.id.container_fragment, fragment);
+        }
+        fragmentTransaction.commit();
     }
 }

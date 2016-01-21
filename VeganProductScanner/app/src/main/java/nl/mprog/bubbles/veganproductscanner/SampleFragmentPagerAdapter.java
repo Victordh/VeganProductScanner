@@ -12,8 +12,8 @@ import android.support.v4.app.FragmentPagerAdapter;
  */
 
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 6;
-    private String tabTitles[] = new String[] { "Result", "Search", "Info", "Add", "Enter", "Sent"};
+    final int PAGE_COUNT = 3;
+    private String tabTitles[] = new String[] { "Result", "Search", "Info"};
     Context context;
     MainActivity mainActivity;
 

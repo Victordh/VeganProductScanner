@@ -89,3 +89,7 @@ thanks.png
 - Finally managed to fix the fragments, now Result, Add, Enter and Sent are loaded inside ContainerFragment, which has replaced ResultFragment as the first tab.
 - Also fixed the list! It now has the correct background colour and is clickable.
 - Sort of messed up some parts of the clean code again, but nothing too major.
+
+# day 14
+
+- Added TODOs

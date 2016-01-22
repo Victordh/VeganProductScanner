@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 public class ResultFragment extends Fragment {
 
+    //TODO Change V/X to background colour and add picture?
+
     Boolean from_search = false, is_vegan;
     Context context;
     MainActivity mainActivity;

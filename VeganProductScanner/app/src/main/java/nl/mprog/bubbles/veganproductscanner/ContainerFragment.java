@@ -36,6 +36,14 @@ public class ContainerFragment extends Fragment {
                 productNotFound("123456789999");
             }
         });
+
+        fab.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                mainActivity.resultFragment.productFound("Lays Paprika 225g", false);
+                return true;
+            }
+        });
     }
 
     public void productNotFound(String product_barcode) {

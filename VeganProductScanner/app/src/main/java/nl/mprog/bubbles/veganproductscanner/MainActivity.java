@@ -21,6 +21,9 @@ import com.parse.Parse;
 
 public class MainActivity extends AppCompatActivity {
 
+    //TODO SharedPreferences or similar to save states of fragments/activity
+    //TODO Change colours/design/styles etc.
+
     AddFragment addFragment;
     ContainerFragment containerFragment;
     EnterFragment enterFragment;

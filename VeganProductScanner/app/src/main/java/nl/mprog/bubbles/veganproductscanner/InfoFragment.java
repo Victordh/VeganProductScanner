@@ -12,6 +12,11 @@ import android.view.ViewGroup;
  */
 
 public class InfoFragment extends Fragment {
+
+    //TODO Replace placeholder with more/other information
+    //TODO Maybe remove 'empty database'?
+    //TODO Alter/remove Toasts
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

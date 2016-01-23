@@ -93,3 +93,5 @@ thanks.png
 # day 14
 
 - Added TODOs
+- Fixed (hopefully all) crashes
+- Added SharedPreferences to everything except SearchFragment, couldn't get it working there (yet) somehow

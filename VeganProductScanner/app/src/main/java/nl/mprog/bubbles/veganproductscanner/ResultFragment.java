@@ -19,7 +19,7 @@ public class ResultFragment extends Fragment {
 
     //TODO Change V/X to background colour and add picture?
 
-    Boolean from_search = false, is_vegan;
+    Boolean is_vegan;
     Context context;
     MainActivity mainActivity;
     String product_name;
@@ -37,14 +37,16 @@ public class ResultFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        if (from_search) {
-            productFound(product_name, is_vegan);
-        }
+        product_name = mainActivity.prefs.getString("productName", "");
+        is_vegan = mainActivity.prefs.getBoolean("productIsVegan", false);
+        productFound(product_name, is_vegan);
     }
 
     public void setProduct(String name, boolean vegan) {
         product_name = name;
         is_vegan = vegan;
+        mainActivity.prefs.edit().putString("productName", product_name).apply();
+        mainActivity.prefs.edit().putBoolean("productIsVegan", is_vegan).apply();
     }
 
     public void productFound(String productName, boolean isVegan) {

@@ -33,6 +33,7 @@
     <!--SearchFragment-->
     <string name="search_frg_search_btn">Search</string>
     <string name="search_frg_input_et_hint">Enter (part of) the barcode or product name here</string>
+    <string name="search_frg_input_et_searched_hint">"You searched for: "</string>
 
     <!--SentFragment-->
     <string name="sent_frg_thanks_tv">Thank you! I\'ll add it to the database as soon as possible.</string>

@@ -25,6 +25,12 @@ public class ContainerFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        mainActivity.fillContainerFragment(mainActivity.prefs.getInt("currentContainerFragment", 0));
+    }
+
     private void createFloatingActionButton(View view){
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +54,8 @@ public class ContainerFragment extends Fragment {
 
     public void productNotFound(String product_barcode) {
         //Go to AddFragment, send barcode too
+        mainActivity.prefs.edit().putString("productBarcode", product_barcode).apply();
         mainActivity.barcode = product_barcode;
-        mainActivity.fillFragmentContainer(1);
+        mainActivity.fillContainerFragment(1);
     }
 }

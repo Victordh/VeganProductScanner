@@ -4,16 +4,13 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import com.parse.Parse;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
@@ -30,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     MemoryManagement memoryManagement;
     ResultFragment resultFragment;
     SearchFragment searchFragment;
+    SharedPreferences prefs;
     String barcode;
     TabLayout main_act_tl;
     ViewPager main_act_vp;
@@ -43,6 +41,20 @@ public class MainActivity extends AppCompatActivity {
         main_act_vp = (ViewPager) findViewById(R.id.main_act_vp);
         main_act_vp.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
                 this.getBaseContext(), this));
+        main_act_vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                prefs.edit().putInt("currentTab", position).apply();
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
 
         // Give the TabLayout the ViewPager
         main_act_tl = (TabLayout) findViewById(R.id.main_act_tl);
@@ -53,8 +65,14 @@ public class MainActivity extends AppCompatActivity {
 
         // TODO Replace LocalDatastore with SQLite, apparently it's 20 times faster
         // http://stackoverflow.com/questions/30425087/parse-query-local-database-is-20-times-slower-then-sqlite
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this);
+        //Parse.enableLocalDatastore(this);
+        //Parse.initialize(this);
+
+        prefs = getSharedPreferences("prefs", 0);
+
+        goToFragment(prefs.getInt("currentTab", 0));
+
+        barcode = prefs.getString("productBarcode", "");
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -104,12 +122,18 @@ public class MainActivity extends AppCompatActivity {
     public void searchButtonClick(View view) {
         EditText search_frg_input_et = (EditText) findViewById(R.id.search_frg_input_et);
         String input = search_frg_input_et.getText().toString();
-        memoryManagement.getProductsFromInput(input, searchFragment, this);
+        search_frg_input_et.setText("");
+        String hint = getString(R.string.search_frg_input_et_searched_hint) + input;
+        search_frg_input_et.setHint(hint);
+        prefs.edit().putString("searchHint", hint).apply();
+        prefs.edit().putString("searchInput", input).apply();
+        prefs.edit().putString("searchText", "").apply();
+        memoryManagement.getProductsFromInput(input);
     }
 
     public void addButtonClick(View view) {
         // goes to EnterFragment
-        fillFragmentContainer(2);
+        fillContainerFragment(2);
     }
 
     public void sendToDatabase(View view) {
@@ -118,16 +142,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void productToResult(String name, Boolean vegan) {
         goToFragment(0);
-        fillFragmentContainer(0);
+        fillContainerFragment(0);
         resultFragment.setProduct(name, vegan);
-        resultFragment.from_search = true;
     }
 
     public void goToFragment(int number) {
         main_act_vp.setCurrentItem(number);
     }
 
-    public void fillFragmentContainer(int number) {
+    public void fillContainerFragment(int number) {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         if (number == 0) {
@@ -148,5 +171,6 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.replace(R.id.container_fragment, fragment);
         }
         fragmentTransaction.commit();
+        prefs.edit().putInt("currentContainerFragment", number).apply();
     }
 }

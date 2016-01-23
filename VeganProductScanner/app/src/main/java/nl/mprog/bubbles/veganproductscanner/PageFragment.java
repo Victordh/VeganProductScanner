@@ -1,11 +1,11 @@
 package nl.mprog.bubbles.veganproductscanner;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
@@ -17,7 +17,6 @@ public class PageFragment extends Fragment {
     public static final String ARG_PAGE = "ARG_PAGE";
 
     static MainActivity mainActivity;
-    ResultFragment resultFragment;
     ContainerFragment containerFragment;
     private int mPage;
 
@@ -51,7 +50,7 @@ public class PageFragment extends Fragment {
         } else {
             containerFragment = new ContainerFragment();
             view = containerFragment.onCreateView(inflater, container, savedInstanceState);
-            mainActivity.fillFragmentContainer(0);
+            mainActivity.fillContainerFragment(mainActivity.prefs.getInt("currentContainerFragment", 0));
             mainActivity.setContainerFragment(containerFragment);
         }
         return view;

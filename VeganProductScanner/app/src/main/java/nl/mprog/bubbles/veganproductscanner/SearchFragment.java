@@ -2,16 +2,21 @@ package nl.mprog.bubbles.veganproductscanner;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -29,6 +34,33 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.search_fragment, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        Toast.makeText(mainActivity.getApplicationContext(), "DO YOU GET HERE MATE", Toast.LENGTH_SHORT).show();
+
+        EditText search_frg_input_et = (EditText) mainActivity.findViewById(R.id.search_frg_input_et);
+        search_frg_input_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() > 0) {
+                    mainActivity.prefs.edit().putString("searchText", s.toString()).apply();
+                }
+            }
+        });
+        search_frg_input_et.setText(mainActivity.prefs.getString("searchText", ""));
+        search_frg_input_et.setHint(mainActivity.prefs.getString("searchHint", mainActivity.getString(R.string.search_frg_input_et_hint)));
+
+        mainActivity.memoryManagement.getProductsFromInput(mainActivity.prefs.getString("searchInput", "naturel"));
     }
 
     public void passViewContext(View v, Context c) {
@@ -50,9 +82,11 @@ public class SearchFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
                                     long arg3) {
-                String name = productNames.get(arg2);
-                Boolean vegan = isVeganList.get(arg2);
-                mainActivity.productToResult(name, vegan);
+                if (!productNames.get(arg2).equals("No products found")) {
+                    String name = productNames.get(arg2);
+                    Boolean vegan = isVeganList.get(arg2);
+                    mainActivity.productToResult(name, vegan);
+                }
             }
 
         });

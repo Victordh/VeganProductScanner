@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.parse.CountCallback;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
+import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -109,8 +110,7 @@ public class MemoryManagement {
 
     // TODO Make input case-insensitive.
     // TODO Put more relevant products higher in the list.
-    public void getProductsFromInput(String input, final SearchFragment searchFragment,
-                                     final MainActivity mainActivity) {
+    public void getProductsFromInput(String input) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
         if (input.length() == 13 && input.matches("[0-9]+")) {
                 query.whereEqualTo("productBarcode", input);
@@ -135,8 +135,13 @@ public class MemoryManagement {
                             mainActivity.productToResult(productNames.get(0), isVeganList.get(0));
                         }
                         else {
-                            searchFragment.createList(productNames, isVeganList);
+                            mainActivity.searchFragment.createList(productNames, isVeganList);
                         }
+                    }
+                    else {
+                        productNames.add("No products found");
+                        isVeganList.add(false);
+                        mainActivity.searchFragment.createList(productNames, isVeganList);
                     }
                 } else {
                     Log.d("Error", e.getMessage());
@@ -153,7 +158,6 @@ public class MemoryManagement {
         query.getFirstInBackground(new GetCallback<ParseObject>() {
             public void done(ParseObject product, ParseException e) {
                 if (e == null) {
-
                     if (product != null) {
                         mainActivity.resultFragment.productFound(product.getString("productName"),
                                 product.getBoolean("isVegan"));

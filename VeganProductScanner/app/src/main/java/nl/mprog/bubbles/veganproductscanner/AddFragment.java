@@ -18,6 +18,10 @@ public class AddFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        mainActivity.prefs.edit().putString("productEnterComment", "").apply();
+        mainActivity.prefs.edit().putString("productEnterName", "").apply();
+        mainActivity.prefs.edit().putInt("productEnterVegan", 2131492987).apply();
+
         return inflater.inflate(R.layout.add_fragment, container, false);
     }
 }

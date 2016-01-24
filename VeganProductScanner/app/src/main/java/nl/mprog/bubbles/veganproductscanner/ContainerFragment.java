@@ -37,17 +37,8 @@ public class ContainerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // uses Zxing to scan a barcode
-                //IntentIntegrator integrator = new IntentIntegrator(mainActivity);
-                //integrator.initiateScan(IntentIntegrator.PRODUCT_CODE_TYPES);
-                productNotFound("123456789999");
-            }
-        });
-
-        fab.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                mainActivity.resultFragment.productFound("Lays Paprika 225g", false);
-                return true;
+                IntentIntegrator integrator = new IntentIntegrator(mainActivity);
+                integrator.initiateScan(IntentIntegrator.PRODUCT_CODE_TYPES);
             }
         });
     }

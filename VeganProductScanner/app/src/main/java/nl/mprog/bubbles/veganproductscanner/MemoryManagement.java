@@ -50,7 +50,26 @@ public class MemoryManagement {
                     }
                 }
             });
+            addKeywordsToLocalDatabase();
         }
+    }
+
+    private void addKeywordsToLocalDatabase() {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
+        query.fromLocalDatastore();
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    for (ParseObject product : objects) {
+                        String keywords = product.getString("productName").toLowerCase();
+                        product.put("keywords", keywords);
+                    }
+                } else {
+                Log.d("Error", e.getMessage());
+            }
+            }
+        });
     }
 
     public void eraseLocalDatabase() {
@@ -109,18 +128,18 @@ public class MemoryManagement {
         }
     }
 
-    // TODO Make input case-insensitive.
     // TODO Put more relevant products higher in the list.
     public void getProductsFromInput(String input) {
         List<ParseQuery<ParseObject>> queries = new ArrayList<ParseQuery<ParseObject>>();
         if (!input.matches("\\s+")) {
+            input = input.toLowerCase();
             String[] input_pieces = input.trim().split("\\s+");
             for (String input_piece : input_pieces) {
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
                 if (input_piece.length() == 13 && input_piece.matches("[0-9]+")) {
                     query.whereEqualTo("productBarcode", input_piece);
                 } else {
-                    query.whereContains("productName", input_piece);
+                    query.whereContains("keywords", input_piece);
                 }
                 queries.add(query);
             }

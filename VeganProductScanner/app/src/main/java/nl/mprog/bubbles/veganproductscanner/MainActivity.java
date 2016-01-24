@@ -41,20 +41,7 @@ public class MainActivity extends AppCompatActivity {
         main_act_vp = (ViewPager) findViewById(R.id.main_act_vp);
         main_act_vp.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
                 this.getBaseContext(), this));
-        main_act_vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
 
-            @Override
-            public void onPageSelected(int position) {
-                prefs.edit().putInt("currentTab", position).apply();
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-            }
-        });
 
         // Give the TabLayout the ViewPager
         main_act_tl = (TabLayout) findViewById(R.id.main_act_tl);
@@ -73,6 +60,19 @@ public class MainActivity extends AppCompatActivity {
         goToFragment(prefs.getInt("currentTab", 0));
 
         barcode = prefs.getString("productBarcode", "");
+
+        main_act_vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+
+            @Override
+            public void onPageSelected(int position) {
+                prefs.edit().putInt("currentTab", position).apply();
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {}
+        });
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -148,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToFragment(int number) {
         main_act_vp.setCurrentItem(number);
+        //TODO Fix that old (wrong) tab title is highlighted after tab is changed via this method
     }
 
     public void fillContainerFragment(int number) {

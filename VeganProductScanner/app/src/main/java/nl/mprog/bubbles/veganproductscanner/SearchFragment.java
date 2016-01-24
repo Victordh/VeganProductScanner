@@ -26,22 +26,19 @@ import java.util.ArrayList;
 
 public class SearchFragment extends Fragment {
 
-    MainActivity mainActivity;
     Context context;
+    MainActivity mainActivity;
     View view;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.search_fragment, container, false);
+        view = inflater.inflate(R.layout.search_fragment, container, false);
+        context = container.getContext();
+        return view;
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        Toast.makeText(mainActivity.getApplicationContext(), "DO YOU GET HERE MATE", Toast.LENGTH_SHORT).show();
-
+    public void loadFromPrefs() {
         EditText search_frg_input_et = (EditText) mainActivity.findViewById(R.id.search_frg_input_et);
         search_frg_input_et.addTextChangedListener(new TextWatcher() {
             @Override
@@ -61,11 +58,6 @@ public class SearchFragment extends Fragment {
         search_frg_input_et.setHint(mainActivity.prefs.getString("searchHint", mainActivity.getString(R.string.search_frg_input_et_hint)));
 
         mainActivity.memoryManagement.getProductsFromInput(mainActivity.prefs.getString("searchInput", "naturel"));
-    }
-
-    public void passViewContext(View v, Context c) {
-        view = v;
-        context = c;
     }
 
     public void createList(final ArrayList<String> productNames,

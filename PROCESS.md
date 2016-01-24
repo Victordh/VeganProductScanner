@@ -92,6 +92,14 @@ thanks.png
 
 # day 14
 
-- Added TODOs
-- Fixed (hopefully all) crashes
-- Added SharedPreferences to everything except SearchFragment, couldn't get it working there (yet) somehow
+- Added TODOs.
+- Fixed (hopefully all) crashes.
+- Added SharedPreferences to everything except SearchFragment, couldn't get it working there (yet) somehow.
+
+# day 15
+
+- Added SharedPreferences to SearchFragment.
+- MemoryManagement now searches for matches with all words/barcodes in the search input and disregards whitespace.
+- Switched from coloured text to coloured background for more obvious ResultFragment.
+- Made search input case-insensitive.
+- Sorts SearchFragment list alphabetically.

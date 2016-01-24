@@ -15,6 +15,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -111,43 +112,55 @@ public class MemoryManagement {
     // TODO Make input case-insensitive.
     // TODO Put more relevant products higher in the list.
     public void getProductsFromInput(String input) {
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
-        if (input.length() == 13 && input.matches("[0-9]+")) {
-                query.whereEqualTo("productBarcode", input);
-        }
-        else {
-            query.whereContains("productName", input);
-        }
-        query.fromLocalDatastore();
+        List<ParseQuery<ParseObject>> queries = new ArrayList<ParseQuery<ParseObject>>();
+        if (!input.matches("\\s+")) {
+            String[] input_pieces = input.trim().split("\\s+");
+            for (String input_piece : input_pieces) {
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
+                if (input_piece.length() == 13 && input_piece.matches("[0-9]+")) {
+                    query.whereEqualTo("productBarcode", input_piece);
+                } else {
+                    query.whereContains("productName", input_piece);
+                }
+                queries.add(query);
+            }
+            ParseQuery<ParseObject> mainQuery = ParseQuery.or(queries);
+            mainQuery.fromLocalDatastore();
 
-        query.findInBackground(new FindCallback<ParseObject>() {
-            @Override
-            public void done(List<ParseObject> objects, ParseException e) {
-                if (e == null) {
-                    ArrayList<String> productNames = new ArrayList<>();
-                    ArrayList<Boolean> isVeganList = new ArrayList<>();
-                    for (ParseObject product : objects) {
-                        productNames.add(product.getString("productName"));
-                        isVeganList.add(product.getBoolean("isVegan"));
-                    }
-                    if (!productNames.isEmpty()) {
-                        if (productNames.size() == 1) {
-                            mainActivity.productToResult(productNames.get(0), isVeganList.get(0));
+            mainQuery.findInBackground(new FindCallback<ParseObject>() {
+                @Override
+                public void done(List<ParseObject> objects, ParseException e) {
+                    if (e == null) {
+                        ArrayList<String> productNames = new ArrayList<>();
+                        ArrayList<Boolean> isVeganList = new ArrayList<>();
+                        for (ParseObject product : objects) {
+                            productNames.add(product.getString("productName"));
+                            isVeganList.add(product.getBoolean("isVegan"));
                         }
-                        else {
+                        if (!productNames.isEmpty()) {
+                            if (productNames.size() == 1) {
+                                mainActivity.productToResult(productNames.get(0), isVeganList.get(0));
+                            } else {
+                                mainActivity.searchFragment.createList(productNames, isVeganList);
+                            }
+                        } else {
+                            productNames.add("No products found");
+                            isVeganList.add(false);
                             mainActivity.searchFragment.createList(productNames, isVeganList);
                         }
+                    } else {
+                        Log.d("Error", e.getMessage());
                     }
-                    else {
-                        productNames.add("No products found");
-                        isVeganList.add(false);
-                        mainActivity.searchFragment.createList(productNames, isVeganList);
-                    }
-                } else {
-                    Log.d("Error", e.getMessage());
                 }
-            }
-        });
+            });
+        }
+        else {
+            ArrayList<String> productNames = new ArrayList<>();
+            ArrayList<Boolean> isVeganList = new ArrayList<>();
+            productNames.add("No products found");
+            isVeganList.add(false);
+            mainActivity.searchFragment.createList(productNames, isVeganList);
+        }
     }
 
     public void getProductFromBarcode(final String barcode) {
@@ -178,8 +191,7 @@ public class MemoryManagement {
         submission.put("productName", name);
         submission.put("isVegan", vegan);
         submission.put("productComment", comment);
-        // TODO add saveEventually, maybe when connected to WiFi or after x hours max?
-        submission.saveInBackground();
+        submission.saveEventually();
     }
 
     private void productCount(){

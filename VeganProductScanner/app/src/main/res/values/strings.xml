@@ -15,7 +15,7 @@
     <string name="enter_frg_send_data_btn">Send to database</string>
 
     <!--InfoFragment-->
-    <string name="info_frg_placeholder_tv">This is the page where there will be information. Probably a FAQ, maybe something on how to use this app, probably a feedback button.</string>
+    <string name="info_frg_placeholder_tv">Before you start using this app, make sure you tap the "Sync database" button. You can either scan a barcode by tapping the round button in the first tab, or search for products by entering a barcode or part of a product name.</string>
     <string name="info_frg_sync_btn">Sync database</string>
     <string name="info_frg_erase_btn">Erase local database</string>
 

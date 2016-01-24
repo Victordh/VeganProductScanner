@@ -39,7 +39,10 @@ public class ResultFragment extends Fragment {
         super.onStart();
         product_name = mainActivity.prefs.getString("productName", "");
         is_vegan = mainActivity.prefs.getBoolean("productIsVegan", false);
-        productFound(product_name, is_vegan);
+        if (!product_name.equals("")) {
+            productFound(product_name, is_vegan);
+        }
+        mainActivity.findViewById(R.id.fab).bringToFront();
     }
 
     public void setProduct(String name, boolean vegan) {
@@ -59,13 +62,19 @@ public class ResultFragment extends Fragment {
 
         if (isVegan) {
             result_frg_is_vegan_tv.setText(R.string.result_frg_is_vegan_tv_true);
-            result_frg_is_vegan_tv.setTextColor(ContextCompat.getColor(
-                    context, R.color.veganGreen));
+            if (this.getView() != null) {
+                this.getView().setBackgroundColor(ContextCompat.getColor(
+                        context, R.color.veganGreen));
+            }
+            mainActivity.findViewById(R.id.fab).bringToFront();
         }
         else {
             result_frg_is_vegan_tv.setText(R.string.result_frg_is_vegan_tv_false);
-            result_frg_is_vegan_tv.setTextColor(ContextCompat.getColor(
-                    context, R.color.nonVeganRed));
+            if (this.getView() != null) {
+                this.getView().setBackgroundColor(ContextCompat.getColor(
+                        context, R.color.nonVeganRed));
+            }
+            mainActivity.findViewById(R.id.fab).bringToFront();
         }
     }
 }

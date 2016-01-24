@@ -26,8 +26,8 @@
     <string name="result_frg_integrator_no">NO</string>
 
     <!--ResultFragment-->
-    <string name="result_frg_is_vegan_tv_false"><font color="#EE0000">X</font></string>
-    <string name="result_frg_is_vegan_tv_true"><font color="#319020">V</font></string>
+    <string name="result_frg_is_vegan_tv_false">X</string>
+    <string name="result_frg_is_vegan_tv_true">V</string>
     <string name="result_frg_name_tv">This will be the product name.</string>
 
     <!--SearchFragment-->

@@ -145,6 +145,7 @@ public class MemoryManagement {
             }
             ParseQuery<ParseObject> mainQuery = ParseQuery.or(queries);
             mainQuery.fromLocalDatastore();
+            mainQuery.addAscendingOrder("productName");
 
             mainQuery.findInBackground(new FindCallback<ParseObject>() {
                 @Override

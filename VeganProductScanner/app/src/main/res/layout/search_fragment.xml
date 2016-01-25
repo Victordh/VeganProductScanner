@@ -12,11 +12,11 @@
         android:layout_width="wrap_content"
         android:onClick="searchButtonClick"
         android:padding="10dp"
-        android:text="@string/search_frg_search_btn" />
+        android:text="@string/search.fragment.btn.search" />
 
     <EditText
         android:id="@+id/search_frg_input_et"
-        android:hint="@string/search_frg_input_et_hint"
+        android:hint="@string/search.fragment.et.input.hint"
         android:layout_height="wrap_content"
         android:layout_toStartOf="@id/search_frg_search_btn"
         android:layout_width="wrap_content"

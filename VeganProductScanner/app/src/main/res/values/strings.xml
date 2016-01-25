@@ -1,40 +1,40 @@
 <resources>
-    <string name="app_name">Vegan Product Scanner</string>
+    <string name="app.name">Vegan Product Scanner</string>
 
     <!--AddFragment-->
-    <string name="add_frg_add_tv">Sorry! The product is not in the database yet. Try to sync the database or add the product by clicking the button above.</string>
-    <string name="add_frg_add_btn">Add product</string>
+    <string name="add.fragment.tv.not.found">Sorry! The product is not in the database yet. Try to sync the database or add the product by clicking the button above.</string>
+    <string name="add.fragment.btn.add">Add product</string>
 
     <!--EnterFragment-->
-    <string name="enter_frg_barcode_tv">0000000000000</string>
-    <string name="enter_frg_name_et_hint">Enter product name here</string>
-    <string name="enter_frg_vegan_yes_rb">Yes</string>
-    <string name="enter_frg_vegan_no_rb">No</string>
-    <string name="enter_frg_vegan_dont_know_rb">Don\'t know</string>
-    <string name="enter_frg_comment_et_hint">Optionally, enter a comment</string>
-    <string name="enter_frg_send_data_btn">Send to database</string>
+    <string name="enter.fragment.tv.barcode">0000000000000</string>
+    <string name="enter.fragment.et.name.hint">Enter product name here</string>
+    <string name="enter.fragment.rb.vegan.yes">Yes</string>
+    <string name="enter.fragment.rb.vegan.no">No</string>
+    <string name="enter.fragment.rb.vegan.dont.know">Don\'t know</string>
+    <string name="enter.fragment.et.comment.hint">Optionally, enter a comment</string>
+    <string name="enter.fragment.btn.send">Send to database</string>
 
     <!--InfoFragment-->
-    <string name="info_frg_placeholder_tv">Before you start using this app, make sure you tap the "Sync database" button. You can either scan a barcode by tapping the round button in the first tab, or search for products by entering a barcode or part of a product name.</string>
-    <string name="info_frg_sync_btn">Sync database</string>
-    <string name="info_frg_erase_btn">Erase local database</string>
+    <string name="info.fragment.tv.info">Before you start using this app, make sure you tap the "Sync database" button. You can either scan a barcode by tapping the round button in the first tab, or search for products by entering a barcode or part of a product name.</string>
+    <string name="info.fragment.btn.sync">Sync database</string>
+    <string name="info.fragment.btn.erase">Erase local database</string>
 
     <!--ResultFragment FAB IntentIntegrator-->
-    <string name="result_frg_integrator_message">Vegan Product Scanner requires Barcode Scanner. Would you like to install it?</string>
-    <string name="result_frg_integrator_title">Install Barcode Scanner?</string>
-    <string name="result_frg_integrator_yes">YES</string>
-    <string name="result_frg_integrator_no">NO</string>
+    <string name="result.fragment.integrator.message">Vegan Product Scanner requires Barcode Scanner. Would you like to install it?</string>
+    <string name="result.fragment.integrator.title">Install Barcode Scanner?</string>
+    <string name="result.fragment.integrator.yes">YES</string>
+    <string name="result.fragment.integrator.no">NO</string>
 
     <!--ResultFragment-->
-    <string name="result_frg_is_vegan_tv_false">X</string>
-    <string name="result_frg_is_vegan_tv_true">V</string>
-    <string name="result_frg_name_tv">This will be the product name.</string>
+    <string name="result.fragment.tv.vegan.false">X</string>
+    <string name="result.fragment.tv.vegan.true">V</string>
+    <string name="result.fragment.tv.name">This will be the product name.</string>
 
     <!--SearchFragment-->
-    <string name="search_frg_search_btn">Search</string>
-    <string name="search_frg_input_et_hint">Enter (part of) the barcode or product name here</string>
-    <string name="search_frg_input_et_searched_hint">"You searched for: "</string>
+    <string name="search.fragment.btn.search">Search</string>
+    <string name="search.fragment.et.input.hint">Enter (part of) the barcode or product name here</string>
+    <string name="search.fragment.et.input.searched.hint">"You searched for: "</string>
 
     <!--SentFragment-->
-    <string name="sent_frg_thanks_tv">Thank you! I\'ll add it to the database as soon as possible.</string>
+    <string name="sent.fragment.tv.thanks">Thank you! I\'ll add it to the database as soon as possible.</string>
 </resources>

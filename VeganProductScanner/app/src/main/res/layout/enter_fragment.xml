@@ -12,10 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
-        android:text="@string/enter_frg_barcode_tv" />
+        android:text="@string/enter.fragment.tv.barcode" />
 
     <EditText
-        android:hint="@string/enter_frg_name_et_hint"
+        android:hint="@string/enter.fragment.et.name.hint"
         android:id="@+id/enter_frg_name_et"
         android:layout_below="@id/enter_frg_barcode_tv"
         android:layout_centerHorizontal="true"
@@ -34,24 +34,24 @@
             android:id="@+id/enter_frg_vegan_yes_rb"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="@string/enter_frg_vegan_yes_rb"/>
+            android:text="@string/enter.fragment.rb.vegan.yes"/>
 
         <RadioButton
             android:id="@+id/enter_frg_vegan_no_rb"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="@string/enter_frg_vegan_no_rb"/>
+            android:text="@string/enter.fragment.rb.vegan.no"/>
 
         <RadioButton
             android:id="@id/enter_frg_vegan_dont_know_rb"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="@string/enter_frg_vegan_dont_know_rb"/>
+            android:text="@string/enter.fragment.rb.vegan.dont.know"/>
 
     </RadioGroup>
 
     <EditText
-        android:hint="@string/enter_frg_comment_et_hint"
+        android:hint="@string/enter.fragment.et.comment.hint"
         android:id="@+id/enter_frg_comment_et"
         android:layout_below="@id/enter_frg_vegan_rg"
         android:layout_centerHorizontal="true"
@@ -64,7 +64,7 @@
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/enter_frg_send_data_btn"
+        android:text="@string/enter.fragment.btn.send"
         android:onClick="sendToDatabase" />
 
 </RelativeLayout>

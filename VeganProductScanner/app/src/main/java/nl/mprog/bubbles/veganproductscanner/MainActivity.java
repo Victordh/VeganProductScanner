@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         EditText search_frg_input_et = (EditText) findViewById(R.id.search_frg_input_et);
         String input = search_frg_input_et.getText().toString();
         search_frg_input_et.setText("");
-        String hint = getString(R.string.search_frg_input_et_searched_hint) + input;
+        String hint = getString(R.string.search_fragment_et_input_searched_hint) + input;
         search_frg_input_et.setHint(hint);
         prefs.edit().putString("searchHint", hint).apply();
         prefs.edit().putString("searchInput", input).apply();

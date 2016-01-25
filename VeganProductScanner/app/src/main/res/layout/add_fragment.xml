@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:text="@string/add_frg_add_btn"
+        android:text="@string/add.fragment.btn.add"
         android:onClick="addButtonClick" />
 
     <TextView
@@ -23,6 +23,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_width="250dp"
-        android:text="@string/add_frg_add_tv" />
+        android:text="@string/add.fragment.tv.not.found" />
 
 </RelativeLayout>

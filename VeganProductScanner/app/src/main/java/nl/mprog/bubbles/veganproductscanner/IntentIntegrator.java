@@ -175,10 +175,10 @@ public class IntentIntegrator {
     }
 
     private void initializeConfiguration() {
-        title = activity.getString(R.string.result_frg_integrator_title);
-        message = activity.getString(R.string.result_frg_integrator_message);
-        buttonYes = activity.getString(R.string.result_frg_integrator_yes);
-        buttonNo = activity.getString(R.string.result_frg_integrator_no);
+        title = activity.getString(R.string.result_fragment_integrator_title);
+        message = activity.getString(R.string.result_fragment_integrator_message);
+        buttonYes = activity.getString(R.string.result_fragment_integrator_yes);
+        buttonNo = activity.getString(R.string.result_fragment_integrator_no);
         targetApplications = TARGET_ALL_KNOWN;
     }
 

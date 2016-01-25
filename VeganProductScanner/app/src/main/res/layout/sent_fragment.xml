@@ -12,6 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
-        android:text="@string/sent_frg_thanks_tv" />
+        android:text="@string/sent.fragment.tv.thanks" />
 
 </FrameLayout>

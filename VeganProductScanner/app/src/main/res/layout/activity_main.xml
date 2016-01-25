@@ -8,6 +8,9 @@
     android:id="@+id/activity_main"
     tools:context=".MainActivity">
 
+    <!--TODO: put non-layout attributes (so appearance) in style files.
+    Keep orientation, id, text in layout too.-->
+
     <include layout="@layout/content_main" />
 
 </android.support.design.widget.CoordinatorLayout>

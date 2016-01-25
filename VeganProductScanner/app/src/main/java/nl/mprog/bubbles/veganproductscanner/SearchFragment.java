@@ -2,11 +2,8 @@ package nl.mprog.bubbles.veganproductscanner;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -16,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -55,7 +51,7 @@ public class SearchFragment extends Fragment {
             }
         });
         search_frg_input_et.setText(mainActivity.prefs.getString("searchText", ""));
-        search_frg_input_et.setHint(mainActivity.prefs.getString("searchHint", mainActivity.getString(R.string.search_frg_input_et_hint)));
+        search_frg_input_et.setHint(mainActivity.prefs.getString("searchHint", mainActivity.getString(R.string.search_fragment_et_input_hint)));
 
         mainActivity.memoryManagement.getProductsFromInput(mainActivity.prefs.getString("searchInput", "naturel"));
     }

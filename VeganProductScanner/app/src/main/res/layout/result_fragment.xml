@@ -10,7 +10,7 @@
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/result_frg_is_vegan_tv_true"
+        android:text="@string/result.fragment.tv.vegan.true"
         android:textSize="220sp" />
 
     <TextView
@@ -19,7 +19,7 @@
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/result_frg_name_tv"
+        android:text="@string/result.fragment.tv.name"
         android:textSize="24sp"
         android:textStyle="bold"/>
 

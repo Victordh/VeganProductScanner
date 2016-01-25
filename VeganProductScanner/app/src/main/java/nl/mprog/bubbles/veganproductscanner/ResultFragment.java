@@ -4,7 +4,6 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,7 +60,7 @@ public class ResultFragment extends Fragment {
         result_frg_name_tv.setText(productName);
 
         if (isVegan) {
-            result_frg_is_vegan_tv.setText(R.string.result_frg_is_vegan_tv_true);
+            result_frg_is_vegan_tv.setText(R.string.result_fragment_tv_vegan_true);
             if (this.getView() != null) {
                 this.getView().setBackgroundColor(ContextCompat.getColor(
                         context, R.color.veganGreen));
@@ -69,7 +68,7 @@ public class ResultFragment extends Fragment {
             mainActivity.findViewById(R.id.fab).bringToFront();
         }
         else {
-            result_frg_is_vegan_tv.setText(R.string.result_frg_is_vegan_tv_false);
+            result_frg_is_vegan_tv.setText(R.string.result_fragment_tv_vegan_false);
             if (this.getView() != null) {
                 this.getView().setBackgroundColor(ContextCompat.getColor(
                         context, R.color.nonVeganRed));

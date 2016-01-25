@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
+ * ContainerFragment is a container for fragments (Result, Add, Enter and Sent). The Floating Action
+ * Button is part of ContainerFragment, so it's visible regardless of which fragment is filling it.
  */
 
 public class ContainerFragment extends Fragment {
@@ -17,20 +19,25 @@ public class ContainerFragment extends Fragment {
     MainActivity mainActivity;
     PageFragment fragment;
 
+    // loads xml and adds Floating Action Button
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.container_fragment, container, false);
         createFloatingActionButton(view);
         return view;
     }
 
+    // adds the fragment that was filling ContainerFragment
     @Override
     public void onStart() {
         super.onStart();
-        mainActivity.fillContainerFragment(mainActivity.prefs.getInt("currentContainerFragment", 0));
+        mainActivity.fillContainerFragment(
+                mainActivity.prefs.getInt("currentContainerFragment", 0));
     }
 
+    // creates the Floating Action Button
     private void createFloatingActionButton(View view){
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -43,10 +50,10 @@ public class ContainerFragment extends Fragment {
         });
     }
 
-    public void productNotFound(String product_barcode) {
-        //Go to AddFragment, send barcode too
-        mainActivity.prefs.edit().putString("productBarcode", product_barcode).apply();
-        mainActivity.barcode = product_barcode;
+    // fills ContainerFragment with AddFragment and remembers barcode, if product couldn't be found
+    public void productNotFound(String barcode) {
+        mainActivity.prefs.edit().putString("productBarcode", barcode).apply();
+        mainActivity.barcode = barcode;
         mainActivity.fillContainerFragment(1);
     }
 }

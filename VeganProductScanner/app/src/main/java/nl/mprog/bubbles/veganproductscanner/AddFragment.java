@@ -18,11 +18,15 @@ public class AddFragment extends Fragment {
 
     MainActivity mainActivity;
 
+    // loads xml and resets the EnterFragment input, because a new product has been scanned
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         mainActivity.prefs.edit().putString("productEnterComment", "").apply();
         mainActivity.prefs.edit().putString("productEnterName", "").apply();
+        // TODO Find a way to do this differently than with a hardcoded ID
+        // enterFragment.rgVegan.findViewById(R.id.enter_frg_vegan_no_rb).getId()
         mainActivity.prefs.edit().putInt("productEnterVegan", 2131492987).apply();
 
         return inflater.inflate(R.layout.add_fragment, container, false);

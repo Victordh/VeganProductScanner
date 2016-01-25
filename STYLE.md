@@ -1,3 +1,5 @@
+Based on [this](http://source.android.com/source/code-style.html#follow-field-naming-conventions), [this](https://github.com/futurice/android-best-practices) and [this](http://stackoverflow.com/questions/12870537/android-naming-convention).  
+
 Name XML files:
 
 - activity_<ACTIVITY NAME>.xml - for all activities
@@ -10,30 +12,30 @@ Name components in XML files:
 - activity_login_et_username
 - activity_login_et_password
 
-Button - btn
-EditText - et
-TextView - tv
-Checkbox - chk
-RadioButton - rb
-ToggleButton - tb
-Spinner - spn
-Menu - mnu
-ListView - lv
-GalleryView - gv
-LinearLayout -ll
-RelativeLayout - rl
+Button - btn  
+EditText - et  
+TextView - tv  
+Checkbox - chk  
+RadioButton - rb  
+ToggleButton - tb  
+Spinner - spn  
+Menu - mnu  
+ListView - lv  
+GalleryView - gv  
+LinearLayout -ll  
+RelativeLayout - rl  
 
 
-Sort XML attributes alphabetically?
-Sort XML attributes id first, layout after, rest alphabetically last?
+Sort XML attributes alphabetically?  
+Sort XML attributes id first, layout after, rest alphabetically last?  
 
-Layout/content (id, text, layout, orientation) attributes inside layout XML, rest in style XML.
+Layout/content (id, text, layout, orientation) attributes inside layout XML, rest in style XML.  
 
-In strings.xml, use 'error.message.network', not 'network_error'.
+In strings.xml, use 'error.message.network', not 'network_error'.  
 
 
-In Java, use CamelCase (etUsername).
-Don't prefix with activity, because code is in a certain activity already anyway. (NOT: activityLoginEtUsername, BUT: etUsername)
-Temporary stuff can have really simple names, a ListView you only use once somewhere can be called 'lv'.
-No need to prefix Strings, floats, etc. with their type (NOT: stringId, BUT: id).
-Shorten commonly known/used words, like 'pass' instead of 'password'.
+In Java, use CamelCase (etUsername).  
+Don't prefix with activity, because code is in a certain activity already anyway. (NOT: activityLoginEtUsername, BUT: etUsername)  
+Temporary stuff can have really simple names, a ListView you only use once somewhere can be called 'lv'.  
+No need to prefix Strings, floats, etc. with their type (NOT: stringId, BUT: id).  
+Shorten commonly known/used words, like 'pass' instead of 'password'.  

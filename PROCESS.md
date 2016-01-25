@@ -103,3 +103,7 @@ thanks.png
 - Switched from coloured text to coloured background for more obvious ResultFragment.
 - Made search input case-insensitive.
 - Sorts SearchFragment list alphabetically.
+
+# day 16
+
+- Cleaned up code

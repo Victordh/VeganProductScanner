@@ -108,3 +108,8 @@ thanks.png
 
 - Cleaned up code
 - Made a file containing coding rules I'll follow (STYLE.md), made up from rules [here](http://source.android.com/source/code-style.html#follow-field-naming-conventions), [here](https://github.com/futurice/android-best-practices), [here](http://stackoverflow.com/questions/12870537/android-naming-convention) and mixes of those.
+
+# day 17
+
+- Cleaned up more code (comments, rewriting, restyling, TODOs).
+- Added some more rules to STYLE.md.

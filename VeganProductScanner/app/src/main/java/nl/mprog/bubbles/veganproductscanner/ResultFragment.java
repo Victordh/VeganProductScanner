@@ -19,13 +19,8 @@ public class ResultFragment extends Fragment {
     //TODO Change V/X to background colour and add picture?
 
     Boolean is_vegan;
-    Context context;
     MainActivity mainActivity;
     String product_name;
-
-    public void onCreate(Context context) {
-        this.context = context;
-    }
 
     @Nullable
     @Override
@@ -63,17 +58,16 @@ public class ResultFragment extends Fragment {
             result_frg_is_vegan_tv.setText(R.string.result_fragment_tv_vegan_true);
             if (this.getView() != null) {
                 this.getView().setBackgroundColor(ContextCompat.getColor(
-                        context, R.color.veganGreen));
+                        getActivity().getApplicationContext(), R.color.veganGreen));
             }
-            mainActivity.findViewById(R.id.fab).bringToFront();
         }
         else {
             result_frg_is_vegan_tv.setText(R.string.result_fragment_tv_vegan_false);
             if (this.getView() != null) {
                 this.getView().setBackgroundColor(ContextCompat.getColor(
-                        context, R.color.nonVeganRed));
+                        getActivity().getApplicationContext(), R.color.nonVeganRed));
             }
-            mainActivity.findViewById(R.id.fab).bringToFront();
         }
+        mainActivity.findViewById(R.id.fab).bringToFront();
     }
 }

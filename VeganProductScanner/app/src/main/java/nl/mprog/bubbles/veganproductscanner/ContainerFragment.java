@@ -15,11 +15,8 @@ import android.view.ViewGroup;
  */
 
 public class ContainerFragment extends Fragment {
+    public MainActivity mainActivity;
 
-    MainActivity mainActivity;
-    PageFragment fragment;
-
-    // loads xml and adds Floating Action Button
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,28 +26,27 @@ public class ContainerFragment extends Fragment {
         return view;
     }
 
-    // adds the fragment that was filling ContainerFragment
+    // gets the fragment that was filling ContainerFragment from SharedPreferences
     @Override
     public void onStart() {
         super.onStart();
-        mainActivity.fillContainerFragment(
-                mainActivity.prefs.getInt("currentContainerFragment", 0));
+        mainActivity.fillContainerFragment(mainActivity.prefs.getInt("currentContainerFragment",
+                0));
     }
 
-    // creates the Floating Action Button
-    private void createFloatingActionButton(View view){
+    private void createFloatingActionButton(View view) {
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // uses Zxing to scan a barcode
+                // uses Zxing to scan a barcode (IntentIntegrator.java)
                 IntentIntegrator integrator = new IntentIntegrator(mainActivity);
                 integrator.initiateScan(IntentIntegrator.PRODUCT_CODE_TYPES);
             }
         });
     }
 
-    // fills ContainerFragment with AddFragment and remembers barcode, if product couldn't be found
+    // fills ContainerFragment with AddFragment and saves barcode, if product couldn't be found
     public void productNotFound(String barcode) {
         mainActivity.prefs.edit().putString("productBarcode", barcode).apply();
         mainActivity.barcode = barcode;

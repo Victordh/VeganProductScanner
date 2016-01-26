@@ -14,6 +14,8 @@ public class ParseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+        // TODO Replace LocalDatastore with SQLite, apparently it's 20 times faster
+        // http://stackoverflow.com/questions/30425087/parse-query-local-database-is-20-times-slower-then-sqlite
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "ygaBQHWyNlnm8uq3pFyCsSgCqLgRSsvuI0isYES7",
                 "NMQe2x8dMk6lFEQjN0OrrlXQ3ng9uwdhhlQKpOll");

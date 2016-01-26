@@ -35,13 +35,15 @@ public class SearchFragment extends Fragment {
     }
 
     public void loadFromPrefs() {
-        EditText search_frg_input_et = (EditText) mainActivity.findViewById(R.id.search_frg_input_et);
-        search_frg_input_et.addTextChangedListener(new TextWatcher() {
+        EditText etInput = (EditText) mainActivity.findViewById(R.id.search_frg_input_et);
+        etInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -50,23 +52,22 @@ public class SearchFragment extends Fragment {
                 }
             }
         });
-        search_frg_input_et.setText(mainActivity.prefs.getString("searchText", ""));
-        search_frg_input_et.setHint(mainActivity.prefs.getString("searchHint", mainActivity.getString(R.string.search_fragment_et_input_hint)));
+        etInput.setText(mainActivity.prefs.getString("searchText", ""));
+        etInput.setHint(mainActivity.prefs.getString("searchHint",
+                mainActivity.getString(R.string.search_fragment_et_input_hint)));
 
-        mainActivity.memoryManagement.getProductsFromInput(mainActivity.prefs.getString("searchInput", "naturel"));
+        mainActivity.memoryManagement.getProductsFromInput(mainActivity.prefs.getString(
+                "searchInput", "naturel"));
     }
 
     public void createList(final ArrayList<String> productNames,
                            final ArrayList<Boolean> isVeganList) {
-        ListView search_frg_result_lv = (ListView) view.findViewById(R.id.search_frg_result_lv);
-
+        ListView lvResult = (ListView) view.findViewById(R.id.search_frg_result_lv);
         ArrayAdapter<String> adapter = new SearchListArrayAdapter(context,
                 android.R.layout.simple_list_item_1, android.R.id.text1, productNames, isVeganList);
+        lvResult.setAdapter(adapter);
 
-        search_frg_result_lv.setAdapter(adapter);
-
-        search_frg_result_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
+        lvResult.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
                                     long arg3) {
@@ -76,7 +77,19 @@ public class SearchFragment extends Fragment {
                     mainActivity.productToResult(name, vegan);
                 }
             }
-
         });
+    }
+
+    public void handleSearch() {
+        EditText etInput = (EditText) mainActivity.findViewById(R.id.search_frg_input_et);
+        String input = etInput.getText().toString();
+        String hint = getString(R.string.search_fragment_et_input_searched_hint) + input;
+        etInput.setText("");
+        etInput.setHint(hint);
+
+        mainActivity.prefs.edit().putString("searchHint", hint).apply();
+        mainActivity.prefs.edit().putString("searchInput", input).apply();
+        mainActivity.prefs.edit().putString("searchText", "").apply();
+        mainActivity.memoryManagement.getProductsFromInput(input);
     }
 }

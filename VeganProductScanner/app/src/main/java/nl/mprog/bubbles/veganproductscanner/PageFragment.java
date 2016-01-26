@@ -41,7 +41,7 @@ public class PageFragment extends Fragment {
         View view;
         if (mPage == 2) {
             SearchFragment searchFragment = new SearchFragment();
-            mainActivity.setSearchFragment(searchFragment);
+            mainActivity.searchFragment = searchFragment;
             view = searchFragment.onCreateView(inflater, container, savedInstanceState);
         } else if (mPage == 3) {
             InfoFragment infoFragment = new InfoFragment();
@@ -50,7 +50,7 @@ public class PageFragment extends Fragment {
             containerFragment = new ContainerFragment();
             view = containerFragment.onCreateView(inflater, container, savedInstanceState);
             mainActivity.fillContainerFragment(mainActivity.prefs.getInt("currentContainerFragment", 0));
-            mainActivity.setContainerFragment(containerFragment);
+            mainActivity.containerFragment = containerFragment;
         }
         return view;
     }

@@ -28,7 +28,6 @@ package nl.mprog.bubbles.veganproductscanner;
  */
 
 public final class IntentResult {
-
     private final String contents;
     private final String formatName;
     private final byte[] rawBytes;
@@ -97,5 +96,4 @@ public final class IntentResult {
         dialogText.append("EC level: ").append(errorCorrectionLevel).append('\n');
         return dialogText.toString();
     }
-
 }

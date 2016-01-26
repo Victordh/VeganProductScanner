@@ -20,15 +20,15 @@ import android.widget.TextView;
  */
 
 public class EnterFragment extends Fragment {
+    public MainActivity mainActivity;
 
-    EditText etComment, etName;
-    MainActivity mainActivity;
-    RadioGroup rgVegan;
+    private EditText etComment, etName;
+    private RadioGroup rgVegan;
 
-    // loads xml
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         return inflater.inflate(R.layout.enter_fragment, container, false);
     }
 
@@ -64,7 +64,8 @@ public class EnterFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.length() > 0) {
-                    mainActivity.prefs.edit().putString("productEnterComment", s.toString()).apply();
+                    mainActivity.prefs.edit().putString("productEnterComment",
+                            s.toString()).apply();
                 }
             }
         });
@@ -102,8 +103,7 @@ public class EnterFragment extends Fragment {
         });
     }
 
-    // sets barcode as text in TextView
-    public void setBarcode() {
+    private void setBarcode() {
         TextView tvBarcode = (TextView) mainActivity.findViewById(R.id.enter_frg_barcode_tv);
         tvBarcode.setText(mainActivity.barcode);
     }
@@ -113,15 +113,13 @@ public class EnterFragment extends Fragment {
     public void sendSubmission() {
         String name = etName.getText().toString();
         String vegan;
-        if (rgVegan.getCheckedRadioButtonId() ==
-                rgVegan.findViewById(R.id.enter_frg_vegan_yes_rb).getId()) {
+        if (rgVegan.getCheckedRadioButtonId() == rgVegan.findViewById(
+                R.id.enter_frg_vegan_yes_rb).getId()) {
             vegan = "true";
-        }
-        else if (rgVegan.getCheckedRadioButtonId() ==
-                rgVegan.findViewById(R.id.enter_frg_vegan_no_rb).getId()) {
+        } else if (rgVegan.getCheckedRadioButtonId() == rgVegan.findViewById(
+                R.id.enter_frg_vegan_no_rb).getId()) {
             vegan = "false";
-        }
-        else {
+        } else {
             vegan = "unknown";
         }
         String comment = etComment.getText().toString();

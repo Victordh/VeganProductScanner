@@ -11,14 +11,13 @@ import android.view.ViewGroup;
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  * AddFragment contains the UI allowing the user to add a product that couldn't be found in the
  * database.
- * TODO Think about if this is redundant: might just be an useless extra action.
+ * TODO Think about if this entire fragment is redundant: might just be an useless extra action.
  */
 
 public class AddFragment extends Fragment {
+    public MainActivity mainActivity;
 
-    MainActivity mainActivity;
-
-    // loads xml and resets the EnterFragment input, because a new product has been scanned
+    // inflates xml and resets the EnterFragment input, because a new product has been scanned
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

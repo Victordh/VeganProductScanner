@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private EnterFragment enterFragment;
     private ViewPager viewPager;
 
-    /** loads SharedPreferences, loads databases, sets up ViewPager and TabLayout,
-     *  loads previously opened fragment */
+    /** loads SharedPreferences, loads databases, sets up ViewPager and TabLayout to allow for
+     *  sliding between tabs, loads previously opened fragment */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     /** sets ViewPager's PagerAdapter so it can display items, gives ViewPager to TabLayout */
     private void setUpViewPagerAndTabLayout() {
         viewPager = (ViewPager) findViewById(R.id.main_act_vp);
-        viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
+        viewPager.setAdapter(new TabsFragmentPagerAdapter(getSupportFragmentManager(),
                 this.getBaseContext(), this));
 
         TabLayout tl = (TabLayout) findViewById(R.id.main_act_tl);

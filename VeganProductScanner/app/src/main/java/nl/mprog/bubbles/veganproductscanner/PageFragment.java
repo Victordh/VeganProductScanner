@@ -16,47 +16,69 @@ import android.view.ViewGroup;
 
 public class PageFragment extends Fragment {
     private int mPage;
-    private static MainActivity mainActivity;
+    private MainActivity mainActivity;
 
-    public static final String ARG_PAGE = "ARG_PAGE";
-    //TODO mPage redundant, switch with ARG_PAGE?
-
+    /** creates a new PageFragment with certain tab number, hands it MainActivity */
     public static PageFragment newInstance(int page, MainActivity activity) {
-        Bundle args = new Bundle();
-        args.putInt(ARG_PAGE, page);
         PageFragment fragment = new PageFragment();
-        fragment.setArguments(args);
-        mainActivity = activity;
+        fragment.mPage = page;
+        fragment.mainActivity = activity;
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mPage = getArguments().getInt(ARG_PAGE);
-    }
-
-    /** inflates fragments and  makes sure they can be found via MainActivity*/
+    /** returns the correct fragment as view */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view;
         if (mPage == 2) {
-            mainActivity.searchFragment = new SearchFragment();
-            mainActivity.searchFragment.mainActivity = mainActivity;
-            view = mainActivity.searchFragment.onCreateView(inflater, container,
-                    savedInstanceState);
+            view = createSearchFragment(inflater, container, savedInstanceState);
         } else if (mPage == 3) {
-            mainActivity.infoFragment = new InfoFragment();
-            mainActivity.infoFragment.mainActivity = mainActivity;
-            view = mainActivity.infoFragment.onCreateView(inflater, container, savedInstanceState);
+            view = createInfoFragment(inflater, container, savedInstanceState);
         } else {
-            mainActivity.containerFragment = new ContainerFragment();
-            view = mainActivity.containerFragment.onCreateView(inflater, container,
-                    savedInstanceState);
-            mainActivity.fillContainerFragment(mainActivity.prefs.getInt("currentContainerFragment",
-                    0));
+            view = createContainerFragment(inflater, container, savedInstanceState);
         }
         return view;
+    }
+
+    /** makes sure views in SearchFragment are loaded from SharedPreferences */
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (mPage == 2) {
+            mainActivity.searchFragment.loadFromPrefs();
+        }
+    }
+
+    /** gives ContainerFragment to MainActivity, MainActivity to ContainerFragment, returns the
+     * inflated view */
+    private View createContainerFragment(LayoutInflater inflater, ViewGroup container,
+                                         Bundle savedInstanceState) {
+        mainActivity.containerFragment = new ContainerFragment();
+        mainActivity.containerFragment.mainActivity = mainActivity;
+        View view = mainActivity.containerFragment.onCreateView(inflater, container,
+                savedInstanceState);
+        mainActivity.fillContainerFragment(mainActivity.prefs.getInt("currentContainerFragment",
+                0));
+        return view;
+    }
+
+    /** gives InfoFragment to MainActivity, MainActivity to InfoFragment, returns the inflated
+     *  view */
+    private View createInfoFragment(LayoutInflater inflater, ViewGroup container,
+                                    Bundle savedInstanceState) {
+        mainActivity.infoFragment = new InfoFragment();
+        mainActivity.infoFragment.mainActivity = mainActivity;
+        return mainActivity.infoFragment.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    /** gives SearchFragment to MainActivity, MainActivity to SearchFragment, returns the inflated
+     *  view */
+    private View createSearchFragment(LayoutInflater inflater, ViewGroup container,
+                                      Bundle savedInstanceState) {
+        mainActivity.searchFragment = new SearchFragment();
+        mainActivity.searchFragment.mainActivity = mainActivity;
+        return mainActivity.searchFragment.onCreateView(inflater, container,
+                savedInstanceState);
     }
 }

@@ -34,13 +34,13 @@ public class SearchFragment extends Fragment {
         return view;
     }
 
-    @Override
+    /*@Override
     public void onStart() {
         super.onStart();
         loadFromPrefs();
-    }
+    }*/
 
-    private void loadFromPrefs() {
+    public void loadFromPrefs() {
         EditText etInput = (EditText) mainActivity.findViewById(R.id.search_frg_input_et);
         etInput.addTextChangedListener(new TextWatcher() {
             @Override

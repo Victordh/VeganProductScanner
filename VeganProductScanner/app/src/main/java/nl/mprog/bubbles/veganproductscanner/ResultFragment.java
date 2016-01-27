@@ -18,54 +18,51 @@ import android.widget.TextView;
 public class ResultFragment extends Fragment {
     //TODO Change design, add picture?
 
-    private Boolean is_vegan;
-    private String product_name;
+    private Boolean vegan;
+    private String name;
 
     public MainActivity mainActivity;
 
+    /** inflates xml */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.result_fragment, container, false);
     }
 
-    // loads
+    /** loads last product from SharedPreferences */
     @Override
     public void onStart() {
         super.onStart();
-        product_name = mainActivity.prefs.getString("productName", "");
-        is_vegan = mainActivity.prefs.getBoolean("productIsVegan", false);
+        name = mainActivity.prefs.getString("productName", "");
+        vegan = mainActivity.prefs.getBoolean("productIsVegan", false);
         // needs currentTab check to prevent crash after turning off the screen in InfoFragment
-        if (!product_name.equals("") && mainActivity.prefs.getInt("currentTab", 2) != 2) {
-            productFound(product_name, is_vegan);
-            mainActivity.findViewById(R.id.fab).bringToFront();
+        if (!name.equals("") && mainActivity.prefs.getInt("currentTab", 2) != 2) {
+            productFound(name, vegan);
         }
     }
 
+    /** updates product variables */
     public void setProduct(String name, boolean vegan) {
-        product_name = name;
-        is_vegan = vegan;
-        mainActivity.prefs.edit().putString("productName", product_name).apply();
-        mainActivity.prefs.edit().putBoolean("productIsVegan", is_vegan).apply();
+        this.name = name;
+        this.vegan = vegan;
+        mainActivity.prefs.edit().putString("productName", this.name).apply();
+        mainActivity.prefs.edit().putBoolean("productIsVegan", this.vegan).apply();
     }
 
-    public void productFound(String productName, boolean isVegan) {
-        TextView result_frg_is_vegan_tv =
-                (TextView) mainActivity.findViewById(R.id.result_frg_is_vegan_tv);
-        TextView result_frg_name_tv =
-                (TextView) mainActivity.findViewById(R.id.result_frg_name_tv);
-
-        result_frg_name_tv.setText(productName);
-
-        if (isVegan) {
-            result_frg_is_vegan_tv.setText(R.string.result_fragment_tv_vegan_true);
+    /** updates views and background according to the product */
+    public void productFound(String name, boolean vegan) {
+        TextView tvVegan = (TextView) mainActivity.findViewById(R.id.result_frg_is_vegan_tv);
+        TextView tvName = (TextView) mainActivity.findViewById(R.id.result_frg_name_tv);
+        tvName.setText(name);
+        if (vegan) {
+            tvVegan.setText(R.string.result_fragment_tv_vegan_true);
             if (this.getView() != null) {
                 this.getView().setBackgroundColor(ContextCompat.getColor(
                         getActivity().getApplicationContext(), R.color.veganGreen));
             }
-        }
-        else {
-            result_frg_is_vegan_tv.setText(R.string.result_fragment_tv_vegan_false);
+        } else {
+            tvVegan.setText(R.string.result_fragment_tv_vegan_false);
             if (this.getView() != null) {
                 this.getView().setBackgroundColor(ContextCompat.getColor(
                         getActivity().getApplicationContext(), R.color.nonVeganRed));

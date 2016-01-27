@@ -26,7 +26,7 @@ public class EnterFragment extends Fragment {
     private EditText etComment, etName;
     private RadioGroup rgVegan;
 
-    /** inflates layout */
+    /** inflates xml */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

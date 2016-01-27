@@ -18,6 +18,7 @@ public class InfoFragment extends Fragment {
     public MainActivity mainActivity;
     //TODO Add more stuff (FAQ, feedback, donation?, tutorial?) to this fragment.
 
+    /** inflates xml */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

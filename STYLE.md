@@ -11,6 +11,7 @@ Name components in XML files:
 - activity_login_btn_login
 - activity_login_et_username
 - activity_login_et_password
+- info_fragment_tv_faq
 
 Button - btn  
 EditText - et  
@@ -52,4 +53,4 @@ if (something) {
 }  
 
 Comments above file and class with /\*\* \* \* \*/, above methods with // (start with returns, adds, creates, etc.)  
-No need to comment **obvious methods** (don't comment 'sets variable X' if method is calles setX).  
+No need to comment **obvious, small methods** (don't comment 'sets variable X' if method is calles setX).  

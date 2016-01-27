@@ -1,7 +1,6 @@
 package nl.mprog.bubbles.veganproductscanner;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -12,15 +11,17 @@ import android.widget.TextView;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
+ *
+ * ResultFragment contains views that show if a single product is vegan or not.
  */
 
 public class ResultFragment extends Fragment {
+    //TODO Change design, add picture?
 
-    //TODO Change V/X to background colour and add picture?
+    private Boolean is_vegan;
+    private String product_name;
 
-    Boolean is_vegan;
-    MainActivity mainActivity;
-    String product_name;
+    public MainActivity mainActivity;
 
     @Nullable
     @Override
@@ -28,12 +29,14 @@ public class ResultFragment extends Fragment {
         return inflater.inflate(R.layout.result_fragment, container, false);
     }
 
+    // loads
     @Override
     public void onStart() {
         super.onStart();
         product_name = mainActivity.prefs.getString("productName", "");
         is_vegan = mainActivity.prefs.getBoolean("productIsVegan", false);
-        if (!product_name.equals("")) {
+        // needs currentTab check to prevent crash after turning off the screen in InfoFragment
+        if (!product_name.equals("") && mainActivity.prefs.getInt("currentTab", 2) != 2) {
             productFound(product_name, is_vegan);
         }
         mainActivity.findViewById(R.id.fab).bringToFront();

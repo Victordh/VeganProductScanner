@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
+ *
  * AddFragment contains the UI allowing the user to add a product that couldn't be found in the
  * database.
  * TODO Think about if this entire fragment is redundant: might just be an useless extra action.
@@ -17,7 +18,7 @@ import android.view.ViewGroup;
 public class AddFragment extends Fragment {
     public MainActivity mainActivity;
 
-    // inflates xml and resets the EnterFragment input, because a new product has been scanned
+    /** inflates xml and resets the EnterFragment input, because a new product has been scanned */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,7 +26,7 @@ public class AddFragment extends Fragment {
         mainActivity.prefs.edit().putString("productEnterComment", "").apply();
         mainActivity.prefs.edit().putString("productEnterName", "").apply();
         // TODO Find a way to do this differently than with a hardcoded ID
-        // enterFragment.rgVegan.findViewById(R.id.enter_frg_vegan_no_rb).getId()
+        // maybe with enterFragment.rgVegan.findViewById(R.id.enter_frg_vegan_no_rb).getId()
         mainActivity.prefs.edit().putInt("productEnterVegan", 2131492987).apply();
 
         return inflater.inflate(R.layout.add_fragment, container, false);

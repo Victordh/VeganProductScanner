@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
+ *
  * ContainerFragment is a container for fragments (Result, Add, Enter and Sent). The Floating Action
  * Button is part of ContainerFragment, so it's visible regardless of which fragment is filling it.
  */
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 public class ContainerFragment extends Fragment {
     public MainActivity mainActivity;
 
+    /** inflates xml and creates Floating Action Button */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,7 +28,7 @@ public class ContainerFragment extends Fragment {
         return view;
     }
 
-    // gets the fragment that was filling ContainerFragment from SharedPreferences
+    /** gets the fragment that was filling ContainerFragment from SharedPreferences */
     @Override
     public void onStart() {
         super.onStart();
@@ -34,19 +36,19 @@ public class ContainerFragment extends Fragment {
                 0));
     }
 
+    /** creates FAB with Intent to app Barcode Scanner (see IntentIntegrator.java) */
     private void createFloatingActionButton(View view) {
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // uses Zxing to scan a barcode (IntentIntegrator.java)
                 IntentIntegrator integrator = new IntentIntegrator(mainActivity);
                 integrator.initiateScan(IntentIntegrator.PRODUCT_CODE_TYPES);
             }
         });
     }
 
-    // fills ContainerFragment with AddFragment and saves barcode, if product couldn't be found
+    /** fills ContainerFragment with AddFragment and saves barcode, if product couldn't be found */
     public void productNotFound(String barcode) {
         mainActivity.prefs.edit().putString("productBarcode", barcode).apply();
         mainActivity.barcode = barcode;

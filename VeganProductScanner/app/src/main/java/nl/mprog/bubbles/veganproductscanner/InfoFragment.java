@@ -6,15 +6,16 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
+ *
  * InfoFragment contains the UI allowing the user to sync their local database with Parse.
  */
 
 public class InfoFragment extends Fragment {
-    //TODO Maybe remove 'empty database'?
-    //TODO Alter/remove Toasts
+    public MainActivity mainActivity;
     //TODO Add more stuff (FAQ, feedback, donation?, tutorial?) to this fragment.
 
     @Nullable
@@ -22,5 +23,29 @@ public class InfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.info_fragment, container, false);
+    }
+
+    /** enables or disables the sync button, to prevent unnecessary calls to the online database */
+    //TODO Change colour of disabled button
+    public void enableSyncButton(boolean enable) {
+        Button syncButton = (Button) mainActivity.findViewById(R.id.info_frg_sync_btn);
+        syncButton.setClickable(enable);
+        if (enable) {
+            syncButton.setText(R.string.info_fragment_btn_sync);
+        } else {
+            syncButton.setText(R.string.info_fragment_btn_synced);
+        }
+    }
+
+    /** enables or disables the clear button, to prevent unnecessary calls to the local database */
+    //TODO Change colour of disabled button
+    public void enableClearButton(boolean enable) {
+        Button eraseButton = (Button) mainActivity.findViewById(R.id.info_frg_clear_btn);
+        eraseButton.setClickable(enable);
+        if (enable) {
+            eraseButton.setText(R.string.info_fragment_btn_clear);
+        } else {
+            eraseButton.setText(R.string.info_fragment_btn_cleared);
+        }
     }
 }

@@ -15,18 +15,18 @@
         android:text="@string/info.fragment.btn.sync" />
 
     <Button
-        android:id="@+id/info_frg_erase_btn"
+        android:id="@+id/info_frg_clear_btn"
         android:layout_below="@id/info_frg_sync_btn"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:onClick="eraseButtonClick"
-        android:text="@string/info.fragment.btn.erase" />
+        android:onClick="clearButtonClick"
+        android:text="@string/info.fragment.btn.clear" />
 
     <TextView
         android:id="@+id/info_frg_placeholder_tv"
-        android:layout_below="@id/info_frg_erase_btn"
+        android:layout_below="@id/info_frg_clear_btn"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"

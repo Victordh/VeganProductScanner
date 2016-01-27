@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
+ *
  * EnterFragment contains the UI allowing the user to enter the details of a scanned product that
  * couldn't be found. It also handles the calls to MemoryManagement for sending this information to
  * the Parse database.
@@ -25,6 +26,7 @@ public class EnterFragment extends Fragment {
     private EditText etComment, etName;
     private RadioGroup rgVegan;
 
+    /** inflates layout */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,7 +34,7 @@ public class EnterFragment extends Fragment {
         return inflater.inflate(R.layout.enter_fragment, container, false);
     }
 
-    // loads the saved user input from SharedPreferences, adds TextWatchers and Listener
+    /** loads the saved user input from SharedPreferences, adds TextWatchers and Listener */
     @Override
     public void onStart() {
         super.onStart();
@@ -49,7 +51,7 @@ public class EnterFragment extends Fragment {
                 rgVegan.getCheckedRadioButtonId()));
     }
 
-    // adds TextWatcher that saves the changed text in the comment EditText to SharedPreferences
+    /** adds TextWatcher that saves the changed text in the comment EditText to SharedPreferences */
     private void addTextWatcherEtComment() {
         etComment = (EditText) mainActivity.findViewById(R.id.enter_frg_comment_et);
         etComment.addTextChangedListener(new TextWatcher() {
@@ -71,7 +73,7 @@ public class EnterFragment extends Fragment {
         });
     }
 
-    // adds TextWatcher that saves the changed text in the name EditText to SharedPreferences
+    /** adds TextWatcher that saves the changed text in the name EditText to SharedPreferences */
     private void addTextWatcherEtName() {
         etName = (EditText) mainActivity.findViewById(R.id.enter_frg_name_et);
         etName.addTextChangedListener(new TextWatcher() {
@@ -92,7 +94,7 @@ public class EnterFragment extends Fragment {
         });
     }
 
-    // adds Listener that saves the checked RadioButton to SharedPreferences
+    /** adds Listener that saves the checked RadioButton to SharedPreferences */
     private void addListenerRgVegan() {
         rgVegan = (RadioGroup) mainActivity.findViewById(R.id.enter_frg_vegan_rg);
         rgVegan.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -103,13 +105,14 @@ public class EnterFragment extends Fragment {
         });
     }
 
+    /** updates TextView text */
     private void setBarcode() {
         TextView tvBarcode = (TextView) mainActivity.findViewById(R.id.enter_frg_barcode_tv);
         tvBarcode.setText(mainActivity.barcode);
     }
 
-    // collects details entered by user and calls MemoryManagement function to send it to the Parse
-    // database, also fills ContainerFragment with SentFragment
+    /** collects details entered by user and calls OnlineDatabase function to send it to the Parse
+     * database, also fills ContainerFragment with SentFragment */
     public void sendSubmission() {
         String name = etName.getText().toString();
         String vegan;
@@ -124,7 +127,7 @@ public class EnterFragment extends Fragment {
         }
         String comment = etComment.getText().toString();
 
-        mainActivity.memoryManagement.saveSubmission(mainActivity.barcode, name, vegan, comment);
+        mainActivity.onlineDatabase.saveSubmission(mainActivity.barcode, name, vegan, comment);
         mainActivity.fillContainerFragment(3);
     }
 }

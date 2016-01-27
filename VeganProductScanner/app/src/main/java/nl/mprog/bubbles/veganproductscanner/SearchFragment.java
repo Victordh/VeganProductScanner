@@ -34,7 +34,13 @@ public class SearchFragment extends Fragment {
         return view;
     }
 
-    public void loadFromPrefs() {
+    @Override
+    public void onStart() {
+        super.onStart();
+        loadFromPrefs();
+    }
+
+    private void loadFromPrefs() {
         EditText etInput = (EditText) mainActivity.findViewById(R.id.search_frg_input_et);
         etInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -56,7 +62,7 @@ public class SearchFragment extends Fragment {
         etInput.setHint(mainActivity.prefs.getString("searchHint",
                 mainActivity.getString(R.string.search_fragment_et_input_hint)));
 
-        mainActivity.memoryManagement.getProductsFromInput(mainActivity.prefs.getString(
+        mainActivity.localDatabase.getProductsFromInput(mainActivity.prefs.getString(
                 "searchInput", "naturel"));
     }
 
@@ -71,7 +77,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
                                     long arg3) {
-                if (!productNames.get(arg2).equals("No products found")) {
+                if (!productNames.get(arg2).equals("Sorry, couldn't find any matching products! Make sure the database is synced.")) {
                     String name = productNames.get(arg2);
                     Boolean vegan = isVeganList.get(arg2);
                     mainActivity.productToResult(name, vegan);
@@ -83,13 +89,24 @@ public class SearchFragment extends Fragment {
     public void handleSearch() {
         EditText etInput = (EditText) mainActivity.findViewById(R.id.search_frg_input_et);
         String input = etInput.getText().toString();
-        String hint = getString(R.string.search_fragment_et_input_searched_hint) + input;
+        String hint = mainActivity.getString(R.string.search_fragment_et_input_searched_hint) + input;
         etInput.setText("");
         etInput.setHint(hint);
 
         mainActivity.prefs.edit().putString("searchHint", hint).apply();
         mainActivity.prefs.edit().putString("searchInput", input).apply();
         mainActivity.prefs.edit().putString("searchText", "").apply();
-        mainActivity.memoryManagement.getProductsFromInput(input);
+        mainActivity.localDatabase.getProductsFromInput(input);
+    }
+
+    /** provides feedback when no products could be found */
+    //TODO Change this to TextView for simplicity? (also delete the check in SearchFragment if so)
+    public void noProductsFound() {
+        ArrayList<String> productNames = new ArrayList<>();
+        ArrayList<Boolean> isVeganList = new ArrayList<>();
+        productNames.add(
+                "Sorry, couldn't find any matching products! Make sure the database is synced.");
+        isVeganList.add(false);
+        mainActivity.searchFragment.createList(productNames, isVeganList);
     }
 }

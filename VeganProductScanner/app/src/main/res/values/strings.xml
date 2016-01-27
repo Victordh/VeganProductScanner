@@ -14,10 +14,15 @@
     <string name="enter.fragment.et.comment.hint">Optionally, enter a comment</string>
     <string name="enter.fragment.btn.send">Send to database</string>
 
+    <!--Error messages-->
+    <string name="error.message.try.again">Something went wrong, please try again.</string>
+
     <!--InfoFragment-->
     <string name="info.fragment.tv.info">Before you start using this app, make sure you tap the "Sync database" button. You can either scan a barcode by tapping the round button in the first tab, or search for products by entering a barcode or part of a product name.</string>
-    <string name="info.fragment.btn.sync">Sync database</string>
-    <string name="info.fragment.btn.erase">Erase local database</string>
+    <string name="info.fragment.btn.sync">Synchronise database</string>
+    <string name="info.fragment.btn.synced">Database synchronised</string>
+    <string name="info.fragment.btn.clear">Clear local database</string>
+    <string name="info.fragment.btn.cleared">Local database empty</string>
 
     <!--ResultFragment FAB IntentIntegrator-->
     <string name="result.fragment.integrator.message">Vegan Product Scanner requires Barcode Scanner. Would you like to install it?</string>
@@ -37,4 +42,9 @@
 
     <!--SentFragment-->
     <string name="sent.fragment.tv.thanks">Thank you! I\'ll add it to the database as soon as possible.</string>
+    <string name="toast.local.database.deleted">All data in local database deleted.</string>
+    <string name="toast.local.database.empty">Local database is already empty.</string>
+    <string name="toast.online.database.products">" products."</string>
+    <string name="toast.online.database.uptodate">"Database is already up-to-date. It contains "</string>
+    <string name="toast.online.database.updated">"Database updated. It contains "</string>
 </resources>

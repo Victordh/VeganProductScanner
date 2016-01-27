@@ -5,20 +5,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  * Based on code at
  * https://github.com/codepath/android_guides/wiki/Google-Play-Style-Tabs-using-TabLayout
+ *
+ * PageFragment handles inflating the fragments for each tab.
  */
 
 public class PageFragment extends Fragment {
-    public static final String ARG_PAGE = "ARG_PAGE";
-
-    static MainActivity mainActivity;
-    ContainerFragment containerFragment;
     private int mPage;
+    private static MainActivity mainActivity;
+
+    public static final String ARG_PAGE = "ARG_PAGE";
+    //TODO mPage redundant, switch with ARG_PAGE?
 
     public static PageFragment newInstance(int page, MainActivity activity) {
         Bundle args = new Bundle();
@@ -35,31 +36,27 @@ public class PageFragment extends Fragment {
         mPage = getArguments().getInt(ARG_PAGE);
     }
 
+    /** inflates fragments and  makes sure they can be found via MainActivity*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view;
         if (mPage == 2) {
-            SearchFragment searchFragment = new SearchFragment();
-            mainActivity.searchFragment = searchFragment;
-            view = searchFragment.onCreateView(inflater, container, savedInstanceState);
+            mainActivity.searchFragment = new SearchFragment();
+            mainActivity.searchFragment.mainActivity = mainActivity;
+            view = mainActivity.searchFragment.onCreateView(inflater, container,
+                    savedInstanceState);
         } else if (mPage == 3) {
-            InfoFragment infoFragment = new InfoFragment();
-            view = infoFragment.onCreateView(inflater, container, savedInstanceState);
+            mainActivity.infoFragment = new InfoFragment();
+            mainActivity.infoFragment.mainActivity = mainActivity;
+            view = mainActivity.infoFragment.onCreateView(inflater, container, savedInstanceState);
         } else {
-            containerFragment = new ContainerFragment();
-            view = containerFragment.onCreateView(inflater, container, savedInstanceState);
-            mainActivity.fillContainerFragment(mainActivity.prefs.getInt("currentContainerFragment", 0));
-            mainActivity.containerFragment = containerFragment;
+            mainActivity.containerFragment = new ContainerFragment();
+            view = mainActivity.containerFragment.onCreateView(inflater, container,
+                    savedInstanceState);
+            mainActivity.fillContainerFragment(mainActivity.prefs.getInt("currentContainerFragment",
+                    0));
         }
         return view;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        if (mPage == 2) {
-            mainActivity.searchFragment.loadFromPrefs();
-        }
     }
 }

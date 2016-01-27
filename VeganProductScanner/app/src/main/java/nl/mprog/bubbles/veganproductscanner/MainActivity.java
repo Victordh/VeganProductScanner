@@ -12,15 +12,19 @@ import android.view.View;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
+ *
  * MainActivity contains all fragments and their managers. It also redirects button clicks to the
  * correct fragment.
+ * TODO Toast method?
  */
 
 public class MainActivity extends AppCompatActivity {
     //TODO Change colours/design/styles etc.
 
     public ContainerFragment containerFragment;
-    public MemoryManagement memoryManagement;
+    public InfoFragment infoFragment;
+    public LocalDatabase localDatabase;
+    public OnlineDatabase onlineDatabase;
     public ResultFragment resultFragment;
     public SearchFragment searchFragment;
     public SharedPreferences prefs;
@@ -29,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private EnterFragment enterFragment;
     private ViewPager viewPager;
 
-    // sets up ViewPager and TabLayout, loads previously opened fragment
+    /** loads SharedPreferences, loads databases, sets up ViewPager and TabLayout,
+     *  loads previously opened fragment */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,15 +42,18 @@ public class MainActivity extends AppCompatActivity {
 
         prefs = getSharedPreferences("prefs", 0);
         barcode = prefs.getString("productBarcode", "");
-        memoryManagement = new MemoryManagement();
-        memoryManagement.mainActivity = this;
+
+        localDatabase = new LocalDatabase();
+        localDatabase.mainActivity = this;
+        onlineDatabase = new OnlineDatabase();
+        onlineDatabase.mainActivity = this;
 
         setUpViewPagerAndTabLayout();
         addListenerVp();
         goToFragment(prefs.getInt("currentTab", 0));
     }
 
-    // sets ViewPager's PagerAdapter so that it can display items, and gives ViewPager to TabLayout
+    /** sets ViewPager's PagerAdapter so it can display items, gives ViewPager to TabLayout */
     private void setUpViewPagerAndTabLayout() {
         viewPager = (ViewPager) findViewById(R.id.main_act_vp);
         viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
@@ -55,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         tl.setupWithViewPager(viewPager);
     }
 
+    /** adds OnPageChangeListener to ViewPager, to remember current tab in SharedPreferences */
     private void addListenerVp() {
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -73,6 +82,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /** goes to specified fragment */
+    public void goToFragment(int n) {
+        viewPager.setCurrentItem(n);
+        //TODO Fix that old (wrong) tab title is highlighted after tab is changed via this method
+    }
+
+    /** fills ContainerFragment with specified fragment */
     public void fillContainerFragment(int n) {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
@@ -96,34 +112,32 @@ public class MainActivity extends AppCompatActivity {
         prefs.edit().putInt("currentContainerFragment", n).apply();
     }
 
-    public void goToFragment(int n) {
-        viewPager.setCurrentItem(n);
-        //TODO Fix that old (wrong) tab title is highlighted after tab is changed via this method
-    }
-
-    // receives scanned barcode from Zxing (IntentResult.java) and hands it to MemoryManagement
+    /** gets scanned barcode from Barcode Scanner (IntentResult.java), passes to MemoryManagement */
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (requestCode == IntentIntegrator.REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                memoryManagement.getProductFromBarcode(intent.getStringExtra("SCAN_RESULT"));
+                localDatabase.getProductFromBarcode(intent.getStringExtra("SCAN_RESULT"));
             }
         }
     }
 
-    // goes to ContainerFragment, fills it with ResultFragment
+    /** goes to ContainerFragment, fills it with ResultFragment */
     public void productToResult(String name, Boolean vegan) {
         goToFragment(0);
         fillContainerFragment(0);
         resultFragment.setProduct(name, vegan);
     }
 
-    // goes to EnterFragment
+    /**  goes to EnterFragment */
     public void addButtonClick(View view) {
         fillContainerFragment(2);
     }
 
-    public void eraseButtonClick(View view) {
-        memoryManagement.eraseLocalDatabase();
+    // disables this button, attempts to clear local database, enables Sync button
+    public void clearButtonClick(View view) {
+        infoFragment.enableClearButton(false);
+        localDatabase.clearLocalDatabase();
+        infoFragment.enableSyncButton(true);
     }
 
     public void searchButtonClick(View view) {
@@ -134,7 +148,10 @@ public class MainActivity extends AppCompatActivity {
         enterFragment.sendSubmission();
     }
 
+    // disables this button, attempts to sync local database, enables Erase button
     public void syncButtonClick(View view) {
-        memoryManagement.syncLocalDatabase();
+        infoFragment.enableSyncButton(false);
+        onlineDatabase.syncLocalDatabase();
+        infoFragment.enableClearButton(true);
     }
 }

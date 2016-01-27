@@ -6,10 +6,11 @@ import com.parse.Parse;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
+ *
+ * ParseApplication makes sure the LocalDatastore is initialised exactly once.
  */
 
 public class ParseApplication extends Application {
-
     @Override
     public void onCreate() {
         super.onCreate();

@@ -118,3 +118,4 @@ thanks.png
 
 - Split MemoryManagement into LocalDatabase and OnlineDatabase.
 - Cleaned up more code (comments, rewriting, moved some methods, restyling, TODOs).
+- Fixed (hopefully) last crash.

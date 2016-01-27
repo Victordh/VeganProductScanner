@@ -113,3 +113,8 @@ thanks.png
 
 - Cleaned up more code (comments, rewriting, restyling, TODOs).
 - Added some more rules to STYLE.md.
+
+# day 18
+
+- Split MemoryManagement into LocalDatabase and OnlineDatabase.
+- Cleaned up more code (comments, rewriting, moved some methods, restyling, TODOs).

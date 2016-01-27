@@ -38,8 +38,8 @@ public class ResultFragment extends Fragment {
         // needs currentTab check to prevent crash after turning off the screen in InfoFragment
         if (!product_name.equals("") && mainActivity.prefs.getInt("currentTab", 2) != 2) {
             productFound(product_name, is_vegan);
+            mainActivity.findViewById(R.id.fab).bringToFront();
         }
-        mainActivity.findViewById(R.id.fab).bringToFront();
     }
 
     public void setProduct(String name, boolean vegan) {

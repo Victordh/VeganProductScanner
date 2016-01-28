@@ -27,10 +27,8 @@ LinearLayout -ll
 RelativeLayout - rl  
 
 
-Sort XML attributes alphabetically?  
-Sort XML attributes id first, layout after, rest alphabetically last?  
-/> at the end of last attribute?  
-/> on new line after attributes?  
+Sort XML attributes alphabetically  
+/> at the end of last attribute  
 
 Layout/content (id, text, layout, orientation) attributes inside layout XML, rest in style XML.  
 

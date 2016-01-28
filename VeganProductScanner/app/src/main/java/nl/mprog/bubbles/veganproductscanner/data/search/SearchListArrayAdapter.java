@@ -13,17 +13,6 @@ import java.util.List;
 import nl.mprog.bubbles.veganproductscanner.R;
 
 /**
- * MainActivity
- * ParseApplication
- *
- * InfoFragment
- * tabs
- *      PageFragment
- *      TabsFragmentPagerAdapter
- *
- */
-
-/**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  *
  * SearchListArrayAdapter is a custom Adapter that allows for individual background colours of

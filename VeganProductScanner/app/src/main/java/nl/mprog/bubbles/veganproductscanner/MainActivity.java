@@ -129,27 +129,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**  goes to EnterFragment */
-    public void addButtonClick(View view) {
+    public void addButtonClick() {
         fillContainerFragment(2);
     }
 
     // disables this button, attempts to clear local database, enables Sync button
-    public void clearButtonClick(View view) {
+    public void clearButtonClick() {
         infoFragment.enableClearButton(false);
         localDatabase.clearLocalDatabase();
         infoFragment.enableSyncButton(true);
     }
 
-    public void searchButtonClick(View view) {
+    public void searchButtonClick() {
         searchFragment.handleSearch();
     }
 
-    public void sendButtonClick(View view) {
+    public void sendButtonClick() {
         enterFragment.sendSubmission();
     }
 
     // disables this button, attempts to sync local database, enables Erase button
-    public void syncButtonClick(View view) {
+    public void syncButtonClick() {
         infoFragment.enableSyncButton(false);
         onlineDatabase.syncLocalDatabase();
         infoFragment.enableClearButton(true);

@@ -18,30 +18,48 @@ import java.util.ArrayList;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
+ *
+ * SearchFragment contains the UI elements that allow for manually searching products.
  */
 
 public class SearchFragment extends Fragment {
+    private Context context;
+    private EditText etInput;
+    private View view;
 
-    Context context;
-    MainActivity mainActivity;
-    View view;
+    public MainActivity mainActivity;
 
+    /** inflates xml, passes view so ListView can use it later, passes context so
+     *  SearchListArrayAdapter can use it later */
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.search_fragment, container, false);
         context = container.getContext();
         return view;
     }
 
-    /*@Override
+    /** adds TextWatcher to input EditText */
+    @Override
     public void onStart() {
         super.onStart();
-        loadFromPrefs();
-    }*/
+        addTextWatcherEtInput();
+    }
 
+    /** initialises etInput, loads text and hint in etInput and items in ListView from
+     *  SharedPreferences */
     public void loadFromPrefs() {
-        EditText etInput = (EditText) mainActivity.findViewById(R.id.search_frg_input_et);
+        etInput = (EditText) mainActivity.findViewById(R.id.search_frg_input_et);
+        etInput.setText(mainActivity.prefs.getString("searchText", ""));
+        etInput.setHint(mainActivity.prefs.getString("searchHint",
+                mainActivity.getString(R.string.search_fragment_et_input_hint)));
+        mainActivity.localDatabase.getProductsFromInput(mainActivity.prefs.getString(
+                "searchInput", ""));
+    }
+
+    /** adds TextWatcher that saves the changed text in the input EditText to SharedPreferences */
+    private void addTextWatcherEtInput() {
         etInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -58,38 +76,19 @@ public class SearchFragment extends Fragment {
                 }
             }
         });
-        etInput.setText(mainActivity.prefs.getString("searchText", ""));
-        etInput.setHint(mainActivity.prefs.getString("searchHint",
-                mainActivity.getString(R.string.search_fragment_et_input_hint)));
-
-        mainActivity.localDatabase.getProductsFromInput(mainActivity.prefs.getString(
-                "searchInput", "naturel"));
     }
 
-    public void createList(final ArrayList<String> productNames,
-                           final ArrayList<Boolean> isVeganList) {
-        ListView lvResult = (ListView) view.findViewById(R.id.search_frg_result_lv);
-        ArrayAdapter<String> adapter = new SearchListArrayAdapter(context,
-                android.R.layout.simple_list_item_1, android.R.id.text1, productNames, isVeganList);
-        lvResult.setAdapter(adapter);
-
-        lvResult.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-                                    long arg3) {
-                if (!productNames.get(arg2).equals("Sorry, couldn't find any matching products! Make sure the database is synced.")) {
-                    String name = productNames.get(arg2);
-                    Boolean vegan = isVeganList.get(arg2);
-                    mainActivity.productToResult(name, vegan);
-                }
-            }
-        });
-    }
-
+    /** updates text and hint in etInput, saves text, hint and input in SharedPreferences, starts
+     * searching for products via localDatabase */
     public void handleSearch() {
-        EditText etInput = (EditText) mainActivity.findViewById(R.id.search_frg_input_et);
         String input = etInput.getText().toString();
-        String hint = mainActivity.getString(R.string.search_fragment_et_input_searched_hint) + input;
+        String hint = mainActivity.getString(R.string.search_fragment_et_input_searched_hint);
+        // prevents etInput from taking up the entire screen if someone only entered whitespace
+        if (input.matches("\\s+")) {
+            hint = hint + "";
+        } else {
+            hint = hint + input;
+        }
         etInput.setText("");
         etInput.setHint(hint);
 
@@ -99,13 +98,30 @@ public class SearchFragment extends Fragment {
         mainActivity.localDatabase.getProductsFromInput(input);
     }
 
+    /** creates ListView with items based on products found and passed via nameList and veganList,
+     * makes each item clickable, if any products found, redirecting to ResultFragment */
+    public void createList(final ArrayList<String> nameList, final ArrayList<Boolean> veganList) {
+        ListView lvResult = (ListView) view.findViewById(R.id.search_frg_result_lv);
+        ArrayAdapter<String> adapter = new SearchListArrayAdapter(context,
+                android.R.layout.simple_list_item_1, android.R.id.text1, nameList, veganList);
+        lvResult.setAdapter(adapter);
+        lvResult.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (!nameList.get(position).equals(context.getString(
+                        R.string.search_fragment_no_products))) {
+                    mainActivity.productToResult(nameList.get(position), veganList.get(position));
+                }
+            }
+        });
+    }
+
     /** provides feedback when no products could be found */
-    //TODO Change this to TextView for simplicity? (also delete the check in SearchFragment if so)
+    //TODO Change this to TextView for simplicity? (also delete the check in createList onClickListener if so)
     public void noProductsFound() {
         ArrayList<String> productNames = new ArrayList<>();
         ArrayList<Boolean> isVeganList = new ArrayList<>();
-        productNames.add(
-                "Sorry, couldn't find any matching products! Make sure the database is synced.");
+        productNames.add(context.getString(R.string.search_fragment_no_products));
         isVeganList.add(false);
         mainActivity.searchFragment.createList(productNames, isVeganList);
     }

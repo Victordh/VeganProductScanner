@@ -9,10 +9,13 @@ import android.view.ViewGroup;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
+ *
+ * SentFragment contains the view giving feedback to the user after they submit a product.
+ * TODO Think about if this fragment is redundant and could be replaced by a Toast
  */
 
 public class SentFragment extends Fragment {
-
+    /** inflates xml */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

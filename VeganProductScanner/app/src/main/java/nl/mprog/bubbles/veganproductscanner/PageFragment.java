@@ -50,8 +50,8 @@ public class PageFragment extends Fragment {
         }
     }
 
-    /** gives ContainerFragment to MainActivity, MainActivity to ContainerFragment, returns the
-     * inflated view */
+    /** creates double connection between ContainerFragment and MainActivity, fills
+     * ContainerFragment with correct Fragment from SharedPreferences, returns inflated view */
     private View createContainerFragment(LayoutInflater inflater, ViewGroup container,
                                          Bundle savedInstanceState) {
         mainActivity.containerFragment = new ContainerFragment();
@@ -63,8 +63,7 @@ public class PageFragment extends Fragment {
         return view;
     }
 
-    /** gives InfoFragment to MainActivity, MainActivity to InfoFragment, returns the inflated
-     *  view */
+    /** creates double connection between InfoFragment and MainActivity, returns inflated view */
     private View createInfoFragment(LayoutInflater inflater, ViewGroup container,
                                     Bundle savedInstanceState) {
         mainActivity.infoFragment = new InfoFragment();
@@ -72,8 +71,7 @@ public class PageFragment extends Fragment {
         return mainActivity.infoFragment.onCreateView(inflater, container, savedInstanceState);
     }
 
-    /** gives SearchFragment to MainActivity, MainActivity to SearchFragment, returns the inflated
-     *  view */
+    /** creates double connection between SearchFragment and MainActivity, returns inflated view */
     private View createSearchFragment(LayoutInflater inflater, ViewGroup container,
                                       Bundle savedInstanceState) {
         mainActivity.searchFragment = new SearchFragment();

@@ -13,11 +13,10 @@ import android.widget.TextView;
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  *
  * ResultFragment contains views that show if a single product is vegan or not.
+ * TODO Change design, add picture?
  */
 
 public class ResultFragment extends Fragment {
-    //TODO Change design, add picture?
-
     private Boolean vegan;
     private String name;
 
@@ -36,7 +35,7 @@ public class ResultFragment extends Fragment {
         super.onStart();
         name = mainActivity.prefs.getString("productName", "");
         vegan = mainActivity.prefs.getBoolean("productIsVegan", false);
-        // needs currentTab check to prevent crash after turning off the screen in InfoFragment
+        // needs currentTab-check to prevent crash after turning off the screen in InfoFragment
         if (!name.equals("") && mainActivity.prefs.getInt("currentTab", 2) != 2) {
             productFound(name, vegan);
         }
@@ -50,7 +49,7 @@ public class ResultFragment extends Fragment {
         mainActivity.prefs.edit().putBoolean("productIsVegan", this.vegan).apply();
     }
 
-    /** updates views and background according to the product */
+    /** updates views and background according to product variables */
     public void productFound(String name, boolean vegan) {
         TextView tvVegan = (TextView) mainActivity.findViewById(R.id.result_frg_is_vegan_tv);
         TextView tvName = (TextView) mainActivity.findViewById(R.id.result_frg_name_tv);

@@ -3,7 +3,6 @@ package nl.mprog.bubbles.veganproductscanner;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com

@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:fitsSystemWindows="true"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:id="@+id/activity_main"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <!--TODO: put non-layout attributes (so appearance) in style files.
     Keep orientation, id, text in layout too.-->
 
-    <include layout="@layout/content_main" />
+    <android.support.design.widget.TabLayout
+        android:id="@+id/main_activity_tl"
+        android:layout_height="80dp"
+        android:layout_width="match_parent" />
 
-</android.support.design.widget.CoordinatorLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_activity_vp"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:layout_width="match_parent" />
+
+</LinearLayout>

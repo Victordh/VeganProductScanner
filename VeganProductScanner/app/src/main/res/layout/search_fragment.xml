@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_fragment"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/search_frg_search_btn"
+        android:id="@+id/search_fragment_search_btn"
         android:layout_alignParentEnd="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -15,17 +16,17 @@
         android:text="@string/search.fragment.btn.search" />
 
     <EditText
-        android:id="@+id/search_frg_input_et"
+        android:id="@+id/search_fragment_input_et"
         android:hint="@string/search.fragment.et.input.hint"
         android:layout_height="wrap_content"
-        android:layout_toStartOf="@id/search_frg_search_btn"
+        android:layout_toStartOf="@id/search_fragment_search_btn"
         android:layout_width="wrap_content"
         android:padding="10dp"
         android:textSize="16sp" />
 
     <ListView
-        android:id="@+id/search_frg_result_lv"
-        android:layout_below="@id/search_frg_input_et"
+        android:id="@+id/search_fragment_result_lv"
+        android:layout_below="@id/search_fragment_input_et"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:padding="20dp" />

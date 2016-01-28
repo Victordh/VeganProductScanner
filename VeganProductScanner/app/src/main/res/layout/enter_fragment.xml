@@ -4,10 +4,10 @@
     android:id="@+id/enter_fragment"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/enter_frg_barcode_tv"
+        android:id="@+id/enter_fragment_barcode_tv"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -16,34 +16,34 @@
 
     <EditText
         android:hint="@string/enter.fragment.et.name.hint"
-        android:id="@+id/enter_frg_name_et"
-        android:layout_below="@id/enter_frg_barcode_tv"
+        android:id="@+id/enter_fragment_name_et"
+        android:layout_below="@id/enter_fragment_barcode_tv"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content" />
 
     <RadioGroup
-        android:checkedButton="@+id/enter_frg_vegan_dont_know_rb"
-        android:id="@+id/enter_frg_vegan_rg"
-        android:layout_below="@id/enter_frg_name_et"
+        android:checkedButton="@+id/enter_fragment_vegan_dont_know_rb"
+        android:id="@+id/enter_fragment_vegan_rg"
+        android:layout_below="@id/enter_fragment_name_et"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content">
 
         <RadioButton
-            android:id="@+id/enter_frg_vegan_yes_rb"
+            android:id="@+id/enter_fragment_vegan_yes_rb"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="@string/enter.fragment.rb.vegan.yes"/>
 
         <RadioButton
-            android:id="@+id/enter_frg_vegan_no_rb"
+            android:id="@+id/enter_fragment_vegan_no_rb"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="@string/enter.fragment.rb.vegan.no"/>
 
         <RadioButton
-            android:id="@id/enter_frg_vegan_dont_know_rb"
+            android:id="@id/enter_fragment_vegan_dont_know_rb"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="@string/enter.fragment.rb.vegan.dont.know"/>
@@ -52,19 +52,19 @@
 
     <EditText
         android:hint="@string/enter.fragment.et.comment.hint"
-        android:id="@+id/enter_frg_comment_et"
-        android:layout_below="@id/enter_frg_vegan_rg"
+        android:id="@+id/enter_fragment_comment_et"
+        android:layout_below="@id/enter_fragment_vegan_rg"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content" />
 
     <Button
-        android:id="@+id/enter_frg_send_data_btn"
-        android:layout_below="@id/enter_frg_comment_et"
+        android:id="@+id/enter_fragment_send_data_btn"
+        android:layout_below="@id/enter_fragment_comment_et"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/enter.fragment.btn.send"
-        android:onClick="sendButtonClick" />
+        android:onClick="sendButtonClick"
+        android:text="@string/enter.fragment.btn.send" />
 
 </RelativeLayout>

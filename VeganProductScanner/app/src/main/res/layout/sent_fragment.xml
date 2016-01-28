@@ -4,10 +4,10 @@
     android:id="@+id/sent_fragment"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/sent_frg_thanks_tv"
+        android:id="@+id/sent_fragment_thanks_tv"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"

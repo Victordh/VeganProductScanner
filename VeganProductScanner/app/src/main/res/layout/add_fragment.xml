@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/add_fragment"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/add_frg_add_btn"
+        android:id="@+id/add_fragment_add_btn"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -17,8 +16,8 @@
         android:onClick="addButtonClick" />
 
     <TextView
-        android:id="@+id/add_frg_add_tv"
-        android:layout_below="@id/add_frg_add_btn"
+        android:id="@+id/add_fragment_add_tv"
+        android:layout_below="@id/add_fragment_add_btn"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

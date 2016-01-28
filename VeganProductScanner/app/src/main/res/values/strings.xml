@@ -54,6 +54,7 @@
     <!--Toasts (LocalDatabase and OnlineDatabase-->
     <string name="toast.local.database.deleted">All data in local database deleted.</string>
     <string name="toast.local.database.empty">Local database is already empty.</string>
+    <string name="toast.online.database.no.internet">No internet connection detected. Could not sync database.</string>
     <string name="toast.online.database.products">" products."</string>
     <string name="toast.online.database.updated">"Database updated. It contains "</string>
     <string name="toast.online.database.uptodate">"Database is already up-to-date.

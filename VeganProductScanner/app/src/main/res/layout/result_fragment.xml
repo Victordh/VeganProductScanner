@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/result_fragment"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/result_frg_is_vegan_tv"
+        android:id="@+id/result_fragment_is_vegan_tv"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -14,13 +15,13 @@
         android:textSize="220sp" />
 
     <TextView
-        android:id="@+id/result_frg_name_tv"
-        android:layout_below="@id/result_frg_is_vegan_tv"
+        android:id="@+id/result_fragment_name_tv"
+        android:layout_below="@id/result_fragment_is_vegan_tv"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:text="@string/result.fragment.tv.name"
         android:textSize="24sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
 </RelativeLayout>

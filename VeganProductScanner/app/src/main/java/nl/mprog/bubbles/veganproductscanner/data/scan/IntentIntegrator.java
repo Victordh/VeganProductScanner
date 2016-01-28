@@ -2,6 +2,11 @@ package nl.mprog.bubbles.veganproductscanner.data.scan;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
+ *
+ * IntentIntegrator handles the
+ *
+ * TODO Build the scanner into the app, so it doesn't require another download and needs less
+ * permissions because of stripped functions
  */
 
 /**

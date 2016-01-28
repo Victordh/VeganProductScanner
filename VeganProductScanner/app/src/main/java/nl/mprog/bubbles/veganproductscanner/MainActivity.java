@@ -10,6 +10,17 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import nl.mprog.bubbles.veganproductscanner.data.InfoFragment;
+import nl.mprog.bubbles.veganproductscanner.data.scan.ContainerFragment;
+import nl.mprog.bubbles.veganproductscanner.data.scan.ResultFragment;
+import nl.mprog.bubbles.veganproductscanner.data.scan.submit.AddFragment;
+import nl.mprog.bubbles.veganproductscanner.data.scan.submit.EnterFragment;
+import nl.mprog.bubbles.veganproductscanner.data.scan.IntentIntegrator;
+import nl.mprog.bubbles.veganproductscanner.data.scan.submit.SentFragment;
+import nl.mprog.bubbles.veganproductscanner.data.LocalDatabase;
+import nl.mprog.bubbles.veganproductscanner.data.OnlineDatabase;
+import nl.mprog.bubbles.veganproductscanner.data.search.SearchFragment;
+
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  *

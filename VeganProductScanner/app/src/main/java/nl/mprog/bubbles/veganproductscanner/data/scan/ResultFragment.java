@@ -1,4 +1,4 @@
-package nl.mprog.bubbles.veganproductscanner;
+package nl.mprog.bubbles.veganproductscanner.data.scan;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import nl.mprog.bubbles.veganproductscanner.MainActivity;
+import nl.mprog.bubbles.veganproductscanner.R;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com

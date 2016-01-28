@@ -1,4 +1,4 @@
-package nl.mprog.bubbles.veganproductscanner;
+package nl.mprog.bubbles.veganproductscanner.data.search;
 
 import android.content.Context;
 import android.support.annotation.IdRes;
@@ -9,6 +9,19 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import java.util.List;
+
+import nl.mprog.bubbles.veganproductscanner.R;
+
+/**
+ * MainActivity
+ * ParseApplication
+ *
+ * InfoFragment
+ * tabs
+ *      PageFragment
+ *      TabsFragmentPagerAdapter
+ *
+ */
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com

@@ -1,4 +1,4 @@
-package nl.mprog.bubbles.veganproductscanner;
+package nl.mprog.bubbles.veganproductscanner.data.scan;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com

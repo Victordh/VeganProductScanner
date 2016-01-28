@@ -6,6 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import nl.mprog.bubbles.veganproductscanner.data.InfoFragment;
+import nl.mprog.bubbles.veganproductscanner.data.scan.ContainerFragment;
+import nl.mprog.bubbles.veganproductscanner.data.search.SearchFragment;
+
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  * Based on code at

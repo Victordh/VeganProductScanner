@@ -1,4 +1,4 @@
-package nl.mprog.bubbles.veganproductscanner;
+package nl.mprog.bubbles.veganproductscanner.data.scan;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
@@ -38,6 +38,8 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+
+import nl.mprog.bubbles.veganproductscanner.R;
 
 /**
  * <p>A utility class which helps ease integration with Barcode Scanner via {@link Intent}s. This is a simple

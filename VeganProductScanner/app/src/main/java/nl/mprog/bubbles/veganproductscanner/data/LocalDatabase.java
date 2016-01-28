@@ -1,4 +1,4 @@
-package nl.mprog.bubbles.veganproductscanner;
+package nl.mprog.bubbles.veganproductscanner.data;
 
 import android.util.Log;
 import android.widget.Toast;
@@ -11,6 +11,9 @@ import com.parse.ParseQuery;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import nl.mprog.bubbles.veganproductscanner.MainActivity;
+import nl.mprog.bubbles.veganproductscanner.R;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com

@@ -1,4 +1,4 @@
-package nl.mprog.bubbles.veganproductscanner;
+package nl.mprog.bubbles.veganproductscanner.data.search;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -15,6 +15,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
+import nl.mprog.bubbles.veganproductscanner.MainActivity;
+import nl.mprog.bubbles.veganproductscanner.R;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com

@@ -26,7 +26,6 @@ import nl.mprog.bubbles.veganproductscanner.data.search.SearchFragment;
  *
  * MainActivity contains all fragments and their managers. It also redirects button clicks to the
  * correct fragment.
- * TODO method toast(String message) {}?
  */
 
 public class MainActivity extends AppCompatActivity {

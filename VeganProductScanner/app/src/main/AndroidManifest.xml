@@ -4,7 +4,6 @@
     package="nl.mprog.bubbles.veganproductscanner" >
 
     <!--TODO Remove all TODOs before handing in-->
-    <!--TODO Put Activities, Fragments, Managers, more in separate directories-->
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

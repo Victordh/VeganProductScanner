@@ -29,7 +29,7 @@
 - Completed Design Document.
 - Updated README.
 
-![](doc/scanner_intent.png)
+![](doc/process/scanner_intent.png)
 
 # day 6
 
@@ -38,13 +38,13 @@
 
 # day 7
 
-- Seperated code into different classes for clarity.
+- Separated code into different classes for clarity.
 - Network database is working.
 - Local database is working (can download network database into local and erase the local database).
 - Can scan barcode and find it (product_scanned.png)
 
 product_scanned.png  
-![](doc/product_scanned.png)
+![](doc/process/product_scanned.png)
 
 # day 8
 
@@ -53,20 +53,20 @@ product_scanned.png
 - Added some TODOs on manual search (more relevant results on top, if 1 result go to resultFragment, give listItem correct colour, input case-insensitive)
 
 manual_search_result.png  
-![](doc/manual_search_result.png)
+![](doc/process/manual_search_result.png)
 
 # day 9
 
-- Added user submitted data. User can add a product (to a seperate database) when a product is not found. (add_product.png, enter_product.png, thanks.png)
-- Added seperate (but similar) database for user submissions, for easy export/import.
+- Added user submitted data. User can add a product (to a separate database) when a product is not found. (add_product.png, enter_product.png, thanks.png)
+- Added separate (but similar) database for user submissions, for easy export/import.
 - MVP almost finished! (Sort of, needs a lot of tweaking).
 
 add_product.png  
-![](doc/add_product.png)
+![](doc/process/add_product.png)
 enter_product.png  
-![](doc/enter_product.png)
+![](doc/process/enter_product.png)
 thanks.png  
-![](doc/thanks.png)
+![](doc/process/thanks.png)
 
 # day 10
 
@@ -119,3 +119,12 @@ thanks.png
 - Split MemoryManagement into LocalDatabase and OnlineDatabase.
 - Cleaned up more code (comments, rewriting, moved some methods, restyling, TODOs).
 - Fixed (hopefully) last crash.
+
+# day 19
+
+- Split .java files into packages.
+- Cleaned up all xml files (still need to separate some attributes into style files).
+- Finished cleaning up .java code (comments, rewriting, moving methods, restyling, TODOs, improving readability).
+- Updated README.md.
+- Added UNLICENSE.
+- Cleaned up repository.

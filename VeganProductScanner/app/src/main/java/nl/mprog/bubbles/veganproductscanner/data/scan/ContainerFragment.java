@@ -35,7 +35,7 @@ public class ContainerFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        mainActivity.fillContainerFragment(mainActivity.prefs.getInt("currentContainerFragment",
+        mainActivity.fillContainerFragment(mainActivity.prefs.getInt("currentContainerFill",
                 0));
     }
 

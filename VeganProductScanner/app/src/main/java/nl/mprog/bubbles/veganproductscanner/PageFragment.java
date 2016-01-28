@@ -62,8 +62,7 @@ public class PageFragment extends Fragment {
         mainActivity.containerFragment.mainActivity = mainActivity;
         View view = mainActivity.containerFragment.onCreateView(inflater, container,
                 savedInstanceState);
-        mainActivity.fillContainerFragment(mainActivity.prefs.getInt("currentContainerFragment",
-                0));
+        mainActivity.fillContainerFragment(mainActivity.prefs.getInt("currentContainerFill", 0));
         return view;
     }
 

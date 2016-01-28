@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             ft.replace(R.id.container_fragment, addFragment);
         }
         ft.commit();
-        prefs.edit().putInt("currentContainerFragment", n).apply();
+        prefs.edit().putInt("currentContainerFill", n).apply();
     }
 
     /** gets scanned barcode from Barcode Scanner (IntentResult.java), passes to MemoryManagement */

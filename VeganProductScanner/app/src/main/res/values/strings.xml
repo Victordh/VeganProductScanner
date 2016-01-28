@@ -3,7 +3,7 @@
 
     <!--AddFragment-->
     <string name="add.fragment.tv.not.found">Sorry! The product is not in the database yet. Try to
-        sync the database or add the product by clicking the button above.</string>
+        synchronise the database or add the product by clicking the button above.</string>
     <string name="add.fragment.btn.add">Add product</string>
 
     <!--EnterFragment-->
@@ -17,8 +17,9 @@
 
     <!--InfoFragment-->
     <string name="info.fragment.tv.info">Before you start using this app, make sure you tap the
-        "Sync database" button. You can either scan a barcode by tapping the round button in the
-        first tab, or search for products by entering a barcode or part of a product name.</string>
+        "Synchronise database" button. You can either scan a barcode by tapping the round button in
+        the first tab, or search for products by entering a barcode or part of a product name.
+    </string>
     <string name="info.fragment.btn.sync">Synchronise database</string>
     <string name="info.fragment.btn.synced">Database synchronised</string>
     <string name="info.fragment.btn.clear">Clear local database</string>
@@ -42,7 +43,7 @@
         here</string>
     <string name="search.fragment.et.input.searched.hint">"You searched for: "</string>
     <string name="search.fragment.no.products">Sorry, could not find any matching products!
-        Make sure the database is synced or try a different search term.</string>
+        Make sure the database is synchronised or try a different search term.</string>
 
     <!--SentFragment-->
     <string name="sent.fragment.tv.thanks">Thank you! I\'ll add it to the database as soon as
@@ -51,7 +52,8 @@
     <!--Toasts (LocalDatabase and OnlineDatabase)-->
     <string name="toast.local.deleted">All data in local database deleted.</string>
     <string name="toast.local.empty">Local database is already empty.</string>
-    <string name="toast.online.no.internet">No internet connection detected. Could not sync database.</string>
+    <string name="toast.online.no.internet">No internet connection detected. Could not synchronise
+        database.</string>
     <string name="toast.online.products">" products."</string>
     <string name="toast.online.updated">"Database updated. It contains "</string>
     <string name="toast.online.uptodate">"Database is already up-to-date.

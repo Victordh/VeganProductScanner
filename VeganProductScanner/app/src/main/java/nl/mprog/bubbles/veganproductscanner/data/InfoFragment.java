@@ -29,8 +29,9 @@ public class InfoFragment extends Fragment {
         return inflater.inflate(R.layout.info_fragment, container, false);
     }
 
+    //TODO Change colour of disabled buttons
+
     /** enables or disables the sync button, to prevent unnecessary calls to the online database */
-    //TODO Change colour of disabled button
     public void enableSyncButton(boolean enable) {
         Button syncButton = (Button) mainActivity.findViewById(R.id.info_frg_sync_btn);
         syncButton.setClickable(enable);
@@ -42,7 +43,6 @@ public class InfoFragment extends Fragment {
     }
 
     /** enables or disables the clear button, to prevent unnecessary calls to the local database */
-    //TODO Change colour of disabled button
     public void enableClearButton(boolean enable) {
         Button eraseButton = (Button) mainActivity.findViewById(R.id.info_frg_clear_btn);
         eraseButton.setClickable(enable);

@@ -36,8 +36,9 @@ Layout/content (id, text, layout, orientation) attributes inside layout XML, res
 
 In strings.xml, use 'error.message.network', not 'network_error'.  
 
-
+Java:  
 In Java, use CamelCase (etUsername). Acronyms (like HTML or ID) as passHtml and getId.  
+Don't user ALLCAPS with finals, it would cause a mix of CamelCase and SNAKE_CASE. It is obvious enough anyway, because of syntax highlighting.
 Don't prefix with activity, because code is in a certain activity already anyway. (NOT: activityLoginEtUsername, BUT: etUsername)  
 Temporary stuff can have really simple names, a ListView you only use once somewhere can be called 'lv'.  
 No need to prefix Strings, floats, etc. with their type (NOT: stringId, BUT: id).  

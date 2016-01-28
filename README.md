@@ -28,6 +28,9 @@ allowing the app to be used offline as well.
 
 The info tab shows some general information and allows for synchronising and
  clearing the database:  
+ <img 
+ src="https://github.com/Victordh/VeganProductScanner/doc/readme/info_fragment" 
+ width="80">
 ![](doc/readme/info_fragment.png)  
 The search tab allows to manually searching products:  
 ![](doc/readme/search_fragment.png)  
@@ -44,5 +47,5 @@ If a product is found, the result tab is shown again. If a product isn't in the
 In the spirit of open and free software, and in the inevitable prospect of a 
 post-copyright world, this project is released into the public domain. See 
 [UNLICENSE](UNLICENSE) for more information.
-This app is and will always be completely free of charge. It does not and will
-never have advertisements.
+**This app is and will always be completely free of charge. It does not and will
+never have advertisements.**

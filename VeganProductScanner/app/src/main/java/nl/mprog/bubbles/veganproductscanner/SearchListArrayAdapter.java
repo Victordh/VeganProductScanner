@@ -17,16 +17,14 @@ import java.util.List;
  * items in a list.
  */
 
-public class SearchListArrayAdapter extends ArrayAdapter<String> {
-    final List<Boolean> veganList;
-    final List<String> nameList;
+class SearchListArrayAdapter extends ArrayAdapter<String> {
+    private final List<Boolean> veganList;
 
-    /** saves the lists containing names and if the products are vegan or not*/
+    /** saves the list containing if the products are vegan or not*/
     public SearchListArrayAdapter(Context context, @LayoutRes int resource,
                                   @IdRes int textViewResourceId, List<String> names,
                                   List<Boolean> vegan) {
         super(context, resource, textViewResourceId, names);
-        nameList = names;
         veganList = vegan;
     }
 

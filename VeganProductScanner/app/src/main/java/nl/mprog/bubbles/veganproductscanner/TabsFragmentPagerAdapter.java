@@ -1,6 +1,5 @@
 package nl.mprog.bubbles.veganproductscanner;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
@@ -15,21 +14,19 @@ import android.support.v4.app.FragmentManager;
  * TODO Change tabTitles to Icons with text
  */
 
-public class TabsFragmentPagerAdapter extends android.support.v4.app.FragmentPagerAdapter {
-    final int PAGE_COUNT = 3;
-    private String tabTitles[] = new String[] { "Result", "Search", "Info"};
-    Context context;
-    MainActivity mainActivity;
+class TabsFragmentPagerAdapter extends android.support.v4.app.FragmentPagerAdapter {
+    private final MainActivity mainActivity;
 
-    public TabsFragmentPagerAdapter(FragmentManager fm, Context context, MainActivity activity) {
+    /** passes MainActivity for getItem to use */
+    public TabsFragmentPagerAdapter(FragmentManager fm , MainActivity activity) {
         super(fm);
         mainActivity = activity;
-        this.context = context;
     }
 
+    /** specifies the amount of tabs */
     @Override
     public int getCount() {
-        return PAGE_COUNT;
+        return 3;
     }
 
     /** determines the fragment corresponding to each tab */
@@ -41,6 +38,7 @@ public class TabsFragmentPagerAdapter extends android.support.v4.app.FragmentPag
     /** generates the title for each tab */
     @Override
     public CharSequence getPageTitle(int position) {
+        String tabTitles[] = new String[] { "Result", "Search", "Info"};
         return tabTitles[position];
     }
 }

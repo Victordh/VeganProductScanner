@@ -44,7 +44,7 @@
     <string name="search.fragment.et.input.hint">Enter (part of) the barcode or product name
         here</string>
     <string name="search.fragment.et.input.searched.hint">"You searched for: "</string>
-    <string name="search.fragment.no.products">Sorry, couldn\'t find any matching products!
+    <string name="search.fragment.no.products">Sorry, could not find any matching products!
         Make sure the database is synced or try a different search term.</string>
 
     <!--SentFragment-->

@@ -16,7 +16,7 @@ import java.util.List;
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  *
  * LocalDatabase contains all methods concerning the local database.
- * TODO Make this and InfoFragment better, user doens't need to know most of this stuff, ideally update database automatically?
+ * TODO Make this and InfoFragment better, user doesn't need to know most of this stuff, ideally update database automatically?
  */
 
 public class LocalDatabase {

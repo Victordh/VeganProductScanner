@@ -56,8 +56,7 @@ public class MainActivity extends AppCompatActivity {
     /** sets ViewPager's PagerAdapter so it can display items, gives ViewPager to TabLayout */
     private void setUpViewPagerAndTabLayout() {
         viewPager = (ViewPager) findViewById(R.id.main_act_vp);
-        viewPager.setAdapter(new TabsFragmentPagerAdapter(getSupportFragmentManager(),
-                this.getBaseContext(), this));
+        viewPager.setAdapter(new TabsFragmentPagerAdapter(getSupportFragmentManager(), this));
 
         TabLayout tl = (TabLayout) findViewById(R.id.main_act_tl);
         tl.setupWithViewPager(viewPager);
@@ -129,27 +128,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**  goes to EnterFragment */
-    public void addButtonClick() {
+    public void addButtonClick(View view) {
         fillContainerFragment(2);
     }
 
     // disables this button, attempts to clear local database, enables Sync button
-    public void clearButtonClick() {
+    public void clearButtonClick(View view) {
         infoFragment.enableClearButton(false);
         localDatabase.clearLocalDatabase();
         infoFragment.enableSyncButton(true);
     }
 
-    public void searchButtonClick() {
+    public void searchButtonClick(View view) {
         searchFragment.handleSearch();
     }
 
-    public void sendButtonClick() {
+    public void sendButtonClick(View view) {
         enterFragment.sendSubmission();
     }
 
     // disables this button, attempts to sync local database, enables Erase button
-    public void syncButtonClick() {
+    public void syncButtonClick(View view) {
         infoFragment.enableSyncButton(false);
         onlineDatabase.syncLocalDatabase();
         infoFragment.enableClearButton(true);

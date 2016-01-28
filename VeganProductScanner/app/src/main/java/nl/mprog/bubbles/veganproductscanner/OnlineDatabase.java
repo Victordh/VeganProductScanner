@@ -17,7 +17,7 @@ import java.util.List;
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  *
  * OnlineDatabase contains all methods concerning the online databases Product and Submission.
- * TODO Make this and InfoFragment better, user doens't need to know most of this stuff,
+ * TODO Make this and InfoFragment better, user doesn't need to know most of this stuff,
  * TODO Maybe update database automatically and remove clear button?
  * TODO Toast strings to strings.xml
  */

@@ -151,7 +151,8 @@ public class LocalDatabase {
             public void done(ParseObject product, ParseException e) {
                 if (e == null) {
                     if (product != null) {
-                        mainActivity.resultFragment.productFound(product.getString("productName"),
+                        mainActivity.fillContainerFragment(0);
+                        mainActivity.resultFragment.setProduct(product.getString("productName"),
                                 product.getBoolean("isVegan"));
                     }
                 } else if (e.getMessage().equals("no results found for query")) {

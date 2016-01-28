@@ -28,18 +28,18 @@ allowing the app to be used offline as well.
 
 The info tab shows some general information and allows for synchronising and
  clearing the database:  
- <img src="https://github.com/Victordh/VeganProductScanner/blob/master/doc/readme/info_fragment.png" width="300">  
+ <img src="https://github.com/Victordh/VeganProductScanner/blob/master/doc/readme/info_fragment.png" width="200">  
 The search tab allows to manually searching products:  
-![](doc/readme/search_fragment.png)  
+ <img src="https://github.com/Victordh/VeganProductScanner/blob/master/doc/readme/search_fragment.png" width="200">  
 Each of these products can be tapped, redirecting to the result tab, which shows
  clearly if a product is vegan or not:  
-![](doc/readme/result_fragment.png)  
+ <img src="https://github.com/Victordh/VeganProductScanner/blob/master/doc/readme/result_fragment.png" width="200">  
 After tapping the round button in the lower right corner, scanning a barcode is
  fast and easy:  
-![](doc/readme/barcode_scanner.png)  
+ <img src="https://github.com/Victordh/VeganProductScanner/blob/master/doc/readme/barcode_scanner.png" width="200">  
 If a product is found, the result tab is shown again. If a product isn't in the
  database yet, it can be submitted:  
-![](doc/readme/enter_fragment.png)  
+ <img src="https://github.com/Victordh/VeganProductScanner/blob/master/doc/readme/enter_fragment.png" width="200">  
 
 In the spirit of open and free software, and in the inevitable prospect of a 
 post-copyright world, this project is released into the public domain. See 

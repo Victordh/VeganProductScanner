@@ -2,6 +2,10 @@ package nl.mprog.bubbles.veganproductscanner.data.scan;
 
 /**
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
+ *
+ * IntentResult hands back the result of scanned barcode, started by IntentIntegrator.java. This
+ * file has not been modified and can be found on
+ * https://github.com/zxing/zxing/blob/master/android-integration/src/main/java/com/google/zxing/integration/android/IntentResult.java
  */
 
 /**

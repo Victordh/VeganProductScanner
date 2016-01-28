@@ -2,7 +2,8 @@
     <string name="app.name">Vegan Product Scanner</string>
 
     <!--AddFragment-->
-    <string name="add.fragment.tv.not.found">Sorry! The product is not in the database yet. Try to sync the database or add the product by clicking the button above.</string>
+    <string name="add.fragment.tv.not.found">Sorry! The product is not in the database yet. Try to
+        sync the database or add the product by clicking the button above.</string>
     <string name="add.fragment.btn.add">Add product</string>
 
     <!--EnterFragment-->
@@ -18,14 +19,17 @@
     <string name="error.message.try.again">Something went wrong, please try again.</string>
 
     <!--InfoFragment-->
-    <string name="info.fragment.tv.info">Before you start using this app, make sure you tap the "Sync database" button. You can either scan a barcode by tapping the round button in the first tab, or search for products by entering a barcode or part of a product name.</string>
+    <string name="info.fragment.tv.info">Before you start using this app, make sure you tap the
+        "Sync database" button. You can either scan a barcode by tapping the round button in the
+        first tab, or search for products by entering a barcode or part of a product name.</string>
     <string name="info.fragment.btn.sync">Synchronise database</string>
     <string name="info.fragment.btn.synced">Database synchronised</string>
     <string name="info.fragment.btn.clear">Clear local database</string>
     <string name="info.fragment.btn.cleared">Local database empty</string>
 
     <!--ResultFragment FAB IntentIntegrator-->
-    <string name="result.fragment.integrator.message">Vegan Product Scanner requires Barcode Scanner. Would you like to install it?</string>
+    <string name="result.fragment.integrator.message">Vegan Product Scanner requires Barcode
+        Scanner. Would you like to install it?</string>
     <string name="result.fragment.integrator.title">Install Barcode Scanner?</string>
     <string name="result.fragment.integrator.yes">YES</string>
     <string name="result.fragment.integrator.no">NO</string>
@@ -37,14 +41,21 @@
 
     <!--SearchFragment-->
     <string name="search.fragment.btn.search">Search</string>
-    <string name="search.fragment.et.input.hint">Enter (part of) the barcode or product name here</string>
+    <string name="search.fragment.et.input.hint">Enter (part of) the barcode or product name
+        here</string>
     <string name="search.fragment.et.input.searched.hint">"You searched for: "</string>
+    <string name="search.fragment.no.products">Sorry, couldn\'t find any matching products!
+        Make sure the database is synced or try a different search term.</string>
 
     <!--SentFragment-->
-    <string name="sent.fragment.tv.thanks">Thank you! I\'ll add it to the database as soon as possible.</string>
+    <string name="sent.fragment.tv.thanks">Thank you! I\'ll add it to the database as soon as
+        possible.</string>
+
+    <!--Toasts (LocalDatabase and OnlineDatabase-->
     <string name="toast.local.database.deleted">All data in local database deleted.</string>
     <string name="toast.local.database.empty">Local database is already empty.</string>
     <string name="toast.online.database.products">" products."</string>
-    <string name="toast.online.database.uptodate">"Database is already up-to-date. It contains "</string>
     <string name="toast.online.database.updated">"Database updated. It contains "</string>
+    <string name="toast.online.database.uptodate">"Database is already up-to-date.
+        It contains "</string>
 </resources>

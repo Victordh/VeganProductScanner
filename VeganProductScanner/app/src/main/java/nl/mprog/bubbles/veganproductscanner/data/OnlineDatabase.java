@@ -48,25 +48,19 @@ public class OnlineDatabase {
                         }
 
                         if (isDatabaseUpToDate()) {
-                            Toast.makeText(mainActivity.getApplicationContext(),
-                                    mainActivity.getString(R.string.toast_online_database_updated) +
-                                            onlineCount + mainActivity.getString(
-                                            R.string.toast_online_database_products),
-                                    Toast.LENGTH_SHORT).show();
+                            longToast(mainActivity.getString(R.string.toast_online_updated) +
+                                    onlineCount +
+                                    mainActivity.getString(R.string.toast_online_products));
                             mainActivity.localDatabase.addLowercaseNamesToLocalDatabase();
                         } else {
-                            Toast.makeText(mainActivity.getApplicationContext(),
-                                    R.string.error_message_try_again,
-                                    Toast.LENGTH_SHORT).show();
+                            shortToast(R.string.toast_try_again);
                             mainActivity.infoFragment.enableSyncButton(true);
                         }
                     }
                 });
             } else {
-                Toast.makeText(mainActivity.getApplicationContext(),
-                        mainActivity.getString(R.string.toast_online_database_uptodate) + localCount
-                                + mainActivity.getString(R.string.toast_online_database_products),
-                        Toast.LENGTH_SHORT).show();
+                longToast(mainActivity.getString(R.string.toast_online_uptodate) + localCount +
+                        mainActivity.getString(R.string.toast_online_products));
             }
         } else {
             mainActivity.infoFragment.enableSyncButton(true);
@@ -82,9 +76,7 @@ public class OnlineDatabase {
         if ((ni != null) && (ni.isConnected())) {
             return true;
         } else {
-            Toast.makeText(mainActivity.getApplicationContext(),
-                    R.string.toast_online_database_no_internet,
-                    Toast.LENGTH_SHORT).show();
+            shortToast(R.string.toast_online_no_internet);
             return false;
         }
     }
@@ -111,5 +103,13 @@ public class OnlineDatabase {
         }
 
         return localCount == onlineCount;
+    }
+
+    private void shortToast(int id) {
+        Toast.makeText(mainActivity.getApplicationContext(), id, Toast.LENGTH_SHORT).show();
+    }
+
+    private void longToast(String message) {
+        Toast.makeText(mainActivity.getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 }

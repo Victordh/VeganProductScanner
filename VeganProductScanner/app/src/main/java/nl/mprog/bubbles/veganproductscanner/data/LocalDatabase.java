@@ -57,13 +57,9 @@ public class LocalDatabase {
                             product.unpinInBackground();
                         }
                         if (amountOfProductsInLocalDatabase() == 0) {
-                            Toast.makeText(mainActivity.getApplicationContext(),
-                                    R.string.toast_local_database_deleted,
-                                    Toast.LENGTH_SHORT).show();
+                            shortToast(R.string.toast_local_deleted);
                         } else {
-                            Toast.makeText(mainActivity.getApplicationContext(),
-                                    R.string.error_message_try_again,
-                                    Toast.LENGTH_SHORT).show();
+                            shortToast(R.string.toast_try_again);
                             mainActivity.infoFragment.enableClearButton(true);
                         }
                     } else {
@@ -73,12 +69,9 @@ public class LocalDatabase {
                 }
             });
         } else if (amount < 0){
-            Toast.makeText(mainActivity.getApplicationContext(),
-                    R.string.error_message_try_again, Toast.LENGTH_SHORT).show();
+            shortToast(R.string.toast_try_again);
         } else {
-            Toast.makeText(mainActivity.getApplicationContext(),
-                    R.string.toast_local_database_empty,
-                    Toast.LENGTH_SHORT).show();
+            shortToast(R.string.toast_local_empty);
         }
     }
 
@@ -169,5 +162,9 @@ public class LocalDatabase {
                 }
             }
         });
+    }
+
+    private void shortToast(int id) {
+        Toast.makeText(mainActivity.getApplicationContext(), id, Toast.LENGTH_SHORT).show();
     }
 }

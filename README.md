@@ -28,10 +28,7 @@ allowing the app to be used offline as well.
 
 The info tab shows some general information and allows for synchronising and
  clearing the database:  
- <img 
- src="https://github.com/Victordh/VeganProductScanner/doc/readme/info_fragment" 
- width="80">
-![](doc/readme/info_fragment.png)  
+ <img src="https://github.com/Victordh/VeganProductScanner/blob/master/doc/readme/info_fragment.png" width="300">  
 The search tab allows to manually searching products:  
 ![](doc/readme/search_fragment.png)  
 Each of these products can be tapped, redirecting to the result tab, which shows

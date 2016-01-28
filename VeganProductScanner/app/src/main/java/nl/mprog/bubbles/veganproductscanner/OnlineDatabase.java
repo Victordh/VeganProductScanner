@@ -19,7 +19,6 @@ import java.util.List;
  * OnlineDatabase contains all methods concerning the online databases Product and Submission.
  * TODO Make this and InfoFragment better, user doesn't need to know most of this stuff,
  * TODO Maybe update database automatically and remove clear button?
- * TODO Toast strings to strings.xml
  */
 
 public class OnlineDatabase {
@@ -81,7 +80,7 @@ public class OnlineDatabase {
             return true;
         } else {
             Toast.makeText(mainActivity.getApplicationContext(),
-                    "No internet connection detected. Could not sync database.",
+                    R.string.toast_online_database_no_internet,
                     Toast.LENGTH_SHORT).show();
             return false;
         }

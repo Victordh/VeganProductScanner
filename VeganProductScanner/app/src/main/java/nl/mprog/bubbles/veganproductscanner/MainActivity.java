@@ -15,7 +15,7 @@ import android.view.View;
  *
  * MainActivity contains all fragments and their managers. It also redirects button clicks to the
  * correct fragment.
- * TODO Toast method?
+ * TODO method toast(String message) {}?
  */
 
 public class MainActivity extends AppCompatActivity {
@@ -55,10 +55,10 @@ public class MainActivity extends AppCompatActivity {
 
     /** sets ViewPager's PagerAdapter so it can display items, gives ViewPager to TabLayout */
     private void setUpViewPagerAndTabLayout() {
-        viewPager = (ViewPager) findViewById(R.id.main_act_vp);
+        viewPager = (ViewPager) findViewById(R.id.main_activity_vp);
         viewPager.setAdapter(new TabsFragmentPagerAdapter(getSupportFragmentManager(), this));
 
-        TabLayout tl = (TabLayout) findViewById(R.id.main_act_tl);
+        TabLayout tl = (TabLayout) findViewById(R.id.main_activity_tl);
         tl.setupWithViewPager(viewPager);
     }
 

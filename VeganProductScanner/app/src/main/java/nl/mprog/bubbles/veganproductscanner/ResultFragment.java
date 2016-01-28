@@ -51,8 +51,8 @@ public class ResultFragment extends Fragment {
 
     /** updates views and background according to product variables */
     public void productFound(String name, boolean vegan) {
-        TextView tvVegan = (TextView) mainActivity.findViewById(R.id.result_frg_is_vegan_tv);
-        TextView tvName = (TextView) mainActivity.findViewById(R.id.result_frg_name_tv);
+        TextView tvVegan = (TextView) mainActivity.findViewById(R.id.result_fragment_is_vegan_tv);
+        TextView tvName = (TextView) mainActivity.findViewById(R.id.result_fragment_name_tv);
         tvName.setText(name);
         if (vegan) {
             tvVegan.setText(R.string.result_fragment_tv_vegan_true);
@@ -67,6 +67,6 @@ public class ResultFragment extends Fragment {
                         getActivity().getApplicationContext(), R.color.nonVeganRed));
             }
         }
-        mainActivity.findViewById(R.id.fab).bringToFront();
+        mainActivity.findViewById(R.id.container_fragment_fab).bringToFront();
     }
 }

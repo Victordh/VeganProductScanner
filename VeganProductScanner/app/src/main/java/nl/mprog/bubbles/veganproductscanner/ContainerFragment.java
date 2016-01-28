@@ -38,7 +38,7 @@ public class ContainerFragment extends Fragment {
 
     /** creates FAB with Intent to app Barcode Scanner (see IntentIntegrator.java) */
     private void createFloatingActionButton(View view) {
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.container_fragment_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

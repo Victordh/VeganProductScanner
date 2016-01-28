@@ -50,7 +50,7 @@ public class SearchFragment extends Fragment {
     /** initialises etInput, loads text and hint in etInput and items in ListView from
      *  SharedPreferences */
     public void loadFromPrefs() {
-        etInput = (EditText) mainActivity.findViewById(R.id.search_frg_input_et);
+        etInput = (EditText) mainActivity.findViewById(R.id.search_fragment_input_et);
         etInput.setText(mainActivity.prefs.getString("searchText", ""));
         etInput.setHint(mainActivity.prefs.getString("searchHint",
                 mainActivity.getString(R.string.search_fragment_et_input_hint)));
@@ -101,7 +101,7 @@ public class SearchFragment extends Fragment {
     /** creates ListView with items based on products found and passed via nameList and veganList,
      * makes each item clickable, if any products found, redirecting to ResultFragment */
     public void createList(final ArrayList<String> nameList, final ArrayList<Boolean> veganList) {
-        ListView lvResult = (ListView) view.findViewById(R.id.search_frg_result_lv);
+        ListView lvResult = (ListView) view.findViewById(R.id.search_fragment_result_lv);
         ArrayAdapter<String> adapter = new SearchListArrayAdapter(context,
                 android.R.layout.simple_list_item_1, android.R.id.text1, nameList, veganList);
         lvResult.setAdapter(adapter);

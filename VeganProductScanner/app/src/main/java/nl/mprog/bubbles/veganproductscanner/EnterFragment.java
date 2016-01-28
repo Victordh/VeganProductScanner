@@ -53,7 +53,7 @@ public class EnterFragment extends Fragment {
 
     /** adds TextWatcher that saves the changed text in the comment EditText to SharedPreferences */
     private void addTextWatcherEtComment() {
-        etComment = (EditText) mainActivity.findViewById(R.id.enter_frg_comment_et);
+        etComment = (EditText) mainActivity.findViewById(R.id.enter_fragment_comment_et);
         etComment.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -75,7 +75,7 @@ public class EnterFragment extends Fragment {
 
     /** adds TextWatcher that saves the changed text in the name EditText to SharedPreferences */
     private void addTextWatcherEtName() {
-        etName = (EditText) mainActivity.findViewById(R.id.enter_frg_name_et);
+        etName = (EditText) mainActivity.findViewById(R.id.enter_fragment_name_et);
         etName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -96,7 +96,7 @@ public class EnterFragment extends Fragment {
 
     /** adds Listener that saves the checked RadioButton to SharedPreferences */
     private void addListenerRgVegan() {
-        rgVegan = (RadioGroup) mainActivity.findViewById(R.id.enter_frg_vegan_rg);
+        rgVegan = (RadioGroup) mainActivity.findViewById(R.id.enter_fragment_vegan_rg);
         rgVegan.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -107,7 +107,7 @@ public class EnterFragment extends Fragment {
 
     /** updates TextView text */
     private void setBarcode() {
-        TextView tvBarcode = (TextView) mainActivity.findViewById(R.id.enter_frg_barcode_tv);
+        TextView tvBarcode = (TextView) mainActivity.findViewById(R.id.enter_fragment_barcode_tv);
         tvBarcode.setText(mainActivity.barcode);
     }
 
@@ -117,10 +117,10 @@ public class EnterFragment extends Fragment {
         String name = etName.getText().toString();
         String vegan;
         if (rgVegan.getCheckedRadioButtonId() == rgVegan.findViewById(
-                R.id.enter_frg_vegan_yes_rb).getId()) {
+                R.id.enter_fragment_vegan_yes_rb).getId()) {
             vegan = "true";
         } else if (rgVegan.getCheckedRadioButtonId() == rgVegan.findViewById(
-                R.id.enter_frg_vegan_no_rb).getId()) {
+                R.id.enter_fragment_vegan_no_rb).getId()) {
             vegan = "false";
         } else {
             vegan = "unknown";

@@ -25,8 +25,8 @@ public class AddFragment extends Fragment {
                              Bundle savedInstanceState) {
         mainActivity.prefs.edit().putString("productEnterComment", "").apply();
         mainActivity.prefs.edit().putString("productEnterName", "").apply();
-        // TODO Find a way to do this differently than with a hardcoded ID
-        // maybe with enterFragment.rgVegan.findViewById(R.id.enter_frg_vegan_no_rb).getId()
+        // TODO Find a way to do this differently than with a hardcoded ID, maybe with
+        // enterFragment.rgVegan.findViewById(R.id.enter_fragment_vegan_dont_know_rb).getId()
         mainActivity.prefs.edit().putInt("productEnterVegan", 2131492987).apply();
 
         return inflater.inflate(R.layout.add_fragment, container, false);

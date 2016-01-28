@@ -65,4 +65,4 @@ Class "Submission":
 | UEIUeiieuE |  000000000000  | Pumpkin Soup | unknown | Could be cream | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read and Write |
 
 ## Advanced UI sketches
-![](doc/advanced_ui_sketches.png)
+![](doc/design/advanced_ui_sketches.png)

@@ -44,7 +44,7 @@
 - Can scan barcode and find it (product_scanned.png)
 
 product_scanned.png  
-![](doc/process/product_scanned.png)
+ <img src="https://github.com/Victordh/VeganProductScanner/blob/master/doc/process/product_scanned.png" width="200">  
 
 # day 8
 
@@ -53,7 +53,7 @@ product_scanned.png
 - Added some TODOs on manual search (more relevant results on top, if 1 result go to resultFragment, give listItem correct colour, input case-insensitive)
 
 manual_search_result.png  
-![](doc/process/manual_search_result.png)
+ <img src="https://github.com/Victordh/VeganProductScanner/blob/master/doc/process/manual_search_result.png" width="200">  
 
 # day 9
 
@@ -62,11 +62,11 @@ manual_search_result.png
 - MVP almost finished! (Sort of, needs a lot of tweaking).
 
 add_product.png  
-![](doc/process/add_product.png)
+ <img src="https://github.com/Victordh/VeganProductScanner/blob/master/doc/process/add_product.png" width="200">  
 enter_product.png  
-![](doc/process/enter_product.png)
+ <img src="https://github.com/Victordh/VeganProductScanner/blob/master/doc/process/enter_product.png" width="200">  
 thanks.png  
-![](doc/process/thanks.png)
+ <img src="https://github.com/Victordh/VeganProductScanner/blob/master/doc/process/thanks.png" width="200">  
 
 # day 10
 

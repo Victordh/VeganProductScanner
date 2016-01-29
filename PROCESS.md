@@ -154,3 +154,7 @@ thanks.png
 - Updated README.md.
 - Added UNLICENSE.
 - Cleaned up repository.
+
+# day 20
+
+- Finished REPORT.md.

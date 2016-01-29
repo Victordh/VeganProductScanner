@@ -11,8 +11,6 @@ import android.support.v4.app.FragmentManager;
  * TabsFragmentPagerAdapter links the Tabs to the Fragments. The user can tap the tabs to move to
  * their corresponding fragments, but sliding also works because of the linked
  * TabLayout/FragmentManager which is taking care of in the onCreate of MainActivity.
- * TODO Change tabTitles to Icons with text
- * TODO Change tabTitle of first tab depending on which fragment is loaded in ContainerFragment
  */
 
 class TabsFragmentPagerAdapter extends android.support.v4.app.FragmentPagerAdapter {

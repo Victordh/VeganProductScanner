@@ -120,7 +120,6 @@ public class SearchFragment extends Fragment {
     }
 
     /** provides feedback when no products could be found */
-    //TODO Change this to TextView for simplicity? (also delete the check in createList onClickListener if so)
     public void noProductsFound() {
         ArrayList<String> productNames = new ArrayList<>();
         ArrayList<Boolean> isVeganList = new ArrayList<>();

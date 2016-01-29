@@ -15,7 +15,6 @@ import nl.mprog.bubbles.veganproductscanner.R;
  *
  * AddFragment contains the UI allowing the user to add a product that couldn't be found in the
  * database.
- * TODO Think about if this entire fragment is redundant: might just be an useless extra action.
  */
 
 public class AddFragment extends Fragment {
@@ -28,9 +27,6 @@ public class AddFragment extends Fragment {
                              Bundle savedInstanceState) {
         mainActivity.prefs.edit().putString("productEnterComment", "").apply();
         mainActivity.prefs.edit().putString("productEnterName", "").apply();
-        // TODO Find a way to do this differently than with a hardcoded ID, maybe with
-        // findViewById(R.id.enter_fragment_vegan_rg).findViewById(
-        //     R.id.enter_fragment_vegan_dont_know_rb).getId();
         mainActivity.prefs.edit().putInt("productEnterVegan", 2131492987).apply();
 
         return inflater.inflate(R.layout.add_fragment, container, false);

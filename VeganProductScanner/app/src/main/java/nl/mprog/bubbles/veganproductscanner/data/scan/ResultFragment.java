@@ -16,7 +16,6 @@ import nl.mprog.bubbles.veganproductscanner.R;
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  *
  * ResultFragment contains views that show if a single product is vegan or not.
- * TODO Change design, add picture?
  */
 
 public class ResultFragment extends Fragment {

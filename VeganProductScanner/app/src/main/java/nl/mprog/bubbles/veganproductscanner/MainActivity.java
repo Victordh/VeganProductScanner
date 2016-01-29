@@ -29,8 +29,6 @@ import nl.mprog.bubbles.veganproductscanner.data.search.SearchFragment;
  */
 
 public class MainActivity extends AppCompatActivity {
-    //TODO Change colours/design/styles etc.
-
     public ContainerFragment containerFragment;
     public InfoFragment infoFragment;
     public LocalDatabase localDatabase;
@@ -94,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
     /** goes to specified fragment */
     public void goToFragment(int n) {
         viewPager.setCurrentItem(n);
-        //TODO Fix that old (wrong) tab title is highlighted after tab is changed via this method
     }
 
     /** fills ContainerFragment with specified fragment */

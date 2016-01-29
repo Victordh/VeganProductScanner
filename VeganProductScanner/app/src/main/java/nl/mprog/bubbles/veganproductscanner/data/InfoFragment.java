@@ -19,7 +19,6 @@ import nl.mprog.bubbles.veganproductscanner.R;
 
 public class InfoFragment extends Fragment {
     public MainActivity mainActivity;
-    //TODO Add more stuff (FAQ, feedback, donation?, tutorial?) to this fragment.
 
     /** inflates xml */
     @Nullable
@@ -28,8 +27,6 @@ public class InfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.info_fragment, container, false);
     }
-
-    //TODO Change colour of disabled buttons
 
     /** enables or disables the sync button, to prevent unnecessary calls to the online database */
     public void enableSyncButton(boolean enable) {

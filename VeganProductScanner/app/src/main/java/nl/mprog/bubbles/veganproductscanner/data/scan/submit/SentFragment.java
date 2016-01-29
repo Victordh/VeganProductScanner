@@ -13,7 +13,6 @@ import nl.mprog.bubbles.veganproductscanner.R;
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  *
  * SentFragment contains the view giving feedback to the user after they submit a product.
- * TODO Think about if this fragment is redundant and could be replaced by a Toast
  */
 
 public class SentFragment extends Fragment {

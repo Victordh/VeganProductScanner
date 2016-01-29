@@ -20,7 +20,6 @@ import nl.mprog.bubbles.veganproductscanner.R;
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  *
  * OnlineDatabase contains all methods concerning the online databases Product and Submission.
- * TODO Maybe update database automatically and remove clear button in LocalDatabase?
  */
 
 public class OnlineDatabase {
@@ -33,7 +32,6 @@ public class OnlineDatabase {
     public void syncLocalDatabase() {
         if (hasInternetConnection()) {
             if (!isDatabaseUpToDate()) {
-                // TODO Get all data when larger than 100/1000 (query.each() ?)
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
                 query.findInBackground(new FindCallback<ParseObject>() {
                     @Override

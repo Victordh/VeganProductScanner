@@ -24,7 +24,8 @@ The main package contains this MainActivity and two classes handling the tabs
  and fragments (TabsFragmentPagerAdapter and PageFragment).  The fourth and last
  file directly in this package is ParseApplication, which makes sure the app can
  use the local Parse database.  
- 
+
+#### Data
 In the data package (which is inside the main package), three files concerning
  data management are located: InfoFragment, LocalDatabase and OnlineDatabase.  
 InfoFragment contains the UI allowing the user to synchronise and clear the
@@ -55,6 +56,7 @@ importing of user submissions into the main table, after a verification
 | ZZzzZzzzZZ |  999999999999  |     Honey    |  false  |  Bees make it  | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read and Write |
 | UEIUeiieuE |  000000000000  | Pumpkin Soup | unknown | Could be cream | Jan 01, 1900, 00:01 | Jan 01, 1900, 00:11 | Public Read and Write |
 
+#### Search
 The search package (which is inside the data package) is comprised of two files:
  SearchFragment and SearchListArrayAdapter.  
 SearchFragment contains the UI elements allowing the user to manually search for
@@ -62,6 +64,7 @@ SearchFragment contains the UI elements allowing the user to manually search for
 SearchListArrayAdapter is a custom adapter, which exists to colour the
  background of each item in the list.  
 
+#### Scan
 The scan package (which is also inside the data package) contains four files:
  ContainerFragment, ResultFragment, IntentIntegrator and IntentResult.  
 ContainerFragment is an empty fragment except for the Floating Action Button
@@ -71,6 +74,7 @@ IntentResult hands this app the result of that scan.
 ResultFragment is the most important fragment. Its purpose is to show very
  clearly if a single product is vegan or not.  
 
+#### Submit
 The last package, inside the scan package, is submit. This package contains the
  files concerning adding a product that is not in the database yet. AddFragment,
  EnterFragment and SentFragment are inside this package.  
@@ -81,6 +85,7 @@ EnterFragment contains the UI allowing the user to enter the details of the
  Parse table.  
 SentFragment gives feedback to the user after they submit a product.  
 
+### Frameworks/APIs
 This app uses [Barcode Scanner]
 (https://play.google.com/store/apps/details?id=com.google.zxing.client.android) 
  from [Zxing](https://github.com/zxing/zxing) to scan barcodes. If Barcode

@@ -107,6 +107,11 @@ A few days later, I decided to use Parse for the database. Parse is a freemium
  customisable than a custom database. Also, as of today (January 29th 2016),
  Parse has announced to end their services on January 28th, 2017. If I continue
  development of this app, I will have to find an alternative.  
-Besides these two major decisions, there have only been some minor hurdles.
+The last major decision was to use fragments instead of activities. I did this
+ to make the app feel really simple and smooth. It was some more work than I
+ thought, but in end totally worth it, since the entire app now fits in one
+ Activity. If I integrate Barcode Scanner into this app, I will have to make
+ another Activity for that.  
+Besides these three major decisions, there have only been some minor hurdles.
  These consisted mainly of elements within Android I had not used before and
  that took some time to figure out.

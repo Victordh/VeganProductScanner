@@ -97,3 +97,16 @@ Parse online database, a local copy is created at the press of a button,
 allowing the app to be used offline as well.  
 
 ## Process
+Very early on, I decided to use an API as barcode scanner, to allow myself to
+ focus on other aspects of the app. Looking back, this was a good decision,
+ although it does mean another app needs to be installed for this one to fully
+ work. Given more time, I would probably integrate Barcode Scanner into this app
+ to take away that last trade-off.  
+A few days later, I decided to use Parse for the database. Parse is a freemium
+ tool that makes setting up a database easy. That does mean it is less fast and
+ customisable than a custom database. Also, as of today (January 29th 2016),
+ Parse has announced to end their services on January 28th, 2017. If I continue
+ development of this app, I will have to find an alternative.  
+Besides these two major decisions, there have only been some minor hurdles.
+ These consisted mainly of elements within Android I had not used before and
+ that took some time to figure out.

@@ -16,7 +16,7 @@ As an alternative to **scanning barcodes**, it is also possible to **manually
 
 This app uses [Barcode Scanner]
 (https://play.google.com/store/apps/details?id=com.google.zxing.client.android) 
- from [Zxing](https://github.com/zxing/zxing) for scanning barcodes. This app
+ from [Zxing](https://github.com/zxing/zxing) for scanning barcodes. That app
  needs to be downloaded to be able to scan barcodes and use this app to its
  full extent. If Barcode Scanner is not yet installed, the user will be prompted
  to do so when they try to scan.  

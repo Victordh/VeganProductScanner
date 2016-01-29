@@ -91,14 +91,12 @@ public class OnlineDatabase {
     /** compares amount of items in both local and online database, returns if they're the same */
     private boolean isDatabaseUpToDate() {
         localCount = mainActivity.localDatabase.amountOfProductsInLocalDatabase();
-
         ParseQuery<ParseObject> online = ParseQuery.getQuery("Product");
         try {
             onlineCount = online.count();
         } catch (ParseException e1) {
             Log.d("Error", e1.getMessage());
         }
-
         return localCount == onlineCount;
     }
 

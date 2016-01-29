@@ -96,19 +96,19 @@ public class LocalDatabase {
                 @Override
                 public void done(List<ParseObject> products, ParseException e) {
                     if (e == null) {
-                        ArrayList<String> productNames = new ArrayList<>();
-                        ArrayList<Boolean> isVeganList = new ArrayList<>();
+                        ArrayList<String> nameList = new ArrayList<>();
+                        ArrayList<Boolean> veganList = new ArrayList<>();
                         // store products in lists
                         for (ParseObject product : products) {
-                            productNames.add(product.getString("productName"));
-                            isVeganList.add(product.getBoolean("isVegan"));
+                            nameList.add(product.getString("productName"));
+                            veganList.add(product.getBoolean("isVegan"));
                         }
-                        if (!productNames.isEmpty()) {
+                        if (!nameList.isEmpty()) {
                             // go to ResultFragment if only one match, else fill ListView
-                            if (productNames.size() == 1) {
-                                mainActivity.productToResult(productNames.get(0), isVeganList.get(0));
+                            if (nameList.size() == 1) {
+                                mainActivity.productToResult(nameList.get(0), veganList.get(0));
                             } else {
-                                mainActivity.searchFragment.createList(productNames, isVeganList);
+                                mainActivity.searchFragment.createList(nameList, veganList);
                             }
                         } else {
                             mainActivity.searchFragment.noProductsFound();

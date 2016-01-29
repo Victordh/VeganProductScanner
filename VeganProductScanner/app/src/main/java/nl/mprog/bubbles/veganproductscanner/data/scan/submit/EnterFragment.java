@@ -19,7 +19,7 @@ import nl.mprog.bubbles.veganproductscanner.R;
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  *
  * EnterFragment contains the UI allowing the user to enter the details of a scanned product that
- * couldn't be found. It also handles the calls to MemoryManagement for sending this information to
+ * couldn't be found. It also handles the calls to OnlineDatabase for sending this information to
  * the Parse database.
  */
 

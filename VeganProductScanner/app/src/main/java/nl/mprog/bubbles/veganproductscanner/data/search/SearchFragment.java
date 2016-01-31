@@ -23,6 +23,7 @@ import nl.mprog.bubbles.veganproductscanner.R;
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  *
  * SearchFragment contains the UI elements that allow for manually searching products.
+ * TODO Fix auto-focus EditText and removing keyboard when moving to another view
  */
 
 public class SearchFragment extends Fragment {
@@ -111,6 +112,9 @@ public class SearchFragment extends Fragment {
         lvResult.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //TODO Save product to SharedPreferences onClick (shows previous product if going to Scanner and going back)
+                //Hmm, problem is probably not this, since the product does get saved, maybe force reload of
+                //ResultFragment when going back from Scanner?
                 if (!nameList.get(position).equals(context.getString(
                         R.string.search_fragment_no_products))) {
                     mainActivity.productToResult(nameList.get(position), veganList.get(position));
@@ -120,6 +124,7 @@ public class SearchFragment extends Fragment {
     }
 
     /** provides feedback when no products could be found */
+    //TODO Change this to TextView for simplicity? (also delete the check in createList onClickListener if so)
     public void noProductsFound() {
         ArrayList<String> productNames = new ArrayList<>();
         ArrayList<Boolean> isVeganList = new ArrayList<>();

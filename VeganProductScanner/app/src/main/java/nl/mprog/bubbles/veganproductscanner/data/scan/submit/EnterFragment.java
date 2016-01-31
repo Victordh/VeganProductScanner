@@ -21,6 +21,8 @@ import nl.mprog.bubbles.veganproductscanner.R;
  * EnterFragment contains the UI allowing the user to enter the details of a scanned product that
  * couldn't be found. It also handles the calls to OnlineDatabase for sending this information to
  * the Parse database.
+ * TODO Fix auto-focus EditText and removing keyboard when moving to another view
+ * TODO Make this better (add store where product is found? add some info to guide users?)
  */
 
 public class EnterFragment extends Fragment {

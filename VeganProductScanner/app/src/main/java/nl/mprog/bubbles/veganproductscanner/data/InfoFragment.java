@@ -18,6 +18,8 @@ import nl.mprog.bubbles.veganproductscanner.R;
  */
 
 public class InfoFragment extends Fragment {
+    //TODO Add more stuff (FAQ, general feedback, donation, tutorial) to this fragment. Remove buttons (see
+    // TODO in Online Database)
     public MainActivity mainActivity;
 
     /** inflates xml */
@@ -29,6 +31,7 @@ public class InfoFragment extends Fragment {
     }
 
     /** enables or disables the sync button, to prevent unnecessary calls to the online database */
+    //TODO Change colour of disabled buttons
     public void enableSyncButton(boolean enable) {
         Button syncButton = (Button) mainActivity.findViewById(R.id.info_frg_sync_btn);
         syncButton.setClickable(enable);

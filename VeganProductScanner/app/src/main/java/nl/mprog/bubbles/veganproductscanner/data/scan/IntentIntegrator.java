@@ -6,6 +6,7 @@ package nl.mprog.bubbles.veganproductscanner.data.scan;
  * IntentIntegrator handles the Intent to the app Barcode Scanner. This file has not been modified
  * and can be found on
  * https://github.com/zxing/zxing/blob/master/android-integration/src/main/java/com/google/zxing/integration/android/IntentIntegrator.java
+ * TODO Build the scanner into the app, so it doesn't require another download and needs less permissions because of stripped functions
  */
 
 /**

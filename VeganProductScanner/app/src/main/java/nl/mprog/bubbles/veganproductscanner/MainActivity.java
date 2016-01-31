@@ -26,6 +26,7 @@ import nl.mprog.bubbles.veganproductscanner.data.search.SearchFragment;
  *
  * MainActivity contains all fragments and their managers. It also redirects button clicks to the
  * correct fragment.
+ * TODO Change colours/design/styles etc.
  */
 
 public class MainActivity extends AppCompatActivity {
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /** goes to specified fragment */
+    //TODO Fix that old (wrong) tab title is highlighted after tab is changed via this method
     public void goToFragment(int n) {
         viewPager.setCurrentItem(n);
     }

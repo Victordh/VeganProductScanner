@@ -8,6 +8,9 @@ import com.parse.Parse;
  * Victor den Haan - 10118039 - vdenhaan@gmail.com
  *
  * ParseApplication makes sure the LocalDatastore is initialised exactly once.
+ * TODO Replace LocalDatastore with SQLite, apparently it's 20 times faster
+ * http://stackoverflow.com/questions/30425087/parse-query-local-database-is-20-times-slower-then-sqlite
+ * TODO Also find replacement for Parse online database, since it's gone on January 28th 2016
  */
 
 public class ParseApplication extends Application {

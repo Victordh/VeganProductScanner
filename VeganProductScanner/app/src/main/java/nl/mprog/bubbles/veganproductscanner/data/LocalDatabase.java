@@ -86,6 +86,7 @@ public class LocalDatabase {
     }
 
     /** attempts to retrieve a list of products that match the input, using Parse queries */
+    //TODO Put more relevant products higher in the list.
     public void getProductsFromInput(String input) {
         if (!input.matches("\\s+") && !input.isEmpty()) {
             // combine queries of each word into one
